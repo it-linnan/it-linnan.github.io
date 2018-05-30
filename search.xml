@@ -210,21 +210,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[虚拟机VMware环境下CentOS初始化配置网卡]]></title>
-    <url>%2F2018%2F05%2F29%2F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%2FLinux%2FCentOS%2F%E8%99%9A%E6%8B%9F%E6%9C%BAVMware%E7%8E%AF%E5%A2%83%E4%B8%8BCentOS%E5%88%9D%E5%A7%8B%E5%8C%96%E9%85%8D%E7%BD%AE%E7%BD%91%E5%8D%A1%2F</url>
-    <content type="text"><![CDATA[检测网卡 1ipconfig 发现只有ens33和lo两个网卡，需要将ens33修改为eth0 修改网卡名称，将其中得NAME和DEVICE项修改为 eth01vi /etc/sysconfig/network-scripts/ifcfg-ens33 修改配置文件名称 1mv /etc/sysconfig/network-scripts/ifcfg-ens33 /etc/sysconfig/network-scripts/ifcfg-eth0 编辑/etc/default/grub并加入“net.ifnames=0 biosdevname=0 ”到GRUBCMDLINELINUX变量 123456789vi /etc/default/grubGRUB_TIMEOUT=5GRUB_DISTRIBUTOR=&quot;$(sed &apos;s, release .*$,,g&apos; /etc/system-release)&quot;GRUB_DEFAULT=savedGRUB_DISABLE_SUBMENU=trueGRUB_TERMINAL_OUTPUT=&quot;console&quot;GRUB_CMDLINE_LINUX=&quot;crashkernel=auto net.ifnames=0 biosdevname=0 rhgb quiet&quot;GRUB_DISABLE_RECOVERY=&quot;true&quot; 运行命令grub2-mkconfig -o /boot/grub2/grub.cfg 来重新生成GRUB配置并更新内核参数 1grub2-mkconfig -o /boot/grub2/grub.cfg 重启OS 1reboot 检测网卡以验证 1ifconfig]]></content>
-      <categories>
-        <category>学习笔记</category>
-        <category>Linux</category>
-        <category>CentOS</category>
-      </categories>
-      <tags>
-        <tag>linux</tag>
-        <tag>centos</tag>
-        <tag>vmware</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[CentOS防火墙使用]]></title>
     <url>%2F2018%2F05%2F29%2F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%2FLinux%2FCentOS%2FCentOS%E9%98%B2%E7%81%AB%E5%A2%99%E4%BD%BF%E7%94%A8%2F</url>
     <content type="text"><![CDATA[启动防火墙 查看防火墙是否启动1systemctl status firewalld 如果没有启动，启动1systemctl start firewalld 开放端口命令 12firewall-cmd --zone=public --add-port=1. 1. /tcp --permanentsystemctl restart firewalld 关闭端口命令 12firewall-cmd --zone=public --remove-port=1. 1. /tcp -permanentsystemctl restart firewalld 查看开放端口命令 1firewall-cmd --zone=public --list-ports]]></content>
@@ -237,6 +222,21 @@
         <tag>linux</tag>
         <tag>centos</tag>
         <tag>firewall</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[虚拟机VMware环境下CentOS初始化配置网卡]]></title>
+    <url>%2F2018%2F05%2F29%2F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%2FLinux%2FCentOS%2F%E8%99%9A%E6%8B%9F%E6%9C%BAVMware%E7%8E%AF%E5%A2%83%E4%B8%8BCentOS%E5%88%9D%E5%A7%8B%E5%8C%96%E9%85%8D%E7%BD%AE%E7%BD%91%E5%8D%A1%2F</url>
+    <content type="text"><![CDATA[检测网卡 1ipconfig 发现只有ens33和lo两个网卡，需要将ens33修改为eth0 修改网卡名称，将其中得NAME和DEVICE项修改为 eth01vi /etc/sysconfig/network-scripts/ifcfg-ens33 修改配置文件名称 1mv /etc/sysconfig/network-scripts/ifcfg-ens33 /etc/sysconfig/network-scripts/ifcfg-eth0 编辑/etc/default/grub并加入“net.ifnames=0 biosdevname=0 ”到GRUBCMDLINELINUX变量 123456789vi /etc/default/grubGRUB_TIMEOUT=5GRUB_DISTRIBUTOR=&quot;$(sed &apos;s, release .*$,,g&apos; /etc/system-release)&quot;GRUB_DEFAULT=savedGRUB_DISABLE_SUBMENU=trueGRUB_TERMINAL_OUTPUT=&quot;console&quot;GRUB_CMDLINE_LINUX=&quot;crashkernel=auto net.ifnames=0 biosdevname=0 rhgb quiet&quot;GRUB_DISABLE_RECOVERY=&quot;true&quot; 运行命令grub2-mkconfig -o /boot/grub2/grub.cfg 来重新生成GRUB配置并更新内核参数 1grub2-mkconfig -o /boot/grub2/grub.cfg 重启OS 1reboot 检测网卡以验证 1ifconfig]]></content>
+      <categories>
+        <category>学习笔记</category>
+        <category>Linux</category>
+        <category>CentOS</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+        <tag>centos</tag>
+        <tag>vmware</tag>
       </tags>
   </entry>
   <entry>
