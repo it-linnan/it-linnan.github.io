@@ -104,8 +104,8 @@
       <tags>
         <tag>linux</tag>
         <tag>ubuntu</tag>
-        <tag>docker</tag>
         <tag>mysql</tag>
+        <tag>docker</tag>
       </tags>
   </entry>
   <entry>
@@ -205,8 +205,8 @@
       </categories>
       <tags>
         <tag>linux</tag>
-        <tag>ubuntu</tag>
         <tag>ssh</tag>
+        <tag>ubuntu</tag>
       </tags>
   </entry>
   <entry>
