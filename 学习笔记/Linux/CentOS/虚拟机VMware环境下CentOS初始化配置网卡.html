@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="linux,centos,vmware," />
+  <meta name="keywords" content="linux,centos,vmware,网卡" />
 
 
 
@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="检测网卡  1ipconfig 发现只有ens33和lo两个网卡，需要将ens33修改为eth0  修改网卡名称，将其中得NAME和DEVICE项修改为  eth01vi /etc/sysconfig/network-scripts/ifcfg-ens33  修改配置文件名称  1mv /etc/sysconfig/network-scripts/ifcfg-ens33 /etc/sysconf">
-<meta name="keywords" content="linux,centos,vmware">
+<meta name="description" content="虚拟机VMware环境下CentOS初始化配置网卡">
+<meta name="keywords" content="linux,centos,vmware,网卡">
 <meta property="og:type" content="article">
 <meta property="og:title" content="虚拟机VMware环境下CentOS初始化配置网卡">
 <meta property="og:url" content="https://it-linnan.github.io/学习笔记/Linux/CentOS/虚拟机VMware环境下CentOS初始化配置网卡.html">
 <meta property="og:site_name" content="Linn&#39;s Blog">
-<meta property="og:description" content="检测网卡  1ipconfig 发现只有ens33和lo两个网卡，需要将ens33修改为eth0  修改网卡名称，将其中得NAME和DEVICE项修改为  eth01vi /etc/sysconfig/network-scripts/ifcfg-ens33  修改配置文件名称  1mv /etc/sysconfig/network-scripts/ifcfg-ens33 /etc/sysconf">
+<meta property="og:description" content="虚拟机VMware环境下CentOS初始化配置网卡">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-30T01:47:24.375Z">
+<meta property="og:updated_time" content="2018-06-01T03:31:21.165Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="虚拟机VMware环境下CentOS初始化配置网卡">
-<meta name="twitter:description" content="检测网卡  1ipconfig 发现只有ens33和lo两个网卡，需要将ens33修改为eth0  修改网卡名称，将其中得NAME和DEVICE项修改为  eth01vi /etc/sysconfig/network-scripts/ifcfg-ens33  修改配置文件名称  1mv /etc/sysconfig/network-scripts/ifcfg-ens33 /etc/sysconf">
+<meta name="twitter:description" content="虚拟机VMware环境下CentOS初始化配置网卡">
 
 
 
@@ -424,6 +424,10 @@
           
 
           
+              <div class="post-description">
+                  虚拟机VMware环境下CentOS初始化配置网卡
+              </div>
+          
 
         </div>
       </header>
@@ -439,34 +443,29 @@
 
       
         <ol>
-<li>检测网卡</li>
-</ol>
+<li><p>检测网卡</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ipconfig</span><br></pre></td></tr></table></figure>
 <p>发现只有ens33和lo两个网卡，需要将ens33修改为eth0</p>
-<ol>
-<li>修改网卡名称，将其中得NAME和DEVICE项修改为</li>
-</ol>
-<p>eth0<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/sysconfig/network-scripts/ifcfg-ens33</span><br></pre></td></tr></table></figure></p>
-<ol>
-<li>修改配置文件名称</li>
-</ol>
+</li>
+<li><p>修改网卡名称，将其中得NAME和DEVICE项修改为eth0</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/sysconfig/network-scripts/ifcfg-ens33</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改配置文件名称</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv /etc/sysconfig/network-scripts/ifcfg-ens33 /etc/sysconfig/network-scripts/ifcfg-eth0</span><br></pre></td></tr></table></figure>
-<ol>
-<li>编辑/etc/default/grub并加入“net.ifnames=0 biosdevname=0 ”到GRUBCMDLINELINUX变量</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/default/grub</span><br><span class="line"></span><br><span class="line">GRUB_TIMEOUT=5</span><br><span class="line">GRUB_DISTRIBUTOR=&quot;$(sed &apos;s, release .*$,,g&apos; /etc/system-release)&quot;</span><br><span class="line">GRUB_DEFAULT=saved</span><br><span class="line">GRUB_DISABLE_SUBMENU=true</span><br><span class="line">GRUB_TERMINAL_OUTPUT=&quot;console&quot;</span><br><span class="line">GRUB_CMDLINE_LINUX=&quot;crashkernel=auto net.ifnames=0 biosdevname=0 rhgb quiet&quot;</span><br><span class="line">GRUB_DISABLE_RECOVERY=&quot;true&quot;</span><br></pre></td></tr></table></figure>
-<ol>
-<li>运行命令grub2-mkconfig -o /boot/grub2/grub.cfg 来重新生成GRUB配置并更新内核参数</li>
-</ol>
+</li>
+<li><p>编辑/etc/default/grub并加入“net.ifnames=0 biosdevname=0 ”到GRUBCMDLINELINUX变量</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/default/grub</span><br><span class="line">GRUB_TIMEOUT=5</span><br><span class="line">GRUB_DISTRIBUTOR=&quot;$(sed &apos;s, release .*$,,g&apos; /etc/system-release)&quot;</span><br><span class="line">GRUB_DEFAULT=saved</span><br><span class="line">GRUB_DISABLE_SUBMENU=true</span><br><span class="line">GRUB_TERMINAL_OUTPUT=&quot;console&quot;</span><br><span class="line">GRUB_CMDLINE_LINUX=&quot;crashkernel=auto net.ifnames=0 biosdevname=0 rhgb quiet&quot;</span><br><span class="line">GRUB_DISABLE_RECOVERY=&quot;true&quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>运行命令grub2-mkconfig -o /boot/grub2/grub.cfg 来重新生成GRUB配置并更新内核参数</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grub2-mkconfig -o /boot/grub2/grub.cfg</span><br></pre></td></tr></table></figure>
-<ol>
-<li>重启OS</li>
-</ol>
+</li>
+<li><p>重启OS</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reboot</span><br></pre></td></tr></table></figure>
-<ol>
-<li>检测网卡以验证</li>
+</li>
+<li><p>检测网卡以验证</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ifconfig</span><br></pre></td></tr></table></figure></li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ifconfig</span><br></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -587,7 +586,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-count">19</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

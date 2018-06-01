@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="mysql,windows," />
+  <meta name="keywords" content="mysql,windows" />
 
 
 
@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="MySQL官网下载安装包 https://www.mysql.com/cn/downloads/ 解压到本地目录 新建my.ini cd到bin目录下 初始化数据，执行 mysqld –initialize（mysqld –initialize-insecure –user=mysql;据说执行这句话可以免密陆） 注册windows服务，mysqld –install MySQL –defaul">
+<meta name="description" content="MySQL在Windows环境下安装">
 <meta name="keywords" content="mysql,windows">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MySQL在Windows环境下安装">
 <meta property="og:url" content="https://it-linnan.github.io/学习笔记/部署相关/MySQL/MySQL在Windows环境下安装.html">
 <meta property="og:site_name" content="Linn&#39;s Blog">
-<meta property="og:description" content="MySQL官网下载安装包 https://www.mysql.com/cn/downloads/ 解压到本地目录 新建my.ini cd到bin目录下 初始化数据，执行 mysqld –initialize（mysqld –initialize-insecure –user=mysql;据说执行这句话可以免密陆） 注册windows服务，mysqld –install MySQL –defaul">
+<meta property="og:description" content="MySQL在Windows环境下安装">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-30T01:24:44.174Z">
+<meta property="og:updated_time" content="2018-06-01T03:32:50.566Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL在Windows环境下安装">
-<meta name="twitter:description" content="MySQL官网下载安装包 https://www.mysql.com/cn/downloads/ 解压到本地目录 新建my.ini cd到bin目录下 初始化数据，执行 mysqld –initialize（mysqld –initialize-insecure –user=mysql;据说执行这句话可以免密陆） 注册windows服务，mysqld –install MySQL –defaul">
+<meta name="twitter:description" content="MySQL在Windows环境下安装">
 
 
 
@@ -424,6 +424,10 @@
           
 
           
+              <div class="post-description">
+                  MySQL在Windows环境下安装
+              </div>
+          
 
         </div>
       </header>
@@ -455,7 +459,7 @@
 <li>exit退出mysql</li>
 <li>如需关闭服务，net stop mysql</li>
 </ol>
-<p>注意：</p>
+<p><code>注意：</code></p>
 <ol>
 <li>5.7版本之后，初始化数据后，会自动分配一个密码，密码可在一个.err文件中查看日志获取</li>
 <li>在my.ini中配置一项可以不使用密码登陆，在[mysqld]下输入skip-grant-tables</li>
@@ -579,7 +583,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-count">19</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

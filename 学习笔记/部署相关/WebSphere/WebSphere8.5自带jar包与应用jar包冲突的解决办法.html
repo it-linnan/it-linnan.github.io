@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="linux,ubuntu,ssh" />
+  <meta name="keywords" content="websphere,was,jar包冲突" />
 
 
 
@@ -94,18 +94,27 @@
 
 
 
-<meta name="description" content="Ubuntu开启SSH服务">
-<meta name="keywords" content="linux,ubuntu,ssh">
+<meta name="description" content="WebSphere8.5自带jar包与应用jar包冲突的解决办法">
+<meta name="keywords" content="websphere,was,jar包冲突">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Ubuntu开启SSH服务">
-<meta property="og:url" content="https://it-linnan.github.io/学习笔记/Linux/Ubuntu/Ubuntu开启SSH服务.html">
+<meta property="og:title" content="WebSphere8.5自带jar包与应用jar包冲突的解决办法">
+<meta property="og:url" content="https://it-linnan.github.io/学习笔记/部署相关/WebSphere/WebSphere8.5自带jar包与应用jar包冲突的解决办法.html">
 <meta property="og:site_name" content="Linn&#39;s Blog">
-<meta property="og:description" content="Ubuntu开启SSH服务">
+<meta property="og:description" content="WebSphere8.5自带jar包与应用jar包冲突的解决办法">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-01T03:31:26.661Z">
+<meta property="og:image" content="https://it-linnan.github.io/学习笔记/部署相关/WebSphere/WebSphere8.5自带jar包与应用jar包冲突的解决办法/2-1.png">
+<meta property="og:image" content="https://it-linnan.github.io/学习笔记/部署相关/WebSphere/WebSphere8.5自带jar包与应用jar包冲突的解决办法/2-2.png">
+<meta property="og:image" content="https://it-linnan.github.io/学习笔记/部署相关/WebSphere/WebSphere8.5自带jar包与应用jar包冲突的解决办法/3-1.png">
+<meta property="og:image" content="https://it-linnan.github.io/学习笔记/部署相关/WebSphere/WebSphere8.5自带jar包与应用jar包冲突的解决办法/3-2.png">
+<meta property="og:image" content="https://it-linnan.github.io/学习笔记/部署相关/WebSphere/WebSphere8.5自带jar包与应用jar包冲突的解决办法/3-3.png">
+<meta property="og:image" content="https://it-linnan.github.io/学习笔记/部署相关/WebSphere/WebSphere8.5自带jar包与应用jar包冲突的解决办法/4-1.png">
+<meta property="og:image" content="https://it-linnan.github.io/学习笔记/部署相关/WebSphere/WebSphere8.5自带jar包与应用jar包冲突的解决办法/4-2.png">
+<meta property="og:image" content="https://it-linnan.github.io/学习笔记/部署相关/WebSphere/WebSphere8.5自带jar包与应用jar包冲突的解决办法/4-3.png">
+<meta property="og:updated_time" content="2018-06-01T03:33:08.416Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Ubuntu开启SSH服务">
-<meta name="twitter:description" content="Ubuntu开启SSH服务">
+<meta name="twitter:title" content="WebSphere8.5自带jar包与应用jar包冲突的解决办法">
+<meta name="twitter:description" content="WebSphere8.5自带jar包与应用jar包冲突的解决办法">
+<meta name="twitter:image" content="https://it-linnan.github.io/学习笔记/部署相关/WebSphere/WebSphere8.5自带jar包与应用jar包冲突的解决办法/2-1.png">
 
 
 
@@ -134,13 +143,13 @@
 
 
 
-  <link rel="canonical" href="https://it-linnan.github.io/学习笔记/Linux/Ubuntu/Ubuntu开启SSH服务.html"/>
+  <link rel="canonical" href="https://it-linnan.github.io/学习笔记/部署相关/WebSphere/WebSphere8.5自带jar包与应用jar包冲突的解决办法.html"/>
 
 
 
 
 
-  <title>Ubuntu开启SSH服务 | Linn's Blog</title>
+  <title>WebSphere8.5自带jar包与应用jar包冲突的解决办法 | Linn's Blog</title>
   
 
 
@@ -316,7 +325,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://it-linnan.github.io/学习笔记/Linux/Ubuntu/Ubuntu开启SSH服务.html">
+    <link itemprop="mainEntityOfPage" href="https://it-linnan.github.io/学习笔记/部署相关/WebSphere/WebSphere8.5自带jar包与应用jar包冲突的解决办法.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Linn">
@@ -333,7 +342,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">Ubuntu开启SSH服务</h2>
+          <h2 class="post-title" itemprop="name headline">WebSphere8.5自带jar包与应用jar包冲突的解决办法</h2>
         
 
         <div class="post-meta">
@@ -345,8 +354,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-29T16:35:01+08:00">
-                2018-05-29
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-01T10:45:36+08:00">
+                2018-06-01
               </time>
             
 
@@ -379,8 +388,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习笔记/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
+                  <a href="/categories/学习笔记/部署相关/" itemprop="url" rel="index">
+                    <span itemprop="name">部署相关</span>
                   </a>
                 </span>
 
@@ -390,8 +399,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习笔记/Linux/Ubuntu/" itemprop="url" rel="index">
-                    <span itemprop="name">Ubuntu</span>
+                  <a href="/categories/学习笔记/部署相关/WebSphere/" itemprop="url" rel="index">
+                    <span itemprop="name">WebSphere</span>
                   </a>
                 </span>
 
@@ -408,9 +417,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/学习笔记/Linux/Ubuntu/Ubuntu开启SSH服务.html#comments" itemprop="discussionUrl">
+                <a href="/学习笔记/部署相关/WebSphere/WebSphere8.5自带jar包与应用jar包冲突的解决办法.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="学习笔记/Linux/Ubuntu/Ubuntu开启SSH服务.html" itemprop="commentCount"></span>
+                        data-disqus-identifier="学习笔记/部署相关/WebSphere/WebSphere8.5自带jar包与应用jar包冲突的解决办法.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -425,7 +434,7 @@
 
           
               <div class="post-description">
-                  Ubuntu开启SSH服务
+                  WebSphere8.5自带jar包与应用jar包冲突的解决办法
               </div>
           
 
@@ -442,15 +451,31 @@
       
 
       
-        <ol>
-<li><p>安装ssh服务</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install openssh-server</span><br></pre></td></tr></table></figure>
+        <p>在WebSphere8.5下安装我们的应用，一直提示NullPointerException，然而在Tomcat、Weblogic下都没有该问题。</p>
+<p>分析错误日志，发现报错信息与log4j有关，而我们也确实使用了log4j，版本是2.10.0。</p>
+<p>尝试着将log4j的jar包和slf4j的jar包从war包中删除，再安装，就启动成功了。此时再手动将之前移除的jar包放到应用的lib路径下，日志也可以正常打印了。</p>
+<p>原因可能是我们所使用的log4j、slf4j的jar包，websphere8.5本身提供，而且自带的jar包与我们使用的版本不一致。在默认情况下，容器会优先加载自带的jar包，从而导致应用启动失败，提示NullPointerException。</p>
+<p>解决办法如下：</p>
+<ol>
+<li><p>在应用服务器上，新建共享库文件夹，将你希望优先加载的jar包放在该路径下。<code>如果是集群部署，需要在所有集群服务器上，都建立这样的文件夹，路径需要保持一致。</code></p>
 </li>
-<li><p>开启ssh服务</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service ssh start</span><br></pre></td></tr></table></figure>
+<li><p>在控制台中，新建共享库。<br>点击左侧菜单【环境-&gt;共享库】</p>
+<img src="/学习笔记/部署相关/WebSphere/WebSphere8.5自带jar包与应用jar包冲突的解决办法/2-1.png">
+<p>点击【新建】按钮。类路径填写在上一步中新建的共享库文件夹路径</p>
+<img src="/学习笔记/部署相关/WebSphere/WebSphere8.5自带jar包与应用jar包冲突的解决办法/2-2.png">
 </li>
-<li><p>ssh配置文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/ssh/sshd_config</span><br></pre></td></tr></table></figure></li>
+<li><p>在已安装的应用中，引入共享库。<br>进入应用的配置界面，点击【共享库引用】</p>
+<img src="/学习笔记/部署相关/WebSphere/WebSphere8.5自带jar包与应用jar包冲突的解决办法/3-1.png">
+<p>选择模块，点击【引用共享库】按钮</p>
+<img src="/学习笔记/部署相关/WebSphere/WebSphere8.5自带jar包与应用jar包冲突的解决办法/3-2.png">
+<p>选择需要引用的共享库</p>
+<img src="/学习笔记/部署相关/WebSphere/WebSphere8.5自带jar包与应用jar包冲突的解决办法/3-3.png">
+</li>
+<li><p>安装应用过程中，引入共享库。<br>选择详细安装</p>
+<img src="/学习笔记/部署相关/WebSphere/WebSphere8.5自带jar包与应用jar包冲突的解决办法/4-1.png">
+<p>在【步骤 4: 映射共享库】中，引入共享库</p>
+<img src="/学习笔记/部署相关/WebSphere/WebSphere8.5自带jar包与应用jar包冲突的解决办法/4-2.png">
+<img src="/学习笔记/部署相关/WebSphere/WebSphere8.5自带jar包与应用jar包冲突的解决办法/4-3.png"></li>
 </ol>
 
       
@@ -469,11 +494,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/linux/" rel="tag"># linux</a>
+            <a href="/tags/websphere/" rel="tag"># websphere</a>
           
-            <a href="/tags/ssh/" rel="tag"># ssh</a>
-          
-            <a href="/tags/ubuntu/" rel="tag"># ubuntu</a>
+            <a href="/tags/was/" rel="tag"># was</a>
           
         </div>
       
@@ -486,8 +509,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/学习笔记/Linux/CentOS/CentOS防火墙使用.html" rel="next" title="CentOS防火墙使用">
-                <i class="fa fa-chevron-left"></i> CentOS防火墙使用
+              <a href="/学习笔记/开发语言/工具使用/Intellij IDEA 远程调试Tomcat下的应用.html" rel="next" title="Intellij IDEA 远程调试Tomcat下的应用">
+                <i class="fa fa-chevron-left"></i> Intellij IDEA 远程调试Tomcat下的应用
               </a>
             
           </div>
@@ -495,10 +518,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/学习笔记/Linux/Ubuntu/Ubuntu离线安装软件包.html" rel="prev" title="Ubuntu离线安装软件包">
-                Ubuntu离线安装软件包 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -769,9 +788,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'https://it-linnan.github.io/学习笔记/Linux/Ubuntu/Ubuntu开启SSH服务.html';
-          this.page.identifier = '学习笔记/Linux/Ubuntu/Ubuntu开启SSH服务.html';
-          this.page.title = 'Ubuntu开启SSH服务';
+          this.page.url = 'https://it-linnan.github.io/学习笔记/部署相关/WebSphere/WebSphere8.5自带jar包与应用jar包冲突的解决办法.html';
+          this.page.identifier = '学习笔记/部署相关/WebSphere/WebSphere8.5自带jar包与应用jar包冲突的解决办法.html';
+          this.page.title = 'WebSphere8.5自带jar包与应用jar包冲突的解决办法';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://linnblog.disqus.com/embed.js';

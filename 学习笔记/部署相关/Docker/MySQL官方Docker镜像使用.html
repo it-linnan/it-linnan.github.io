@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="linux,ubuntu,docker,mysql," />
+  <meta name="keywords" content="docker,mysql,linux,ubuntu" />
 
 
 
@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="启动mysql服务实例  拉取镜像12docker pull mysqldocker pull mysql:5.7 启动实例1docker run --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=password -d mysql:5.7  测试mysql服务实例  安装mysql客户端1apt-get install mysql-client-">
-<meta name="keywords" content="linux,ubuntu,docker,mysql">
+<meta name="description" content="MySQL官方Docker镜像使用">
+<meta name="keywords" content="docker,mysql,linux,ubuntu">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MySQL官方Docker镜像使用">
 <meta property="og:url" content="https://it-linnan.github.io/学习笔记/部署相关/Docker/MySQL官方Docker镜像使用.html">
 <meta property="og:site_name" content="Linn&#39;s Blog">
-<meta property="og:description" content="启动mysql服务实例  拉取镜像12docker pull mysqldocker pull mysql:5.7 启动实例1docker run --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=password -d mysql:5.7  测试mysql服务实例  安装mysql客户端1apt-get install mysql-client-">
+<meta property="og:description" content="MySQL官方Docker镜像使用">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-30T01:44:39.880Z">
+<meta property="og:updated_time" content="2018-06-01T03:32:29.074Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL官方Docker镜像使用">
-<meta name="twitter:description" content="启动mysql服务实例  拉取镜像12docker pull mysqldocker pull mysql:5.7 启动实例1docker run --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=password -d mysql:5.7  测试mysql服务实例  安装mysql客户端1apt-get install mysql-client-">
+<meta name="twitter:description" content="MySQL官方Docker镜像使用">
 
 
 
@@ -424,6 +424,10 @@
           
 
           
+              <div class="post-description">
+                  MySQL官方Docker镜像使用
+              </div>
+          
 
         </div>
       </header>
@@ -439,26 +443,25 @@
 
       
         <ol>
-<li>启动mysql服务实例</li>
-</ol>
-<p>拉取镜像<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker pull mysql</span><br><span class="line">docker pull mysql:5.7</span><br></pre></td></tr></table></figure></p>
-<p>启动实例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=password -d mysql:5.7</span><br></pre></td></tr></table></figure></p>
-<ol>
-<li>测试mysql服务实例</li>
-</ol>
-<p>安装mysql客户端<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install mysql-client-core-5.7</span><br></pre></td></tr></table></figure></p>
-<p>登录mysql<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -h127.0.0.1 -P3306 -uroot -ppassword</span><br></pre></td></tr></table></figure></p>
-<ol>
-<li>使用自定义MySQL配置文件</li>
-</ol>
-<p>默认情况下，MySQL的启动配置文件是/etc/mysql/my.cnf，引用了/etc/mysql/conf.d和/etc/mysql/mysql.conf.d文件夹<br>想要使用自定义配置文件，可将配置文件挂载到mysql容器的/etc/mysql/conf.d和/etc/mysql/mysql.conf.d目录下</p>
+<li><p>启动mysql服务实例<br>拉取镜像</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker pull mysql</span><br><span class="line">docker pull mysql:5.7</span><br></pre></td></tr></table></figure>
+<p>启动实例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=password -d mysql:5.7</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>测试mysql服务实例<br>安装mysql客户端</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install mysql-client-core-5.7</span><br></pre></td></tr></table></figure>
+<p>登录mysql</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -h127.0.0.1 -P3306 -uroot -ppassword</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用自定义MySQL配置文件<br>默认情况下，MySQL的启动配置文件是/etc/mysql/my.cnf，引用了/etc/mysql/conf.d和/etc/mysql/mysql.conf.d文件夹<br>想要使用自定义配置文件，可将配置文件挂载到mysql容器的/etc/mysql/conf.d和/etc/mysql/mysql.conf.d目录下</p>
 <figure class="highlight plain"><figcaption><span>title</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --name mysql -p 3307:3306 -v /mnt/share/custom.cnf:/etc/mysql/conf.d/custom.cnf -e MYSQL_ROOT_PASSWORD=password -d mysql:5.7</span><br></pre></td></tr></table></figure>
-<ol>
-<li>使用自定义MySQL配置</li>
-</ol>
-<p>也可以使用命令行参数来指定配置</p>
+</li>
+<li><p>使用自定义MySQL配置<br>也可以使用命令行参数来指定配置</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --name mysql -p 3307:3306 -v /mnt/share/custom.cnf:/etc/mysql/conf.d/custom.cnf -e MYSQL_ROOT_PASSWORD=password -d mysql:5.7 --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci --lower_case_table_names=1</span><br></pre></td></tr></table></figure>
-<p>可以通过以下命令，查看可配参数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -it --rm mysql:tag --verbose --hel</span><br></pre></td></tr></table></figure></p>
+<p>可以通过以下命令，查看可配参数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -it --rm mysql:tag --verbose --hel</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
 
       
     </div>
@@ -582,7 +585,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-count">19</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

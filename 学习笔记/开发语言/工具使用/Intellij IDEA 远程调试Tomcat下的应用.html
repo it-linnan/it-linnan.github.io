@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="intellij idea,tomcat," />
+  <meta name="keywords" content="intellij idea,tomcat,远程调试" />
 
 
 
@@ -94,21 +94,21 @@
 
 
 
-<meta name="description" content="在Tomcat的bin目录下找到catalina.bat，搜索JPDA_ADDRESS，即为远程调试监听端口，默认为8000  1set JPDA_ADDRESS = 8000  cd到bin目录下，运行catalina.bat，并开启远程调试功能  1catalina.bat jpda start  在intellij中，新建远程服务器    配置远程服务的ip和端口    配置远程调试监听端">
-<meta name="keywords" content="intellij idea,tomcat">
+<meta name="description" content="Intellij IDEA 远程调试Tomcat下的应用">
+<meta name="keywords" content="intellij idea,tomcat,远程调试">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Intellij IDEA 远程调试Tomcat下的应用">
 <meta property="og:url" content="https://it-linnan.github.io/学习笔记/开发语言/工具使用/Intellij IDEA 远程调试Tomcat下的应用.html">
 <meta property="og:site_name" content="Linn&#39;s Blog">
-<meta property="og:description" content="在Tomcat的bin目录下找到catalina.bat，搜索JPDA_ADDRESS，即为远程调试监听端口，默认为8000  1set JPDA_ADDRESS = 8000  cd到bin目录下，运行catalina.bat，并开启远程调试功能  1catalina.bat jpda start  在intellij中，新建远程服务器    配置远程服务的ip和端口    配置远程调试监听端">
+<meta property="og:description" content="Intellij IDEA 远程调试Tomcat下的应用">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://it-linnan.github.io/学习笔记/开发语言/工具使用/Intellij%20IDEA%20远程调试Tomcat下的应用/3.png">
 <meta property="og:image" content="https://it-linnan.github.io/学习笔记/开发语言/工具使用/Intellij%20IDEA%20远程调试Tomcat下的应用/4.png">
 <meta property="og:image" content="https://it-linnan.github.io/学习笔记/开发语言/工具使用/Intellij%20IDEA%20远程调试Tomcat下的应用/5.png">
-<meta property="og:updated_time" content="2018-05-30T02:31:28.689Z">
+<meta property="og:updated_time" content="2018-06-01T03:32:08.055Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Intellij IDEA 远程调试Tomcat下的应用">
-<meta name="twitter:description" content="在Tomcat的bin目录下找到catalina.bat，搜索JPDA_ADDRESS，即为远程调试监听端口，默认为8000  1set JPDA_ADDRESS = 8000  cd到bin目录下，运行catalina.bat，并开启远程调试功能  1catalina.bat jpda start  在intellij中，新建远程服务器    配置远程服务的ip和端口    配置远程调试监听端">
+<meta name="twitter:description" content="Intellij IDEA 远程调试Tomcat下的应用">
 <meta name="twitter:image" content="https://it-linnan.github.io/学习笔记/开发语言/工具使用/Intellij%20IDEA%20远程调试Tomcat下的应用/3.png">
 
 
@@ -428,6 +428,10 @@
           
 
           
+              <div class="post-description">
+                  Intellij IDEA 远程调试Tomcat下的应用
+              </div>
+          
 
         </div>
       </header>
@@ -443,27 +447,23 @@
 
       
         <ol>
-<li>在Tomcat的bin目录下找到catalina.bat，搜索JPDA_ADDRESS，即为远程调试监听端口，默认为8000</li>
-</ol>
+<li><p>在Tomcat的bin目录下找到catalina.bat，搜索JPDA_ADDRESS，即为远程调试监听端口，默认为8000</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set JPDA_ADDRESS = 8000</span><br></pre></td></tr></table></figure>
-<ol>
-<li>cd到bin目录下，运行catalina.bat，并开启远程调试功能</li>
-</ol>
+</li>
+<li><p>cd到bin目录下，运行catalina.bat，并开启远程调试功能</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">catalina.bat jpda start</span><br></pre></td></tr></table></figure>
-<ol>
-<li>在intellij中，新建远程服务器</li>
-</ol>
+</li>
+<li><p>在intellij中，新建远程服务器</p>
 <img src="/学习笔记/开发语言/工具使用/Intellij%20IDEA%20远程调试Tomcat下的应用/3.png">
-<ol>
-<li>配置远程服务的ip和端口</li>
-</ol>
+</li>
+<li><p>配置远程服务的ip和端口</p>
 <img src="/学习笔记/开发语言/工具使用/Intellij%20IDEA%20远程调试Tomcat下的应用/4.png">
-<ol>
-<li>配置远程调试监听端口</li>
-</ol>
+</li>
+<li><p>配置远程调试监听端口</p>
 <img src="/学习笔记/开发语言/工具使用/Intellij%20IDEA%20远程调试Tomcat下的应用/5.png">
-<ol>
-<li>在intellij中启动即可</li>
+</li>
+<li><p>在intellij中启动即可</p>
+</li>
 </ol>
 
       
@@ -506,6 +506,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/学习笔记/部署相关/WebSphere/WebSphere8.5自带jar包与应用jar包冲突的解决办法.html" rel="prev" title="WebSphere8.5自带jar包与应用jar包冲突的解决办法">
+                WebSphere8.5自带jar包与应用jar包冲突的解决办法 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -580,7 +584,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-count">19</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

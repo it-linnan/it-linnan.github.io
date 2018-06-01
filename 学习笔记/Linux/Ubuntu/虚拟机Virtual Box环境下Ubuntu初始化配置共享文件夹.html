@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="linux,ubuntu,virtualbox," />
+  <meta name="keywords" content="linux,ubuntu,virtualbox,共享文件夹" />
 
 
 
@@ -94,21 +94,21 @@
 
 
 
-<meta name="description" content="虚拟机安装增强功能    宿主机任意位置创建一个文件夹，用于宿主机与虚拟机交换文件  创建共享文件夹，选择在步骤2中创建的文件夹路径      虚拟机mnt文件夹下创建一个文件夹，用于虚拟机与宿主机交换文件  12cd /mntmkdir share  建立共享文件夹映射  12cd /mntsudo mount -t vboxsf ShareSwap share">
-<meta name="keywords" content="linux,ubuntu,virtualbox">
+<meta name="description" content="虚拟机Virtual Box环境下Ubuntu初始化配置共享文件夹">
+<meta name="keywords" content="linux,ubuntu,virtualbox,共享文件夹">
 <meta property="og:type" content="article">
 <meta property="og:title" content="虚拟机Virtual Box环境下Ubuntu初始化配置共享文件夹">
 <meta property="og:url" content="https://it-linnan.github.io/学习笔记/Linux/Ubuntu/虚拟机Virtual Box环境下Ubuntu初始化配置共享文件夹.html">
 <meta property="og:site_name" content="Linn&#39;s Blog">
-<meta property="og:description" content="虚拟机安装增强功能    宿主机任意位置创建一个文件夹，用于宿主机与虚拟机交换文件  创建共享文件夹，选择在步骤2中创建的文件夹路径      虚拟机mnt文件夹下创建一个文件夹，用于虚拟机与宿主机交换文件  12cd /mntmkdir share  建立共享文件夹映射  12cd /mntsudo mount -t vboxsf ShareSwap share">
+<meta property="og:description" content="虚拟机Virtual Box环境下Ubuntu初始化配置共享文件夹">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://it-linnan.github.io/学习笔记/Linux/Ubuntu/虚拟机Virtual%20Box环境下Ubuntu初始化配置共享文件夹/1.png">
 <meta property="og:image" content="https://it-linnan.github.io/学习笔记/Linux/Ubuntu/虚拟机Virtual%20Box环境下Ubuntu初始化配置共享文件夹/3-1.png">
 <meta property="og:image" content="https://it-linnan.github.io/学习笔记/Linux/Ubuntu/虚拟机Virtual%20Box环境下Ubuntu初始化配置共享文件夹/3-2.png">
-<meta property="og:updated_time" content="2018-05-30T01:47:34.064Z">
+<meta property="og:updated_time" content="2018-06-01T03:31:32.107Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="虚拟机Virtual Box环境下Ubuntu初始化配置共享文件夹">
-<meta name="twitter:description" content="虚拟机安装增强功能    宿主机任意位置创建一个文件夹，用于宿主机与虚拟机交换文件  创建共享文件夹，选择在步骤2中创建的文件夹路径      虚拟机mnt文件夹下创建一个文件夹，用于虚拟机与宿主机交换文件  12cd /mntmkdir share  建立共享文件夹映射  12cd /mntsudo mount -t vboxsf ShareSwap share">
+<meta name="twitter:description" content="虚拟机Virtual Box环境下Ubuntu初始化配置共享文件夹">
 <meta name="twitter:image" content="https://it-linnan.github.io/学习笔记/Linux/Ubuntu/虚拟机Virtual%20Box环境下Ubuntu初始化配置共享文件夹/1.png">
 
 
@@ -428,6 +428,10 @@
           
 
           
+              <div class="post-description">
+                  虚拟机Virtual Box环境下Ubuntu初始化配置共享文件夹
+              </div>
+          
 
         </div>
       </header>
@@ -443,25 +447,22 @@
 
       
         <ol>
-<li>虚拟机安装增强功能</li>
-</ol>
+<li><p>虚拟机安装增强功能</p>
 <img src="/学习笔记/Linux/Ubuntu/虚拟机Virtual%20Box环境下Ubuntu初始化配置共享文件夹/1.png">
-<ol>
+</li>
 <li><p>宿主机任意位置创建一个文件夹，用于宿主机与虚拟机交换文件</p>
 </li>
 <li><p>创建共享文件夹，选择在步骤2中创建的文件夹路径</p>
-</li>
-</ol>
 <img src="/学习笔记/Linux/Ubuntu/虚拟机Virtual%20Box环境下Ubuntu初始化配置共享文件夹/3-1.png">
 <img src="/学习笔记/Linux/Ubuntu/虚拟机Virtual%20Box环境下Ubuntu初始化配置共享文件夹/3-2.png">
-<ol>
-<li>虚拟机mnt文件夹下创建一个文件夹，用于虚拟机与宿主机交换文件</li>
-</ol>
+</li>
+<li><p>虚拟机mnt文件夹下创建一个文件夹，用于虚拟机与宿主机交换文件</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /mnt</span><br><span class="line">mkdir share</span><br></pre></td></tr></table></figure>
-<ol>
-<li>建立共享文件夹映射</li>
-</ol>
+</li>
+<li><p>建立共享文件夹映射</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /mnt</span><br><span class="line">sudo mount -t vboxsf ShareSwap share</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
 
       
     </div>
@@ -583,7 +584,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-count">19</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
