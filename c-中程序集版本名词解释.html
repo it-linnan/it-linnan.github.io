@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="linux,centos,ssh" />
+  <meta name="keywords" content="c#,程序集,版本" />
 
 
 
@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="CentOS开启SSH服务">
-<meta name="keywords" content="linux,centos,ssh">
+<meta name="description" content="C#中程序集版本名词解释">
+<meta name="keywords" content="c#,程序集,版本">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CentOS开启SSH服务">
-<meta property="og:url" content="https://it-linnan.github.io/学习笔记/Linux/CentOS/CentOS开启SSH服务.html">
+<meta property="og:title" content="C#中程序集版本名词解释">
+<meta property="og:url" content="https://it-linnan.github.io/c-中程序集版本名词解释.html">
 <meta property="og:site_name" content="Linn&#39;s Blog">
-<meta property="og:description" content="CentOS开启SSH服务">
+<meta property="og:description" content="C#中程序集版本名词解释">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-01T03:40:09.452Z">
+<meta property="og:updated_time" content="2018-06-01T03:46:02.886Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CentOS开启SSH服务">
-<meta name="twitter:description" content="CentOS开启SSH服务">
+<meta name="twitter:title" content="C#中程序集版本名词解释">
+<meta name="twitter:description" content="C#中程序集版本名词解释">
 
 
 
@@ -134,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="https://it-linnan.github.io/学习笔记/Linux/CentOS/CentOS开启SSH服务.html"/>
+  <link rel="canonical" href="https://it-linnan.github.io/c-中程序集版本名词解释.html"/>
 
 
 
 
 
-  <title>CentOS开启SSH服务 | Linn's Blog</title>
+  <title>C#中程序集版本名词解释 | Linn's Blog</title>
   
 
 
@@ -316,7 +316,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://it-linnan.github.io/学习笔记/Linux/CentOS/CentOS开启SSH服务.html">
+    <link itemprop="mainEntityOfPage" href="https://it-linnan.github.io/c-中程序集版本名词解释.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Linn">
@@ -333,7 +333,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">CentOS开启SSH服务</h2>
+          <h2 class="post-title" itemprop="name headline">C#中程序集版本名词解释</h2>
         
 
         <div class="post-meta">
@@ -345,8 +345,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-29T16:19:47+08:00">
-                2018-05-29
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-30T09:54:58+08:00">
+                2018-05-30
               </time>
             
 
@@ -379,8 +379,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习笔记/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
+                  <a href="/categories/学习笔记/开发语言/" itemprop="url" rel="index">
+                    <span itemprop="name">开发语言</span>
                   </a>
                 </span>
 
@@ -390,8 +390,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习笔记/Linux/CentOS/" itemprop="url" rel="index">
-                    <span itemprop="name">CentOS</span>
+                  <a href="/categories/学习笔记/开发语言/C/" itemprop="url" rel="index">
+                    <span itemprop="name">C#</span>
                   </a>
                 </span>
 
@@ -408,9 +408,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/学习笔记/Linux/CentOS/CentOS开启SSH服务.html#comments" itemprop="discussionUrl">
+                <a href="/c-中程序集版本名词解释.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="学习笔记/Linux/CentOS/CentOS开启SSH服务.html" itemprop="commentCount"></span>
+                        data-disqus-identifier="c-中程序集版本名词解释.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -425,7 +425,7 @@
 
           
               <div class="post-description">
-                  CentOS开启SSH服务
+                  C#中程序集版本名词解释
               </div>
           
 
@@ -442,27 +442,34 @@
       
 
       
-        <ol>
-<li><p>安装openssh-server</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum list installed |grep openssh-server</span><br></pre></td></tr></table></figure>
-<p>如果有输出，证明已经安装了openssh-server，如果没有，需要安装</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install openssh-server</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>修改sshd服务配置文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/ssh/sshd_config</span><br></pre></td></tr></table></figure>
-<p>开启监听</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Port 22</span><br><span class="line">ListenAddress 0.0.0.0</span><br><span class="line">ListenAddress ::</span><br></pre></td></tr></table></figure>
-<p>允许远程登录</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PermitRootLogin yes</span><br></pre></td></tr></table></figure>
-<p>使用用户名密码作为连接验证</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PasswordAuthentication yes</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>开启sshd服务</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service sshd start</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>配置开机自启动</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl enable sshd</span><br></pre></td></tr></table></figure></li>
-</ol>
+        <p>微软内部开发有一个版本号命名规则，格式如下:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Major</th>
+<th style="text-align:center">Minor</th>
+<th style="text-align:center">Build</th>
+<th style="text-align:center">Revision</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">主要版本号</td>
+<td style="text-align:center">次要版本号</td>
+<td style="text-align:center">生成号</td>
+<td style="text-align:center">修订号</td>
+</tr>
+</tbody>
+</table>
+<p>eg：2.23.159.23</p>
+<p><code>Major</code>：名称相同但主要版本号不同的程序集不可互换。 更高版本号可能表明大幅重写无法假定向后兼容的产品。</p>
+<p><code>Minor</code>：如果两个程序集的名称和主要版本号相同，而次要版本号不同，这指示显著增强，但照顾到了向后兼容性。 该较高的次要版本号可指示产品的修正版或完全向后兼容的新版本。</p>
+<p><code>Build</code>：生成号的不同表示对相同源所作的重新编译。 处理器、 平台或编译器更改时，可能使用不同的生成号。</p>
+<p><code>Revision</code>：名称、主要版本号和次要版本号都相同但修订号不同的程序集应是完全可互换的。 更高修订号可能在修复以前发布的程序集安全漏洞的版本中使用。</p>
+<p><code>AssemblyVersion</code>（程序集版本）</p>
+<p>在.NET Framework中编译和运行时使用的版本号，使用该版本号定位和加载指定程序集。当你在你的项目中引用了指定的程序集，其版本号将会嵌入到你的项目中。在运行时，CLR通过该版本号加载指定程序集。注意，仅当程序集使用强命名时，才会使用程序集名称、公钥、语言信息以及该版本号查找指定程序集，否则只会根据文件名进行查找。</p>
+<p><code>AssemblyFileVersion</code>（文件版本）</p>
+<p>在文件系统中给文件的版本号，会在Windows资源管理器中显示。但是，在.NET Framework引用类库时从来不会用到这个版本。</p>
 
       
     </div>
@@ -480,11 +487,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/linux/" rel="tag"># linux</a>
-          
-            <a href="/tags/centos/" rel="tag"># centos</a>
-          
-            <a href="/tags/ssh/" rel="tag"># ssh</a>
+            <a href="/tags/C/" rel="tag"># C#</a>
           
         </div>
       
@@ -497,14 +500,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/c-调用ocx的方法.html" rel="next" title="C#调用ocx的方法">
+                <i class="fa fa-chevron-left"></i> C#调用ocx的方法
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/学习笔记/Linux/CentOS/虚拟机VMware环境下CentOS初始化配置网卡.html" rel="prev" title="虚拟机VMware环境下CentOS初始化配置网卡">
-                虚拟机VMware环境下CentOS初始化配置网卡 <i class="fa fa-chevron-right"></i>
+              <a href="/web容器默认servlet.html" rel="prev" title="Web容器默认servlet">
+                Web容器默认servlet <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -580,7 +587,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-count">20</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -776,9 +783,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'https://it-linnan.github.io/学习笔记/Linux/CentOS/CentOS开启SSH服务.html';
-          this.page.identifier = '学习笔记/Linux/CentOS/CentOS开启SSH服务.html';
-          this.page.title = 'CentOS开启SSH服务';
+          this.page.url = 'https://it-linnan.github.io/c-中程序集版本名词解释.html';
+          this.page.identifier = 'c-中程序集版本名词解释.html';
+          this.page.title = 'C#中程序集版本名词解释';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://linnblog.disqus.com/embed.js';

@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="linux,ubuntu,ssh" />
+  <meta name="keywords" content="intellij idea,tomcat,远程调试" />
 
 
 
@@ -94,18 +94,22 @@
 
 
 
-<meta name="description" content="Ubuntu开启SSH服务">
-<meta name="keywords" content="linux,ubuntu,ssh">
+<meta name="description" content="Intellij IDEA 远程调试Tomcat下的应用">
+<meta name="keywords" content="intellij idea,tomcat,远程调试">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Ubuntu开启SSH服务">
-<meta property="og:url" content="https://it-linnan.github.io/学习笔记/Linux/Ubuntu/Ubuntu开启SSH服务.html">
+<meta property="og:title" content="Intellij IDEA 远程调试Tomcat下的应用">
+<meta property="og:url" content="https://it-linnan.github.io/intellij-idea-远程调试tomcat下的应用.html">
 <meta property="og:site_name" content="Linn&#39;s Blog">
-<meta property="og:description" content="Ubuntu开启SSH服务">
+<meta property="og:description" content="Intellij IDEA 远程调试Tomcat下的应用">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-01T03:31:26.661Z">
+<meta property="og:image" content="https://it-linnan.github.io/intellij-idea-远程调试tomcat下的应用/3.png">
+<meta property="og:image" content="https://it-linnan.github.io/intellij-idea-远程调试tomcat下的应用/4.png">
+<meta property="og:image" content="https://it-linnan.github.io/intellij-idea-远程调试tomcat下的应用/5.png">
+<meta property="og:updated_time" content="2018-06-01T03:32:08.055Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Ubuntu开启SSH服务">
-<meta name="twitter:description" content="Ubuntu开启SSH服务">
+<meta name="twitter:title" content="Intellij IDEA 远程调试Tomcat下的应用">
+<meta name="twitter:description" content="Intellij IDEA 远程调试Tomcat下的应用">
+<meta name="twitter:image" content="https://it-linnan.github.io/intellij-idea-远程调试tomcat下的应用/3.png">
 
 
 
@@ -134,13 +138,13 @@
 
 
 
-  <link rel="canonical" href="https://it-linnan.github.io/学习笔记/Linux/Ubuntu/Ubuntu开启SSH服务.html"/>
+  <link rel="canonical" href="https://it-linnan.github.io/intellij-idea-远程调试tomcat下的应用.html"/>
 
 
 
 
 
-  <title>Ubuntu开启SSH服务 | Linn's Blog</title>
+  <title>Intellij IDEA 远程调试Tomcat下的应用 | Linn's Blog</title>
   
 
 
@@ -316,7 +320,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://it-linnan.github.io/学习笔记/Linux/Ubuntu/Ubuntu开启SSH服务.html">
+    <link itemprop="mainEntityOfPage" href="https://it-linnan.github.io/intellij-idea-远程调试tomcat下的应用.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Linn">
@@ -333,7 +337,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">Ubuntu开启SSH服务</h2>
+          <h2 class="post-title" itemprop="name headline">Intellij IDEA 远程调试Tomcat下的应用</h2>
         
 
         <div class="post-meta">
@@ -345,8 +349,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-29T16:35:01+08:00">
-                2018-05-29
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-30T10:09:04+08:00">
+                2018-05-30
               </time>
             
 
@@ -379,8 +383,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习笔记/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
+                  <a href="/categories/学习笔记/开发语言/" itemprop="url" rel="index">
+                    <span itemprop="name">开发语言</span>
                   </a>
                 </span>
 
@@ -390,8 +394,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习笔记/Linux/Ubuntu/" itemprop="url" rel="index">
-                    <span itemprop="name">Ubuntu</span>
+                  <a href="/categories/学习笔记/开发语言/工具使用/" itemprop="url" rel="index">
+                    <span itemprop="name">工具使用</span>
                   </a>
                 </span>
 
@@ -408,9 +412,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/学习笔记/Linux/Ubuntu/Ubuntu开启SSH服务.html#comments" itemprop="discussionUrl">
+                <a href="/intellij-idea-远程调试tomcat下的应用.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="学习笔记/Linux/Ubuntu/Ubuntu开启SSH服务.html" itemprop="commentCount"></span>
+                        data-disqus-identifier="intellij-idea-远程调试tomcat下的应用.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -425,7 +429,7 @@
 
           
               <div class="post-description">
-                  Ubuntu开启SSH服务
+                  Intellij IDEA 远程调试Tomcat下的应用
               </div>
           
 
@@ -443,14 +447,23 @@
 
       
         <ol>
-<li><p>安装ssh服务</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install openssh-server</span><br></pre></td></tr></table></figure>
+<li><p>在Tomcat的bin目录下找到catalina.bat，搜索JPDA_ADDRESS，即为远程调试监听端口，默认为8000</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set JPDA_ADDRESS = 8000</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>开启ssh服务</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service ssh start</span><br></pre></td></tr></table></figure>
+<li><p>cd到bin目录下，运行catalina.bat，并开启远程调试功能</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">catalina.bat jpda start</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>ssh配置文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/ssh/sshd_config</span><br></pre></td></tr></table></figure></li>
+<li><p>在intellij中，新建远程服务器</p>
+<img src="/intellij-idea-远程调试tomcat下的应用/3.png">
+</li>
+<li><p>配置远程服务的ip和端口</p>
+<img src="/intellij-idea-远程调试tomcat下的应用/4.png">
+</li>
+<li><p>配置远程调试监听端口</p>
+<img src="/intellij-idea-远程调试tomcat下的应用/5.png">
+</li>
+<li><p>在intellij中启动即可</p>
+</li>
 </ol>
 
       
@@ -469,11 +482,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/linux/" rel="tag"># linux</a>
+            <a href="/tags/intellij-idea/" rel="tag"># intellij idea</a>
           
-            <a href="/tags/ssh/" rel="tag"># ssh</a>
-          
-            <a href="/tags/ubuntu/" rel="tag"># ubuntu</a>
+            <a href="/tags/tomcat/" rel="tag"># tomcat</a>
           
         </div>
       
@@ -486,8 +497,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/学习笔记/Linux/CentOS/CentOS防火墙使用.html" rel="next" title="CentOS防火墙使用">
-                <i class="fa fa-chevron-left"></i> CentOS防火墙使用
+              <a href="/web容器默认servlet.html" rel="next" title="Web容器默认servlet">
+                <i class="fa fa-chevron-left"></i> Web容器默认servlet
               </a>
             
           </div>
@@ -496,8 +507,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/学习笔记/Linux/Ubuntu/Ubuntu离线安装软件包.html" rel="prev" title="Ubuntu离线安装软件包">
-                Ubuntu离线安装软件包 <i class="fa fa-chevron-right"></i>
+              <a href="/websphere自带jar包与应用jar包冲突的解决办法.html" rel="prev" title="WebSphere自带jar包与应用jar包冲突的解决办法">
+                WebSphere自带jar包与应用jar包冲突的解决办法 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -573,7 +584,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-count">20</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -769,9 +780,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'https://it-linnan.github.io/学习笔记/Linux/Ubuntu/Ubuntu开启SSH服务.html';
-          this.page.identifier = '学习笔记/Linux/Ubuntu/Ubuntu开启SSH服务.html';
-          this.page.title = 'Ubuntu开启SSH服务';
+          this.page.url = 'https://it-linnan.github.io/intellij-idea-远程调试tomcat下的应用.html';
+          this.page.identifier = 'intellij-idea-远程调试tomcat下的应用.html';
+          this.page.title = 'Intellij IDEA 远程调试Tomcat下的应用';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://linnblog.disqus.com/embed.js';

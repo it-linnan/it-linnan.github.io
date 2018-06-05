@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="docker,docker hub,镜像加速" />
+  <meta name="keywords" content="websphere,was,log4j2,自定义插件" />
 
 
 
@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="Docker中国官方镜像加速">
-<meta name="keywords" content="docker,docker hub,镜像加速">
+<meta name="description" content="WebSphere下log4j2自定义插件未加载的解决办法">
+<meta name="keywords" content="websphere,was,log4j2,自定义插件">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Docker中国官方镜像加速">
-<meta property="og:url" content="https://it-linnan.github.io/学习笔记/部署相关/Docker/Docker中国官方镜像加速.html">
+<meta property="og:title" content="WebSphere下log4j2自定义插件未加载的解决办法">
+<meta property="og:url" content="https://it-linnan.github.io/websphere下log4j2自定义插件未加载的解决办法.html">
 <meta property="og:site_name" content="Linn&#39;s Blog">
-<meta property="og:description" content="Docker中国官方镜像加速">
+<meta property="og:description" content="WebSphere下log4j2自定义插件未加载的解决办法">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-01T02:42:06.757Z">
+<meta property="og:updated_time" content="2018-06-05T03:47:16.398Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Docker中国官方镜像加速">
-<meta name="twitter:description" content="Docker中国官方镜像加速">
+<meta name="twitter:title" content="WebSphere下log4j2自定义插件未加载的解决办法">
+<meta name="twitter:description" content="WebSphere下log4j2自定义插件未加载的解决办法">
 
 
 
@@ -134,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="https://it-linnan.github.io/学习笔记/部署相关/Docker/Docker中国官方镜像加速.html"/>
+  <link rel="canonical" href="https://it-linnan.github.io/websphere下log4j2自定义插件未加载的解决办法.html"/>
 
 
 
 
 
-  <title>Docker中国官方镜像加速 | Linn's Blog</title>
+  <title>WebSphere下log4j2自定义插件未加载的解决办法 | Linn's Blog</title>
   
 
 
@@ -316,7 +316,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://it-linnan.github.io/学习笔记/部署相关/Docker/Docker中国官方镜像加速.html">
+    <link itemprop="mainEntityOfPage" href="https://it-linnan.github.io/websphere下log4j2自定义插件未加载的解决办法.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Linn">
@@ -333,7 +333,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">Docker中国官方镜像加速</h2>
+          <h2 class="post-title" itemprop="name headline">WebSphere下log4j2自定义插件未加载的解决办法</h2>
         
 
         <div class="post-meta">
@@ -345,8 +345,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-30T08:34:36+08:00">
-                2018-05-30
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-05T09:28:01+08:00">
+                2018-06-05
               </time>
             
 
@@ -390,8 +390,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习笔记/部署相关/Docker/" itemprop="url" rel="index">
-                    <span itemprop="name">Docker</span>
+                  <a href="/categories/学习笔记/部署相关/WebSphere/" itemprop="url" rel="index">
+                    <span itemprop="name">WebSphere</span>
                   </a>
                 </span>
 
@@ -408,9 +408,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/学习笔记/部署相关/Docker/Docker中国官方镜像加速.html#comments" itemprop="discussionUrl">
+                <a href="/websphere下log4j2自定义插件未加载的解决办法.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="学习笔记/部署相关/Docker/Docker中国官方镜像加速.html" itemprop="commentCount"></span>
+                        data-disqus-identifier="websphere下log4j2自定义插件未加载的解决办法.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -425,7 +425,7 @@
 
           
               <div class="post-description">
-                  Docker中国官方镜像加速
+                  WebSphere下log4j2自定义插件未加载的解决办法
               </div>
           
 
@@ -442,8 +442,37 @@
       
 
       
-        <a href="https://www.docker-cn.com/registry-mirror" title="external title" target="_blank" rel="noopener">Docker中国官方镜像加速</a>
-<p>编辑配置文件，配置镜像地址<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/docker/daemon.json</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">    &quot;registry-mirrors&quot;: [&quot;https://registry.docker-cn.com&quot;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+        <p>之前，我们采用引用共享库的方式，解决了WebSphere自带jar包与项目下log4j2相关的jar包冲突的问题。<br><a href="/websphere自带jar包与应用jar包冲突的解决办法.html" title="WebSphere自带jar包与应用jar包冲突的解决办法">WebSphere自带jar包与应用jar包冲突的解决办法</a></p>
+<p>但是启动工程后发现，log4j2没有加载自定义插件。</p>
+<p>在log4j的官网上，我查到了如下介绍（可以掠过这段英文介绍，后面有翻译）：</p>
+<blockquote><p>In Log4j 2 a plugin is declared by adding a @Plugin annotation to the class declaration. During initialization the Configuration will invoke the PluginManager to load the built-in Log4j plugins as well as any custom plugins. The <code>PluginManager</code> locates plugins by looking in five places:</p>
+<ol>
+<li>Serialized plugin listing files on the classpath. These files are generated automatically during the build (more details below).</li>
+<li>(OSGi only) Serialized plugin listing files in each active OSGi bundle. A <code>BundleListener</code> is added on activation to continue checking new bundles after <code>log4j-core</code> has started.</li>
+<li>A comma-separated list of packages specified by the <code>log4j.plugin.packages</code> system property.</li>
+<li>Packages passed to the static <code>PluginManager.addPackages</code> method (before Log4j configuration occurs).</li>
+<li>The packages declared in your log4j2 configuration file.</li>
+</ol>
+<footer><strong>Apache Log4j 2</strong><cite><a href="https://logging.apache.org/log4j/2.x/manual/plugins.html" target="_blank" rel="noopener">插件介绍</a></cite></footer></blockquote>
+<p>大意就是，log4j2支持插件机制，在启动阶段，PluginManager不仅会加载内建插件，也会加载自定义插件。PluginManager会在5个位置查找插件。</p>
+<p>我们采用的是，在配置文件中定义插件扫描包位置，自定义插件放在扫描包下。再看官方对插件扫描包位置配置项的说明（只截取部分）：<br><blockquote><p>The configuration element in the XML file accepts several attributes:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Attribute Name</th>
+<th style="text-align:center">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">packages</td>
+<td style="text-align:center">A comma separated list of package names to search for plugins. <code>Plugins are only loaded once per classloader</code> so changing this value may not have any effect upon reconfiguration.</td>
+</tr>
+</tbody>
+</table>
+<footer><strong>Apache Log4j 2</strong><cite><a href="https://logging.apache.org/log4j/2.x/manual/configuration.html#ConfigurationSyntax" target="_blank" rel="noopener">配置项说明</a></cite></footer></blockquote><br>注意看我标注的这句话，每个类加载器只加载一次插件。</p>
+<p>之前在我们在建立共享库的时候，勾选了【请对此共享库使用隔离的类装入器】，此时共享库将使用独立的类加载器，而我们的自定义插件没有放在共享库中，自然扫描不到。</p>
+<p>解决办法是，在共享库的配置中，取消勾选【请对此共享库使用隔离的类装入器】。</p>
 
       
     </div>
@@ -461,9 +490,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/docker/" rel="tag"># docker</a>
+            <a href="/tags/websphere/" rel="tag"># websphere</a>
           
-            <a href="/tags/docker-hub/" rel="tag"># docker hub</a>
+            <a href="/tags/was/" rel="tag"># was</a>
           
         </div>
       
@@ -476,8 +505,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/学习笔记/Linux/通用/Linux下war包操作.html" rel="next" title="Linux下war包操作">
-                <i class="fa fa-chevron-left"></i> Linux下war包操作
+              <a href="/websphere自带jar包与应用jar包冲突的解决办法.html" rel="next" title="WebSphere自带jar包与应用jar包冲突的解决办法">
+                <i class="fa fa-chevron-left"></i> WebSphere自带jar包与应用jar包冲突的解决办法
               </a>
             
           </div>
@@ -485,10 +514,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/学习笔记/部署相关/Docker/MySQL官方Docker镜像使用.html" rel="prev" title="MySQL官方Docker镜像使用">
-                MySQL官方Docker镜像使用 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -563,7 +588,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-count">20</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -759,9 +784,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'https://it-linnan.github.io/学习笔记/部署相关/Docker/Docker中国官方镜像加速.html';
-          this.page.identifier = '学习笔记/部署相关/Docker/Docker中国官方镜像加速.html';
-          this.page.title = 'Docker中国官方镜像加速';
+          this.page.url = 'https://it-linnan.github.io/websphere下log4j2自定义插件未加载的解决办法.html';
+          this.page.identifier = 'websphere下log4j2自定义插件未加载的解决办法.html';
+          this.page.title = 'WebSphere下log4j2自定义插件未加载的解决办法';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://linnblog.disqus.com/embed.js';
