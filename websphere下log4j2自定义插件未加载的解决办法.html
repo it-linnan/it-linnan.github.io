@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="WebSphere下log4j2自定义插件未加载的解决办法">
+<meta name="description" content="之前，我们采用引用共享库的方式，解决了WebSphere自带jar包与项目下log4j2相关的jar包冲突的问题。WebSphere自带jar包与应用jar包冲突的解决办法 但是启动工程后发现，log4j2没有加载自定义插件。 在log4j的官网上，我查到了如下介绍（可以跳过这段英文介绍，后面有翻译）：">
 <meta name="keywords" content="websphere,was,log4j2,自定义插件">
 <meta property="og:type" content="article">
 <meta property="og:title" content="WebSphere下log4j2自定义插件未加载的解决办法">
 <meta property="og:url" content="https://it-linnan.github.io/websphere下log4j2自定义插件未加载的解决办法.html">
 <meta property="og:site_name" content="Linn&#39;s Blog">
-<meta property="og:description" content="WebSphere下log4j2自定义插件未加载的解决办法">
+<meta property="og:description" content="之前，我们采用引用共享库的方式，解决了WebSphere自带jar包与项目下log4j2相关的jar包冲突的问题。WebSphere自带jar包与应用jar包冲突的解决办法 但是启动工程后发现，log4j2没有加载自定义插件。 在log4j的官网上，我查到了如下介绍（可以跳过这段英文介绍，后面有翻译）：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-05T03:47:16.398Z">
+<meta property="og:updated_time" content="2018-06-05T06:17:44.615Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="WebSphere下log4j2自定义插件未加载的解决办法">
-<meta name="twitter:description" content="WebSphere下log4j2自定义插件未加载的解决办法">
+<meta name="twitter:description" content="之前，我们采用引用共享库的方式，解决了WebSphere自带jar包与项目下log4j2相关的jar包冲突的问题。WebSphere自带jar包与应用jar包冲突的解决办法 但是启动工程后发现，log4j2没有加载自定义插件。 在log4j的官网上，我查到了如下介绍（可以跳过这段英文介绍，后面有翻译）：">
 
 
 
@@ -424,10 +424,6 @@
           
 
           
-              <div class="post-description">
-                  WebSphere下log4j2自定义插件未加载的解决办法
-              </div>
-          
 
         </div>
       </header>
@@ -444,8 +440,7 @@
       
         <p>之前，我们采用引用共享库的方式，解决了WebSphere自带jar包与项目下log4j2相关的jar包冲突的问题。<br><a href="/websphere自带jar包与应用jar包冲突的解决办法.html" title="WebSphere自带jar包与应用jar包冲突的解决办法">WebSphere自带jar包与应用jar包冲突的解决办法</a></p>
 <p>但是启动工程后发现，log4j2没有加载自定义插件。</p>
-<p>在log4j的官网上，我查到了如下介绍（可以掠过这段英文介绍，后面有翻译）：</p>
-<blockquote><p>In Log4j 2 a plugin is declared by adding a @Plugin annotation to the class declaration. During initialization the Configuration will invoke the PluginManager to load the built-in Log4j plugins as well as any custom plugins. The <code>PluginManager</code> locates plugins by looking in five places:</p>
+<p>在log4j的官网上，我查到了如下介绍（可以跳过这段英文介绍，后面有翻译）：<br><a id="more"></a><br><blockquote><p>In Log4j 2 a plugin is declared by adding a @Plugin annotation to the class declaration. During initialization the Configuration will invoke the PluginManager to load the built-in Log4j plugins as well as any custom plugins. The <code>PluginManager</code> locates plugins by looking in five places:</p>
 <ol>
 <li>Serialized plugin listing files on the classpath. These files are generated automatically during the build (more details below).</li>
 <li>(OSGi only) Serialized plugin listing files in each active OSGi bundle. A <code>BundleListener</code> is added on activation to continue checking new bundles after <code>log4j-core</code> has started.</li>
@@ -453,7 +448,7 @@
 <li>Packages passed to the static <code>PluginManager.addPackages</code> method (before Log4j configuration occurs).</li>
 <li>The packages declared in your log4j2 configuration file.</li>
 </ol>
-<footer><strong>Apache Log4j 2</strong><cite><a href="https://logging.apache.org/log4j/2.x/manual/plugins.html" target="_blank" rel="noopener">插件介绍</a></cite></footer></blockquote>
+<footer><strong>Apache Log4j 2</strong><cite><a href="https://logging.apache.org/log4j/2.x/manual/plugins.html" target="_blank" rel="noopener">插件介绍</a></cite></footer></blockquote></p>
 <p>大意就是，log4j2支持插件机制，在启动阶段，PluginManager不仅会加载内建插件，也会加载自定义插件。PluginManager会在5个位置查找插件。</p>
 <p>我们采用的是，在配置文件中定义插件扫描包位置，自定义插件放在扫描包下。再看官方对插件扫描包位置配置项的说明（只截取部分）：<br><blockquote><p>The configuration element in the XML file accepts several attributes:</p>
 <table>

@@ -94,13 +94,13 @@
 
 
 
-<meta name="description" content="WebSphere8.5自带jar包与应用jar包冲突的解决办法">
+<meta name="description" content="在WebSphere8.5下安装我们的应用，一直提示NullPointerException，然而在Tomcat、Weblogic下都没有该问题。 分析错误日志，发现报错信息与log4j有关，而我们也确实使用了log4j，版本是2.10.0。 尝试着将log4j的jar包和slf4j的jar包从war包中删除，再安装，就启动成功了。此时再手动将之前移除的jar包放到应用的lib路径下，日志也可以正">
 <meta name="keywords" content="websphere,was,jar包冲突">
 <meta property="og:type" content="article">
 <meta property="og:title" content="WebSphere自带jar包与应用jar包冲突的解决办法">
 <meta property="og:url" content="https://it-linnan.github.io/websphere自带jar包与应用jar包冲突的解决办法.html">
 <meta property="og:site_name" content="Linn&#39;s Blog">
-<meta property="og:description" content="WebSphere8.5自带jar包与应用jar包冲突的解决办法">
+<meta property="og:description" content="在WebSphere8.5下安装我们的应用，一直提示NullPointerException，然而在Tomcat、Weblogic下都没有该问题。 分析错误日志，发现报错信息与log4j有关，而我们也确实使用了log4j，版本是2.10.0。 尝试着将log4j的jar包和slf4j的jar包从war包中删除，再安装，就启动成功了。此时再手动将之前移除的jar包放到应用的lib路径下，日志也可以正">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://it-linnan.github.io/websphere自带jar包与应用jar包冲突的解决办法/2-1.png">
 <meta property="og:image" content="https://it-linnan.github.io/websphere自带jar包与应用jar包冲突的解决办法/2-2.png">
@@ -110,10 +110,10 @@
 <meta property="og:image" content="https://it-linnan.github.io/websphere自带jar包与应用jar包冲突的解决办法/4-1.png">
 <meta property="og:image" content="https://it-linnan.github.io/websphere自带jar包与应用jar包冲突的解决办法/4-2.png">
 <meta property="og:image" content="https://it-linnan.github.io/websphere自带jar包与应用jar包冲突的解决办法/4-3.png">
-<meta property="og:updated_time" content="2018-06-05T03:28:28.720Z">
+<meta property="og:updated_time" content="2018-06-05T06:17:57.110Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="WebSphere自带jar包与应用jar包冲突的解决办法">
-<meta name="twitter:description" content="WebSphere8.5自带jar包与应用jar包冲突的解决办法">
+<meta name="twitter:description" content="在WebSphere8.5下安装我们的应用，一直提示NullPointerException，然而在Tomcat、Weblogic下都没有该问题。 分析错误日志，发现报错信息与log4j有关，而我们也确实使用了log4j，版本是2.10.0。 尝试着将log4j的jar包和slf4j的jar包从war包中删除，再安装，就启动成功了。此时再手动将之前移除的jar包放到应用的lib路径下，日志也可以正">
 <meta name="twitter:image" content="https://it-linnan.github.io/websphere自带jar包与应用jar包冲突的解决办法/2-1.png">
 
 
@@ -433,10 +433,6 @@
           
 
           
-              <div class="post-description">
-                  WebSphere8.5自带jar包与应用jar包冲突的解决办法
-              </div>
-          
 
         </div>
       </header>
@@ -455,7 +451,7 @@
 <p>分析错误日志，发现报错信息与log4j有关，而我们也确实使用了log4j，版本是2.10.0。</p>
 <p>尝试着将log4j的jar包和slf4j的jar包从war包中删除，再安装，就启动成功了。此时再手动将之前移除的jar包放到应用的lib路径下，日志也可以正常打印了。</p>
 <p>原因可能是我们所使用的log4j、slf4j的jar包，websphere8.5本身提供，而且自带的jar包与我们使用的版本不一致。在默认情况下，容器会优先加载自带的jar包，从而导致应用启动失败，提示NullPointerException。</p>
-<p>解决办法如下：</p>
+<p>解决办法如下：<br><a id="more"></a></p>
 <ol>
 <li><p>在应用服务器上，新建共享库文件夹，将你希望优先加载的jar包放在该路径下。<code>如果是集群部署，需要在所有集群服务器上，都建立这样的文件夹，路径需要保持一致。</code></p>
 </li>

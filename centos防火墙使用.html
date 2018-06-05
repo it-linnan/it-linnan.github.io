@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="CentOS防火墙使用">
+<meta name="description" content="启动防火墙查看防火墙是否启动1systemctl status firewalld 如果没有启动，启动1systemctl start firewalld">
 <meta name="keywords" content="linux,centos,firewall">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CentOS防火墙使用">
 <meta property="og:url" content="https://it-linnan.github.io/centos防火墙使用.html">
 <meta property="og:site_name" content="Linn&#39;s Blog">
-<meta property="og:description" content="CentOS防火墙使用">
+<meta property="og:description" content="启动防火墙查看防火墙是否启动1systemctl status firewalld 如果没有启动，启动1systemctl start firewalld">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-01T03:30:51.654Z">
+<meta property="og:updated_time" content="2018-06-05T06:17:23.590Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CentOS防火墙使用">
-<meta name="twitter:description" content="CentOS防火墙使用">
+<meta name="twitter:description" content="启动防火墙查看防火墙是否启动1systemctl status firewalld 如果没有启动，启动1systemctl start firewalld">
 
 
 
@@ -424,10 +424,6 @@
           
 
           
-              <div class="post-description">
-                  CentOS防火墙使用
-              </div>
-          
 
         </div>
       </header>
@@ -443,11 +439,9 @@
 
       
         <ol>
-<li><p>启动防火墙<br>查看防火墙是否启动</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl status firewalld</span><br></pre></td></tr></table></figure>
-<p>如果没有启动，启动</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start firewalld</span><br></pre></td></tr></table></figure>
-</li>
+<li>启动防火墙<br>查看防火墙是否启动<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl status firewalld</span><br></pre></td></tr></table></figure>
+如果没有启动，启动<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start firewalld</span><br></pre></td></tr></table></figure>
+<a id="more"></a></li>
 <li><p>开放端口命令</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --zone=public --add-port=1. 1. /tcp --permanent</span><br><span class="line">systemctl restart firewalld</span><br></pre></td></tr></table></figure>
 </li>

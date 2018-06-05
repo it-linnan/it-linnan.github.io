@@ -438,10 +438,12 @@
 
       
         
-          WebSphere下log4j2自定义插件未加载的解决办法
+          <p>之前，我们采用引用共享库的方式，解决了WebSphere自带jar包与项目下log4j2相关的jar包冲突的问题。<br><a href="/websphere自带jar包与应用jar包冲突的解决办法.html" title="WebSphere自带jar包与应用jar包冲突的解决办法">WebSphere自带jar包与应用jar包冲突的解决办法</a></p>
+<p>但是启动工程后发现，log4j2没有加载自定义插件。</p>
+<p>在log4j的官网上，我查到了如下介绍（可以跳过这段英文介绍，后面有翻译）：<br>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/websphere下log4j2自定义插件未加载的解决办法.html">
+            <a class="btn" href="/websphere下log4j2自定义插件未加载的解决办法.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -617,10 +619,14 @@
 
       
         
-          WebSphere8.5自带jar包与应用jar包冲突的解决办法
+          <p>在WebSphere8.5下安装我们的应用，一直提示NullPointerException，然而在Tomcat、Weblogic下都没有该问题。</p>
+<p>分析错误日志，发现报错信息与log4j有关，而我们也确实使用了log4j，版本是2.10.0。</p>
+<p>尝试着将log4j的jar包和slf4j的jar包从war包中删除，再安装，就启动成功了。此时再手动将之前移除的jar包放到应用的lib路径下，日志也可以正常打印了。</p>
+<p>原因可能是我们所使用的log4j、slf4j的jar包，websphere8.5本身提供，而且自带的jar包与我们使用的版本不一致。在默认情况下，容器会优先加载自带的jar包，从而导致应用启动失败，提示NullPointerException。</p>
+<p>解决办法如下：<br>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/websphere自带jar包与应用jar包冲突的解决办法.html">
+            <a class="btn" href="/websphere自带jar包与应用jar包冲突的解决办法.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -796,10 +802,15 @@
 
       
         
-          Intellij IDEA 远程调试Tomcat下的应用
+          <ol>
+<li><p>在Tomcat的bin目录下找到catalina.bat，搜索JPDA_ADDRESS，即为远程调试监听端口，默认为8000</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set JPDA_ADDRESS = 8000</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>cd到bin目录下，运行catalina.bat，并开启远程调试功能</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">catalina.bat jpda start</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/intellij-idea-远程调试tomcat下的应用.html">
+            <a class="btn" href="/intellij-idea-远程调试tomcat下的应用.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -975,14 +986,40 @@
 
       
         
-          Web容器默认servlet
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/web容器默认servlet.html">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <table>
+<thead>
+<tr>
+<th style="text-align:center">默认servlet-name</th>
+<th style="text-align:center">容器</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">default</td>
+<td style="text-align:center">Tomcat Jetty JBoss GlassFish</td>
+</tr>
+<tr>
+<td style="text-align:center">_ah_default</td>
+<td style="text-align:center">Google App Engine</td>
+</tr>
+<tr>
+<td style="text-align:center">resin-file</td>
+<td style="text-align:center">Resin</td>
+</tr>
+<tr>
+<td style="text-align:center">FileServlet</td>
+<td style="text-align:center">WebLogic</td>
+</tr>
+<tr>
+<td style="text-align:center">SimpleFileServlet</td>
+<td style="text-align:center">WebSphere</td>
+</tr>
+</tbody>
+</table>
+<p>在spring配置文件中开启如下配置，即可开启默认servlet<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mvc:default-servlet-handler</span>/&gt;</span></span><br></pre></td></tr></table></figure></p>
+
+          
         
       
     </div>
@@ -1154,10 +1191,29 @@
 
       
         
-          C#中程序集版本名词解释
+          <p>微软内部开发有一个版本号命名规则，格式如下:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Major</th>
+<th style="text-align:center">Minor</th>
+<th style="text-align:center">Build</th>
+<th style="text-align:center">Revision</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">主要版本号</td>
+<td style="text-align:center">次要版本号</td>
+<td style="text-align:center">生成号</td>
+<td style="text-align:center">修订号</td>
+</tr>
+</tbody>
+</table>
+<p>eg：2.23.159.23<br>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/c-中程序集版本名词解释.html">
+            <a class="btn" href="/c-中程序集版本名词解释.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1333,10 +1389,14 @@
 
       
         
-          C#调用ocx的方法
+          <p>一、Winform工程中调用ocx</p>
+<ol>
+<li>在项目中添加对ocx的引用</li>
+<li>将ocx文件拖拽至工具箱</li>
+<li><p>将ocx控件从工具箱中拖拽到窗体上</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/c-调用ocx的方法.html">
+            <a class="btn" href="/c-调用ocx的方法.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1512,14 +1572,11 @@
 
       
         
-          WebSphere下免密登录
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/websphere下免密登录.html">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <p>取消控制台认证<br>在was node的安装目录下，查找安全文件security.xml<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$WAS_Profile_HOME\config\cells</span><br></pre></td></tr></table></figure></p>
+<p>在xml中，查找第一个enabled属性，将其修改为false，再重新启动即可</p>
+
+          
         
       
     </div>
@@ -1691,10 +1748,31 @@
 
       
         
-          WebSphere下配置servlet可访问WEB-INF
+          <a href="https://www.ibm.com/support/knowledgecenter/was_beta_liberty/com.ibm.websphere.liberty.autogen.beta.doc/ae/rwlp_config_webContainer.html" target="_blank" rel="noopener">WebSphere的WebContainer配置项说明</a>
+<p>WebSphere的WebContainer配置项中：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Attributename</th>
+<th style="text-align:center">Data type</th>
+<th style="text-align:center">Default value</th>
+<th style="text-align:center">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">exposeWebInfOnDispatch</td>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center">false</td>
+<td style="text-align:center">If true, a servlet can access files in the WEB-INF directory. If false (default), a servlet cannot access files the WEB-INF directory.</td>
+</tr>
+</tbody>
+</table>
+<p>exposeWebInfOnDispatch属性默认值为false，servlet不能访问WEB-INF目录。</p>
+<p>按照下图配置，可访问WEB-INF目录<br>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/websphere下配置servlet可访问web-inf.html">
+            <a class="btn" href="/websphere下配置servlet可访问web-inf.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1870,10 +1948,25 @@
 
       
         
-          MySQL在Windows环境下安装
+          <ol>
+<li>MySQL官网下载安装包 <a href="https://www.mysql.com/cn/downloads/" target="_blank" rel="noopener">https://www.mysql.com/cn/downloads/</a></li>
+<li>解压到本地目录</li>
+<li>新建my.ini</li>
+<li>cd到bin目录下</li>
+<li>初始化数据，执行 mysqld –initialize（mysqld –initialize-insecure –user=mysql;据说执行这句话可以免密陆）</li>
+<li>注册windows服务，mysqld –install MySQL –defaultsfile=”d:\DataBase\MySql\mysql-5.7.16-winx64\my.ini”</li>
+<li>启动mysql服务 net start mysql</li>
+<li>登陆mysql，mysql -u root -p</li>
+<li>提示输入密码，初始无密码，直接回车</li>
+<li>切换数据库，use mysql</li>
+<li>修改密码，update user set password = password(‘newpsw’) where user = ‘roo’;</li>
+<li>刷新权限表，flush privileges;</li>
+<li>修改主机名，允许所有ip连接，update user set hosts = ‘%’ where user = ‘root’;</li>
+<li>exit退出mysql</li>
+<li><p>如需关闭服务，net stop mysql</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/mysql在windows环境下安装.html">
+            <a class="btn" href="/mysql在windows环境下安装.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -2049,10 +2142,12 @@
 
       
         
-          MySQL官方Docker镜像使用
+          <ol>
+<li>启动mysql服务实例<br>拉取镜像<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker pull mysql</span><br><span class="line">docker pull mysql:5.7</span><br></pre></td></tr></table></figure>
+启动实例<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=password -d mysql:5.7</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/mysql官方docker镜像使用.html">
+            <a class="btn" href="/mysql官方docker镜像使用.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>

@@ -438,14 +438,11 @@
 
       
         
-          Docker中国官方镜像加速
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/docker中国官方镜像加速.html">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <a href="https://www.docker-cn.com/registry-mirror" title="external title" target="_blank" rel="noopener">Docker中国官方镜像加速</a>
+<p>编辑配置文件，配置镜像地址<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/docker/daemon.json</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">    &quot;registry-mirrors&quot;: [&quot;https://registry.docker-cn.com&quot;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+          
         
       
     </div>
@@ -617,14 +614,16 @@
 
       
         
-          Linux下war包操作
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/linux下war包操作.html">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <ol>
+<li><p>Unzip</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unzip -oq common.war -d common</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>jar</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jar -xvf game.war</span><br></pre></td></tr></table></figure></li>
+</ol>
+
+          
         
       
     </div>
@@ -796,10 +795,11 @@
 
       
         
-          Linux下端口进程互查
+          <ol>
+<li>先查看进程pid<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -ef |grep 进程名</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/linux下端口进程互查.html">
+            <a class="btn" href="/linux下端口进程互查.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -975,10 +975,11 @@
 
       
         
-          虚拟机Virtual Box环境下Ubuntu初始化配置网卡
+          <ol>
+<li>配置网卡为桥接模式<img src="/虚拟机virtual-box环境下ubuntu初始化配置网卡/1.png">
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/虚拟机virtual-box环境下ubuntu初始化配置网卡.html">
+            <a class="btn" href="/虚拟机virtual-box环境下ubuntu初始化配置网卡.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1154,10 +1155,14 @@
 
       
         
-          虚拟机Virtual Box环境下Ubuntu初始化配置共享文件夹
+          <ol>
+<li><p>虚拟机安装增强功能</p>
+<img src="/虚拟机virtual-box环境下ubuntu初始化配置共享文件夹/1.png">
+</li>
+<li><p>宿主机任意位置创建一个文件夹，用于宿主机与虚拟机交换文件</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/虚拟机virtual-box环境下ubuntu初始化配置共享文件夹.html">
+            <a class="btn" href="/虚拟机virtual-box环境下ubuntu初始化配置共享文件夹.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1333,14 +1338,12 @@
 
       
         
-          Ubuntu离线安装软件包
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/ubuntu离线安装软件包.html">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <p>Ubuntu软件包格式为deb</p>
+<p>离线安装命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dpkg -i xxx.deb</span><br></pre></td></tr></table></figure></p>
+<p>PS:使用apt-get命令安装软件时，所有下载的deb包都缓存到了/var/cache/apt/archives目录下</p>
+
+          
         
       
     </div>
@@ -1512,14 +1515,19 @@
 
       
         
-          Ubuntu开启SSH服务
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/ubuntu开启ssh服务.html">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <ol>
+<li><p>安装ssh服务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install openssh-server</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>开启ssh服务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service ssh start</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>ssh配置文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/ssh/sshd_config</span><br></pre></td></tr></table></figure></li>
+</ol>
+
+          
         
       
     </div>
@@ -1691,10 +1699,12 @@
 
       
         
-          虚拟机VMware环境下CentOS初始化配置网卡
+          <ol>
+<li>检测网卡<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ipconfig</span><br></pre></td></tr></table></figure>
+发现只有ens33和lo两个网卡，需要将ens33修改为eth0
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/虚拟机vmware环境下centos初始化配置网卡.html">
+            <a class="btn" href="/虚拟机vmware环境下centos初始化配置网卡.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1870,10 +1880,12 @@
 
       
         
-          CentOS防火墙使用
+          <ol>
+<li>启动防火墙<br>查看防火墙是否启动<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl status firewalld</span><br></pre></td></tr></table></figure>
+如果没有启动，启动<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start firewalld</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/centos防火墙使用.html">
+            <a class="btn" href="/centos防火墙使用.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -2049,10 +2061,12 @@
 
       
         
-          CentOS开启SSH服务
+          <ol>
+<li>安装openssh-server<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum list installed |grep openssh-server</span><br></pre></td></tr></table></figure>
+如果有输出，证明已经安装了openssh-server，如果没有，需要安装<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install openssh-server</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/centos开启ssh服务.html">
+            <a class="btn" href="/centos开启ssh服务.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>

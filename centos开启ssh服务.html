@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="CentOS开启SSH服务">
+<meta name="description" content="安装openssh-server1yum list installed |grep openssh-server 如果有输出，证明已经安装了openssh-server，如果没有，需要安装1yum install openssh-server">
 <meta name="keywords" content="linux,centos,ssh">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CentOS开启SSH服务">
 <meta property="og:url" content="https://it-linnan.github.io/centos开启ssh服务.html">
 <meta property="og:site_name" content="Linn&#39;s Blog">
-<meta property="og:description" content="CentOS开启SSH服务">
+<meta property="og:description" content="安装openssh-server1yum list installed |grep openssh-server 如果有输出，证明已经安装了openssh-server，如果没有，需要安装1yum install openssh-server">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-01T03:40:09.452Z">
+<meta property="og:updated_time" content="2018-06-05T06:17:25.656Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CentOS开启SSH服务">
-<meta name="twitter:description" content="CentOS开启SSH服务">
+<meta name="twitter:description" content="安装openssh-server1yum list installed |grep openssh-server 如果有输出，证明已经安装了openssh-server，如果没有，需要安装1yum install openssh-server">
 
 
 
@@ -424,10 +424,6 @@
           
 
           
-              <div class="post-description">
-                  CentOS开启SSH服务
-              </div>
-          
 
         </div>
       </header>
@@ -443,11 +439,9 @@
 
       
         <ol>
-<li><p>安装openssh-server</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum list installed |grep openssh-server</span><br></pre></td></tr></table></figure>
-<p>如果有输出，证明已经安装了openssh-server，如果没有，需要安装</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install openssh-server</span><br></pre></td></tr></table></figure>
-</li>
+<li>安装openssh-server<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum list installed |grep openssh-server</span><br></pre></td></tr></table></figure>
+如果有输出，证明已经安装了openssh-server，如果没有，需要安装<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install openssh-server</span><br></pre></td></tr></table></figure>
+<a id="more"></a></li>
 <li><p>修改sshd服务配置文件</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/ssh/sshd_config</span><br></pre></td></tr></table></figure>
 <p>开启监听</p>
@@ -482,9 +476,9 @@
           
             <a href="/tags/linux/" rel="tag"># linux</a>
           
-            <a href="/tags/centos/" rel="tag"># centos</a>
-          
             <a href="/tags/ssh/" rel="tag"># ssh</a>
+          
+            <a href="/tags/centos/" rel="tag"># centos</a>
           
         </div>
       

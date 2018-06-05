@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="Linux下端口进程互查">
+<meta name="description" content="先查看进程pid1ps -ef |grep 进程名">
 <meta name="keywords" content="linux,端口,进程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux下端口进程互查">
 <meta property="og:url" content="https://it-linnan.github.io/linux下端口进程互查.html">
 <meta property="og:site_name" content="Linn&#39;s Blog">
-<meta property="og:description" content="Linux下端口进程互查">
+<meta property="og:description" content="先查看进程pid1ps -ef |grep 进程名">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-01T03:31:47.420Z">
+<meta property="og:updated_time" content="2018-06-05T06:17:11.452Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux下端口进程互查">
-<meta name="twitter:description" content="Linux下端口进程互查">
+<meta name="twitter:description" content="先查看进程pid1ps -ef |grep 进程名">
 
 
 
@@ -424,10 +424,6 @@
           
 
           
-              <div class="post-description">
-                  Linux下端口进程互查
-              </div>
-          
 
         </div>
       </header>
@@ -443,9 +439,8 @@
 
       
         <ol>
-<li><p>先查看进程pid</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -ef |grep 进程名</span><br></pre></td></tr></table></figure>
-</li>
+<li>先查看进程pid<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -ef |grep 进程名</span><br></pre></td></tr></table></figure>
+<a id="more"></a></li>
 <li><p>通过pid查看占用端口</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -nap |grep 进程id</span><br></pre></td></tr></table></figure>
 </li>
