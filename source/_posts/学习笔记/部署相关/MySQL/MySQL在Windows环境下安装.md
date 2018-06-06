@@ -43,7 +43,7 @@ use mysql
 {% endcodeblock %}
 1. 修改密码
 {% codeblock lang:sql %}
-update user set password = password('newpsw') where user = 'roo';
+update user set password = password('newpsw') where user = 'root';
 {% endcodeblock %}
 1. 刷新权限表
 {% codeblock lang:sql %}
