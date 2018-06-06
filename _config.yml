@@ -16,7 +16,7 @@ timezone:
 url: https://it-linnan.github.io
 root: /
 #permalink: :year/:month/:day/:title/
-permalink: :title.html
+permalink: :post_title.html
 permalink_defaults:
 
 # Directory
