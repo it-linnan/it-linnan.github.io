@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="Linn&#39;s Blog">
 <meta property="og:description" content="启动防火墙查看防火墙是否启动1systemctl status firewalld 如果没有启动，启动1systemctl start firewalld">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-05T06:17:23.590Z">
+<meta property="og:updated_time" content="2018-06-06T02:31:15.010Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CentOS防火墙使用">
 <meta name="twitter:description" content="启动防火墙查看防火墙是否启动1systemctl status firewalld 如果没有启动，启动1systemctl start firewalld">
@@ -439,17 +439,17 @@
 
       
         <ol>
-<li>启动防火墙<br>查看防火墙是否启动<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl status firewalld</span><br></pre></td></tr></table></figure>
-如果没有启动，启动<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start firewalld</span><br></pre></td></tr></table></figure>
+<li>启动防火墙<br>查看防火墙是否启动<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl status firewalld</span><br></pre></td></tr></table></figure>
+如果没有启动，启动<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start firewalld</span><br></pre></td></tr></table></figure>
 <a id="more"></a></li>
 <li><p>开放端口命令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --zone=public --add-port=1. 1. /tcp --permanent</span><br><span class="line">systemctl restart firewalld</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --zone=public --add-port=1. 1. /tcp --permanent</span><br><span class="line">systemctl restart firewalld</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>关闭端口命令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --zone=public --remove-port=1. 1. /tcp -permanent</span><br><span class="line">systemctl restart firewalld</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --zone=public --remove-port=1. 1. /tcp -permanent</span><br><span class="line">systemctl restart firewalld</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>查看开放端口命令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --zone=public --list-ports</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --zone=public --list-ports</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 
@@ -486,8 +486,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/centos开启ssh服务.html" rel="next" title="CentOS开启SSH服务">
-                <i class="fa fa-chevron-left"></i> CentOS开启SSH服务
+              <a href="/虚拟机vmware环境下centos初始化配置网卡.html" rel="next" title="虚拟机VMware环境下CentOS初始化配置网卡">
+                <i class="fa fa-chevron-left"></i> 虚拟机VMware环境下CentOS初始化配置网卡
               </a>
             
           </div>
@@ -496,8 +496,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/虚拟机vmware环境下centos初始化配置网卡.html" rel="prev" title="虚拟机VMware环境下CentOS初始化配置网卡">
-                虚拟机VMware环境下CentOS初始化配置网卡 <i class="fa fa-chevron-right"></i>
+              <a href="/ubuntu开启ssh服务.html" rel="prev" title="Ubuntu开启SSH服务">
+                Ubuntu开启SSH服务 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

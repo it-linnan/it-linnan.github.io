@@ -804,10 +804,10 @@
         
           <ol>
 <li><p>在Tomcat的bin目录下找到catalina.bat，搜索JPDA_ADDRESS，即为远程调试监听端口，默认为8000</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set JPDA_ADDRESS = 8000</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set</span> JPDA_ADDRESS = 8000</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>cd到bin目录下，运行catalina.bat，并开启远程调试功能</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">catalina.bat jpda start</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">catalina.bat jpda start</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/intellij-idea-远程调试tomcat下的应用.html#more" rel="contents">
@@ -1573,7 +1573,7 @@
       
         
           
-            <p>取消控制台认证<br>在was node的安装目录下，查找安全文件security.xml<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$WAS_Profile_HOME\config\cells</span><br></pre></td></tr></table></figure></p>
+            <p>取消控制台认证<br>在was node的安装目录下，查找安全文件security.xml<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$WAS_Profile_HOME</span>\config\cells</span><br></pre></td></tr></table></figure></p>
 <p>在xml中，查找第一个enabled属性，将其修改为false，再重新启动即可</p>
 
           
@@ -1949,21 +1949,22 @@
       
         
           <ol>
-<li>MySQL官网下载安装包 <a href="https://www.mysql.com/cn/downloads/" target="_blank" rel="noopener">https://www.mysql.com/cn/downloads/</a></li>
+<li><a href="https://www.mysql.com/cn/downloads/" target="_blank" rel="noopener">MySQL官网下载安装包</a></li>
 <li>解压到本地目录</li>
 <li>新建my.ini</li>
 <li>cd到bin目录下</li>
-<li>初始化数据，执行 mysqld –initialize（mysqld –initialize-insecure –user=mysql;据说执行这句话可以免密陆）</li>
-<li>注册windows服务，mysqld –install MySQL –defaultsfile=”d:\DataBase\MySql\mysql-5.7.16-winx64\my.ini”</li>
-<li>启动mysql服务 net start mysql</li>
-<li>登陆mysql，mysql -u root -p</li>
+<li>初始化数据，执行命令<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mysqld --initialize</span><br><span class="line">-- 据说执行这句话可以免密陆</span><br><span class="line">mysqld --initialize-insecure --user=mysql</span><br></pre></td></tr></table></figure></li>
+<li>注册windows服务<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqld --install MySQL --defaultsfile=<span class="string">"d:\DataBase\MySql\mysql-5.7.16-winx64\my.ini"</span></span><br></pre></td></tr></table></figure></li>
+<li>启动mysql服务<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net start mysql</span><br></pre></td></tr></table></figure></li>
+<li>登陆mysql<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p</span><br></pre></td></tr></table></figure></li>
 <li>提示输入密码，初始无密码，直接回车</li>
-<li>切换数据库，use mysql</li>
-<li>修改密码，update user set password = password(‘newpsw’) where user = ‘roo’;</li>
-<li>刷新权限表，flush privileges;</li>
-<li>修改主机名，允许所有ip连接，update user set hosts = ‘%’ where user = ‘root’;</li>
-<li>exit退出mysql</li>
-<li><p>如需关闭服务，net stop mysql</p>
+<li>切换数据库<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">use mysql</span><br></pre></td></tr></table></figure></li>
+<li>修改密码<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">update user set password = password(&apos;newpsw&apos;) where user = &apos;roo&apos;;</span><br></pre></td></tr></table></figure></li>
+<li>刷新权限表<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flush privileges;</span><br></pre></td></tr></table></figure></li>
+<li>修改主机名，允许所有ip连接<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">update user set hosts = &apos;%&apos; where user = &apos;root&apos;;</span><br></pre></td></tr></table></figure></li>
+<li>退出mysql<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">exit</span></span><br></pre></td></tr></table></figure></li>
+<li><p>如需关闭服务</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net stop mysql</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/mysql在windows环境下安装.html#more" rel="contents">
@@ -2143,8 +2144,8 @@
       
         
           <ol>
-<li>启动mysql服务实例<br>拉取镜像<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker pull mysql</span><br><span class="line">docker pull mysql:5.7</span><br></pre></td></tr></table></figure>
-启动实例<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=password -d mysql:5.7</span><br></pre></td></tr></table></figure>
+<li>启动mysql服务实例<br>拉取镜像<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker pull mysql</span><br><span class="line">docker pull mysql:5.7</span><br></pre></td></tr></table></figure>
+启动实例<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=password -d mysql:5.7</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/mysql官方docker镜像使用.html#more" rel="contents">

@@ -72,7 +72,7 @@
   <entry>
     <title><![CDATA[C#调用ocx的方法]]></title>
     <url>%2Fc-%E8%B0%83%E7%94%A8ocx%E7%9A%84%E6%96%B9%E6%B3%95.html</url>
-    <content type="text"><![CDATA[一、Winform工程中调用ocx 在项目中添加对ocx的引用 将ocx文件拖拽至工具箱 将ocx控件从工具箱中拖拽到窗体上 二、类库工程中调用ocx 编译ocx文件 打开Visual Studio命令提示符 输入命令aximp xxx.ocx，生成两个dll文件 将两个dll文件放到项目路径下 在项目中添加引用，引用Ax开头的dll 调用ocx控件的方法 #123Ocx ocx = new Ocx();ocx.CreateControl();ocx.method();]]></content>
+    <content type="text"><![CDATA[一、Winform工程中调用ocx 在项目中添加对ocx的引用 将ocx文件拖拽至工具箱 将ocx控件从工具箱中拖拽到窗体上 二、类库工程中调用ocx 编译ocx文件 打开Visual Studio命令提示符 输入命令aximp xxx.ocx，生成两个dll文件 将两个dll文件放到项目路径下 在项目中添加引用，引用Ax开头的dll 调用ocx控件的方法 123Ocx ocx = new Ocx();ocx.CreateControl();ocx.method();]]></content>
       <categories>
         <category>学习笔记</category>
         <category>开发语言</category>
@@ -114,7 +114,7 @@
   <entry>
     <title><![CDATA[MySQL在Windows环境下安装]]></title>
     <url>%2Fmysql%E5%9C%A8windows%E7%8E%AF%E5%A2%83%E4%B8%8B%E5%AE%89%E8%A3%85.html</url>
-    <content type="text"><![CDATA[MySQL官网下载安装包 https://www.mysql.com/cn/downloads/ 解压到本地目录 新建my.ini cd到bin目录下 初始化数据，执行 mysqld –initialize（mysqld –initialize-insecure –user=mysql;据说执行这句话可以免密陆） 注册windows服务，mysqld –install MySQL –defaultsfile=”d:\DataBase\MySql\mysql-5.7.16-winx64\my.ini” 启动mysql服务 net start mysql 登陆mysql，mysql -u root -p 提示输入密码，初始无密码，直接回车 切换数据库，use mysql 修改密码，update user set password = password(‘newpsw’) where user = ‘roo’; 刷新权限表，flush privileges; 修改主机名，允许所有ip连接，update user set hosts = ‘%’ where user = ‘root’; exit退出mysql 如需关闭服务，net stop mysql 注意： 5.7版本之后，初始化数据后，会自动分配一个密码，密码可在一个.err文件中查看日志获取 在my.ini中配置一项可以不使用密码登陆，在[mysqld]下输入skip-grant-tables 12345678910my.ini[mysql]default-character-set=utf8[mysqld]basedir =d:\DataBase\MySql\mysql-5.7.16-winx64datadir =d:\DataBase\MySql\mysql-5.7.16-winx64\dataport =3306character-set-server=utf8[client]default-character-set=utf8]]></content>
+    <content type="text"><![CDATA[MySQL官网下载安装包 解压到本地目录 新建my.ini cd到bin目录下 初始化数据，执行命令123mysqld --initialize-- 据说执行这句话可以免密陆mysqld --initialize-insecure --user=mysql 注册windows服务1mysqld --install MySQL --defaultsfile="d:\DataBase\MySql\mysql-5.7.16-winx64\my.ini" 启动mysql服务1net start mysql 登陆mysql1mysql -u root -p 提示输入密码，初始无密码，直接回车 切换数据库1use mysql 修改密码1update user set password = password(&apos;newpsw&apos;) where user = &apos;roo&apos;; 刷新权限表1flush privileges; 修改主机名，允许所有ip连接1update user set hosts = &apos;%&apos; where user = &apos;root&apos;; 退出mysql1exit 如需关闭服务 1net stop mysql 注意： 5.7版本之后，初始化数据后，会自动分配一个密码，密码可在一个.err文件中查看日志获取 在my.ini中配置一项可以不使用密码登陆，在[mysqld]下输入skip-grant-tables 12345678910my.ini[mysql]default-character-set=utf8[mysqld]basedir =d:\DataBase\MySql\mysql-5.7.16-winx64datadir =d:\DataBase\MySql\mysql-5.7.16-winx64\dataport =3306character-set-server=utf8[client]default-character-set=utf8]]></content>
       <categories>
         <category>学习笔记</category>
         <category>部署相关</category>
@@ -128,23 +128,23 @@
   <entry>
     <title><![CDATA[MySQL官方Docker镜像使用]]></title>
     <url>%2Fmysql%E5%AE%98%E6%96%B9docker%E9%95%9C%E5%83%8F%E4%BD%BF%E7%94%A8.html</url>
-    <content type="text"><![CDATA[启动mysql服务实例拉取镜像12docker pull mysqldocker pull mysql:5.7 启动实例1docker run --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=password -d mysql:5.7 测试mysql服务实例安装mysql客户端 1apt-get install mysql-client-core-5.7 登录mysql 1mysql -h127.0.0.1 -P3306 -uroot -ppassword 使用自定义MySQL配置文件默认情况下，MySQL的启动配置文件是/etc/mysql/my.cnf，引用了/etc/mysql/conf.d和/etc/mysql/mysql.conf.d文件夹想要使用自定义配置文件，可将配置文件挂载到mysql容器的/etc/mysql/conf.d和/etc/mysql/mysql.conf.d目录下 title1docker run --name mysql -p 3307:3306 -v /mnt/share/custom.cnf:/etc/mysql/conf.d/custom.cnf -e MYSQL_ROOT_PASSWORD=password -d mysql:5.7 使用自定义MySQL配置也可以使用命令行参数来指定配置 1docker run --name mysql -p 3307:3306 -v /mnt/share/custom.cnf:/etc/mysql/conf.d/custom.cnf -e MYSQL_ROOT_PASSWORD=password -d mysql:5.7 --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci --lower_case_table_names=1 可以通过以下命令，查看可配参数 1docker run -it --rm mysql:tag --verbose --hel]]></content>
+    <content type="text"><![CDATA[启动mysql服务实例拉取镜像12docker pull mysqldocker pull mysql:5.7 启动实例1docker run --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=password -d mysql:5.7 测试mysql服务实例安装mysql客户端 1apt-get install mysql-client-core-5.7 登录mysql 1mysql -h127.0.0.1 -P3306 -uroot -ppassword 使用自定义MySQL配置文件默认情况下，MySQL的启动配置文件是/etc/mysql/my.cnf，引用了/etc/mysql/conf.d和/etc/mysql/mysql.conf.d文件夹想要使用自定义配置文件，可将配置文件挂载到mysql容器的/etc/mysql/conf.d和/etc/mysql/mysql.conf.d目录下 1docker run --name mysql -p 3307:3306 -v /mnt/share/custom.cnf:/etc/mysql/conf.d/custom.cnf -e MYSQL_ROOT_PASSWORD=password -d mysql:5.7 使用自定义MySQL配置也可以使用命令行参数来指定配置 1docker run --name mysql -p 3307:3306 -v /mnt/share/custom.cnf:/etc/mysql/conf.d/custom.cnf -e MYSQL_ROOT_PASSWORD=password -d mysql:5.7 --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci --lower_case_table_names=1 可以通过以下命令，查看可配参数 1docker run -it --rm mysql:tag --verbose --hel]]></content>
       <categories>
         <category>学习笔记</category>
         <category>部署相关</category>
         <category>Docker</category>
       </categories>
       <tags>
-        <tag>docker</tag>
-        <tag>mysql</tag>
         <tag>linux</tag>
         <tag>ubuntu</tag>
+        <tag>docker</tag>
+        <tag>mysql</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[Docker中国官方镜像加速]]></title>
     <url>%2Fdocker%E4%B8%AD%E5%9B%BD%E5%AE%98%E6%96%B9%E9%95%9C%E5%83%8F%E5%8A%A0%E9%80%9F.html</url>
-    <content type="text"><![CDATA[Docker中国官方镜像加速 编辑配置文件，配置镜像地址12345vi /etc/docker/daemon.json&#123; &quot;registry-mirrors&quot;: [&quot;https://registry.docker-cn.com&quot;]&#125;]]></content>
+    <content type="text"><![CDATA[Docker中国官方镜像加速 编辑配置文件，配置镜像地址12345vi /etc/docker/daemon.json&#123; "registry-mirrors": ["https://registry.docker-cn.com"]&#125;]]></content>
       <categories>
         <category>学习笔记</category>
         <category>部署相关</category>
@@ -238,23 +238,8 @@
       </categories>
       <tags>
         <tag>linux</tag>
-        <tag>ubuntu</tag>
         <tag>ssh</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[虚拟机VMware环境下CentOS初始化配置网卡]]></title>
-    <url>%2F%E8%99%9A%E6%8B%9F%E6%9C%BAvmware%E7%8E%AF%E5%A2%83%E4%B8%8Bcentos%E5%88%9D%E5%A7%8B%E5%8C%96%E9%85%8D%E7%BD%AE%E7%BD%91%E5%8D%A1.html</url>
-    <content type="text"><![CDATA[检测网卡1ipconfig 发现只有ens33和lo两个网卡，需要将ens33修改为eth0 修改网卡名称，将其中得NAME和DEVICE项修改为eth0 1vi /etc/sysconfig/network-scripts/ifcfg-ens33 修改配置文件名称 1mv /etc/sysconfig/network-scripts/ifcfg-ens33 /etc/sysconfig/network-scripts/ifcfg-eth0 编辑/etc/default/grub并加入“net.ifnames=0 biosdevname=0 ”到GRUBCMDLINELINUX变量 12345678vi /etc/default/grubGRUB_TIMEOUT=5GRUB_DISTRIBUTOR=&quot;$(sed &apos;s, release .*$,,g&apos; /etc/system-release)&quot;GRUB_DEFAULT=savedGRUB_DISABLE_SUBMENU=trueGRUB_TERMINAL_OUTPUT=&quot;console&quot;GRUB_CMDLINE_LINUX=&quot;crashkernel=auto net.ifnames=0 biosdevname=0 rhgb quiet&quot;GRUB_DISABLE_RECOVERY=&quot;true&quot; 运行命令grub2-mkconfig -o /boot/grub2/grub.cfg 来重新生成GRUB配置并更新内核参数 1grub2-mkconfig -o /boot/grub2/grub.cfg 重启OS 1reboot 检测网卡以验证 1ifconfig]]></content>
-      <categories>
-        <category>学习笔记</category>
-        <category>Linux</category>
-        <category>CentOS</category>
-      </categories>
-      <tags>
-        <tag>linux</tag>
-        <tag>centos</tag>
-        <tag>vmware</tag>
+        <tag>ubuntu</tag>
       </tags>
   </entry>
   <entry>
@@ -273,6 +258,21 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[虚拟机VMware环境下CentOS初始化配置网卡]]></title>
+    <url>%2F%E8%99%9A%E6%8B%9F%E6%9C%BAvmware%E7%8E%AF%E5%A2%83%E4%B8%8Bcentos%E5%88%9D%E5%A7%8B%E5%8C%96%E9%85%8D%E7%BD%AE%E7%BD%91%E5%8D%A1.html</url>
+    <content type="text"><![CDATA[检测网卡1ipconfig 发现只有ens33和lo两个网卡，需要将ens33修改为eth0 修改网卡名称，将其中得NAME和DEVICE项修改为eth0 1vi /etc/sysconfig/network-scripts/ifcfg-ens33 修改配置文件名称 1mv /etc/sysconfig/network-scripts/ifcfg-ens33 /etc/sysconfig/network-scripts/ifcfg-eth0 编辑/etc/default/grub并加入“net.ifnames=0 biosdevname=0 ”到GRUBCMDLINELINUX变量 12345678vi /etc/default/grubGRUB_TIMEOUT=5GRUB_DISTRIBUTOR="$(sed 's, release .*$,,g' /etc/system-release)"GRUB_DEFAULT=savedGRUB_DISABLE_SUBMENU=trueGRUB_TERMINAL_OUTPUT="console"GRUB_CMDLINE_LINUX="crashkernel=auto net.ifnames=0 biosdevname=0 rhgb quiet"GRUB_DISABLE_RECOVERY="true" 运行命令grub2-mkconfig -o /boot/grub2/grub.cfg 来重新生成GRUB配置并更新内核参数 1grub2-mkconfig -o /boot/grub2/grub.cfg 重启OS 1reboot 检测网卡以验证 1ifconfig]]></content>
+      <categories>
+        <category>学习笔记</category>
+        <category>Linux</category>
+        <category>CentOS</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+        <tag>centos</tag>
+        <tag>vmware</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[CentOS开启SSH服务]]></title>
     <url>%2Fcentos%E5%BC%80%E5%90%AFssh%E6%9C%8D%E5%8A%A1.html</url>
     <content type="text"><![CDATA[安装openssh-server1yum list installed |grep openssh-server 如果有输出，证明已经安装了openssh-server，如果没有，需要安装1yum install openssh-server 修改sshd服务配置文件 1vi /etc/ssh/sshd_config 开启监听 123Port 22ListenAddress 0.0.0.0ListenAddress :: 允许远程登录 1PermitRootLogin yes 使用用户名密码作为连接验证 1PasswordAuthentication yes 开启sshd服务 1service sshd start 配置开机自启动 1systemctl enable sshd]]></content>
@@ -283,8 +283,8 @@
       </categories>
       <tags>
         <tag>linux</tag>
-        <tag>ssh</tag>
         <tag>centos</tag>
+        <tag>ssh</tag>
       </tags>
   </entry>
 </search>

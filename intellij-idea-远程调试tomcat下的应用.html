@@ -105,7 +105,7 @@
 <meta property="og:image" content="https://it-linnan.github.io/intellij-idea-远程调试tomcat下的应用/3.png">
 <meta property="og:image" content="https://it-linnan.github.io/intellij-idea-远程调试tomcat下的应用/4.png">
 <meta property="og:image" content="https://it-linnan.github.io/intellij-idea-远程调试tomcat下的应用/5.png">
-<meta property="og:updated_time" content="2018-06-05T06:17:34.056Z">
+<meta property="og:updated_time" content="2018-06-06T02:32:20.550Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Intellij IDEA 远程调试Tomcat下的应用">
 <meta name="twitter:description" content="在Tomcat的bin目录下找到catalina.bat，搜索JPDA_ADDRESS，即为远程调试监听端口，默认为8000 1set JPDA_ADDRESS = 8000  cd到bin目录下，运行catalina.bat，并开启远程调试功能 1catalina.bat jpda start">
@@ -444,10 +444,10 @@
       
         <ol>
 <li><p>在Tomcat的bin目录下找到catalina.bat，搜索JPDA_ADDRESS，即为远程调试监听端口，默认为8000</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set JPDA_ADDRESS = 8000</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set</span> JPDA_ADDRESS = 8000</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>cd到bin目录下，运行catalina.bat，并开启远程调试功能</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">catalina.bat jpda start</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">catalina.bat jpda start</span><br></pre></td></tr></table></figure>
 <a id="more"></a></li>
 <li><p>在intellij中，新建远程服务器</p>
 <img src="/intellij-idea-远程调试tomcat下的应用/3.png">

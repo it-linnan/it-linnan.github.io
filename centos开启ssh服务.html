@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="Linn&#39;s Blog">
 <meta property="og:description" content="安装openssh-server1yum list installed |grep openssh-server 如果有输出，证明已经安装了openssh-server，如果没有，需要安装1yum install openssh-server">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-05T06:17:25.656Z">
+<meta property="og:updated_time" content="2018-06-06T02:42:16.342Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CentOS开启SSH服务">
 <meta name="twitter:description" content="安装openssh-server1yum list installed |grep openssh-server 如果有输出，证明已经安装了openssh-server，如果没有，需要安装1yum install openssh-server">
@@ -439,23 +439,23 @@
 
       
         <ol>
-<li>安装openssh-server<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum list installed |grep openssh-server</span><br></pre></td></tr></table></figure>
-如果有输出，证明已经安装了openssh-server，如果没有，需要安装<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install openssh-server</span><br></pre></td></tr></table></figure>
+<li>安装openssh-server<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum list installed |grep openssh-server</span><br></pre></td></tr></table></figure>
+如果有输出，证明已经安装了openssh-server，如果没有，需要安装<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install openssh-server</span><br></pre></td></tr></table></figure>
 <a id="more"></a></li>
 <li><p>修改sshd服务配置文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/ssh/sshd_config</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/ssh/sshd_config</span><br></pre></td></tr></table></figure>
 <p>开启监听</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Port 22</span><br><span class="line">ListenAddress 0.0.0.0</span><br><span class="line">ListenAddress ::</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Port 22</span><br><span class="line">ListenAddress 0.0.0.0</span><br><span class="line">ListenAddress ::</span><br></pre></td></tr></table></figure>
 <p>允许远程登录</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PermitRootLogin yes</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PermitRootLogin yes</span><br></pre></td></tr></table></figure>
 <p>使用用户名密码作为连接验证</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PasswordAuthentication yes</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PasswordAuthentication yes</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>开启sshd服务</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service sshd start</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service sshd start</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>配置开机自启动</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl enable sshd</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="built_in">enable</span> sshd</span><br></pre></td></tr></table></figure></li>
 </ol>
 
       
@@ -476,9 +476,9 @@
           
             <a href="/tags/linux/" rel="tag"># linux</a>
           
-            <a href="/tags/ssh/" rel="tag"># ssh</a>
-          
             <a href="/tags/centos/" rel="tag"># centos</a>
+          
+            <a href="/tags/ssh/" rel="tag"># ssh</a>
           
         </div>
       
@@ -497,8 +497,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/centos防火墙使用.html" rel="prev" title="CentOS防火墙使用">
-                CentOS防火墙使用 <i class="fa fa-chevron-right"></i>
+              <a href="/虚拟机vmware环境下centos初始化配置网卡.html" rel="prev" title="虚拟机VMware环境下CentOS初始化配置网卡">
+                虚拟机VMware环境下CentOS初始化配置网卡 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
