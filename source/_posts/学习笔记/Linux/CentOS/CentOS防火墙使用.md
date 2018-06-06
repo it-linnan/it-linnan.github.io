@@ -9,35 +9,34 @@ categories:
 - 学习笔记
 - Linux
 - CentOS
+keywords:
+- linux
+- centos
+- firewall
 ---
 1. 启动防火墙
-
 查看防火墙是否启动
-{% codeblock %}
+{% codeblock lang:sh %}
 systemctl status firewalld
 {% endcodeblock %}
-
 如果没有启动，启动
-{% codeblock %}
+{% codeblock lang:sh %}
 systemctl start firewalld
 {% endcodeblock %}
-
+<!-- more -->
 1. 开放端口命令
-
-{% codeblock %}
+{% codeblock lang:sh %}
 firewall-cmd --zone=public --add-port=1. 1. /tcp --permanent
 systemctl restart firewalld
 {% endcodeblock %}
 
 1. 关闭端口命令
-
-{% codeblock %}
+{% codeblock lang:sh %}
 firewall-cmd --zone=public --remove-port=1. 1. /tcp -permanent
 systemctl restart firewalld
 {% endcodeblock %}
 
 1. 查看开放端口命令
-
-{% codeblock %}
+{% codeblock lang:sh %}
 firewall-cmd --zone=public --list-ports
 {% endcodeblock %}

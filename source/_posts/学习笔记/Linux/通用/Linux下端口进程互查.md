@@ -7,21 +7,22 @@ categories:
 - 学习笔记
 - Linux
 - 通用
+keywords:
+- linux
+- 端口
+- 进程
 ---
 1. 先查看进程pid
-
-{% codeblock %}
+{% codeblock lang:sh %}
 ps -ef |grep 进程名
 {% endcodeblock %}
-
+<!-- more -->
 1. 通过pid查看占用端口
-
-{% codeblock %}
+{% codeblock lang:sh %}
 netstat -nap |grep 进程id
 {% endcodeblock %}
 
 1. 通过端口查看进程
-
-{% codeblock %}
+{% codeblock lang:sh %}
 netstat -nap |grep 端口号
 {% endcodeblock %}

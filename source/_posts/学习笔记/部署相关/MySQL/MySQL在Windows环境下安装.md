@@ -8,30 +8,65 @@ categories:
 - 学习笔记
 - 部署相关
 - MySQL
+keywords:
+- mysql
+- windows
 ---
 
-1. MySQL官网下载安装包 https://www.mysql.com/cn/downloads/
+1. {% link MySQL官网下载安装包 https://www.mysql.com/cn/downloads/ %}
 1. 解压到本地目录
-1. 新建my.ini
-1. cd到bin目录下
-1. 初始化数据，执行 mysqld --initialize（mysqld --initialize-insecure --user=mysql;据说执行这句话可以免密陆）
-1. 注册windows服务，mysqld --install MySQL --defaultsfile="d:\DataBase\MySql\mysql-5.7.16-winx64\my.ini"
-1. 启动mysql服务 net start mysql
-1. 登陆mysql，mysql -u root -p
+2. 新建my.ini
+3. cd到bin目录下
+4. 初始化数据，执行命令
+{% codeblock lang:sh %}
+mysqld --initialize
+-- 据说执行这句话可以免密陆
+mysqld --initialize-insecure --user=mysql
+{% endcodeblock %}
+1. 注册windows服务
+{% codeblock lang:sh %}
+mysqld --install MySQL --defaultsfile="d:\DataBase\MySql\mysql-5.7.16-winx64\my.ini"
+{% endcodeblock %}
+1. 启动mysql服务
+{% codeblock lang:sh %}
+net start mysql
+{% endcodeblock %}
+1. 登陆mysql
+{% codeblock lang:sh %}
+mysql -u root -p
+{% endcodeblock %}
 1. 提示输入密码，初始无密码，直接回车
-1. 切换数据库，use mysql
-1. 修改密码，update user set password = password('newpsw') where user = 'roo';
-1. 刷新权限表，flush privileges;
-1. 修改主机名，允许所有ip连接，update user set hosts = '%' where user = 'root';
-1. exit退出mysql
-1. 如需关闭服务，net stop mysql
-
-注意：
+2. 切换数据库
+{% codeblock lang:mysql %}
+use mysql
+{% endcodeblock %}
+3. 修改密码
+{% codeblock lang:mysql %}
+update user set password = password('newpsw') where user = 'roo';
+{% endcodeblock %}
+4. 刷新权限表
+{% codeblock lang:mysql %}
+flush privileges;
+{% endcodeblock %}
+5. 修改主机名，允许所有ip连接
+{% codeblock lang:mysql %}
+update user set hosts = '%' where user = 'root';
+{% endcodeblock %}
+6. 退出mysql
+{% codeblock lang:sh %}
+exit
+{% endcodeblock %}
+7. 如需关闭服务
+{% codeblock lang:sh %}
+net stop mysql
+{% endcodeblock %}
+<!-- more -->
+`注意：`
 
 1. 5.7版本之后，初始化数据后，会自动分配一个密码，密码可在一个.err文件中查看日志获取
 1. 在my.ini中配置一项可以不使用密码登陆，在[mysqld]下输入skip-grant-tables
 
-{% codeblock %}
+{% codeblock lang:sh %}
 my.ini
 [mysql]
 default-character-set=utf8

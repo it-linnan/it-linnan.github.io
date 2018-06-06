@@ -9,19 +9,21 @@ categories:
 - 学习笔记
 - Linux
 - Ubuntu
+keywords:
+- linux
+- ubuntu
+- virtualbox
+- 网卡
 ---
 1. 配置网卡为桥接模式
-
 {% asset_img 1.png %}
-
+<!-- more -->
 1. 配置虚拟机ip、网关与宿主机在同一网段
-
 {% asset_img 2-1.png %}
 {% asset_img 2-2.png %}
 {% asset_img 2-3.png %}
 
 1. 断开再连接
-
 {% asset_img 3.png %}
 
 1. 完成！

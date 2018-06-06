@@ -9,21 +9,22 @@ categories:
 - 学习笔记
 - Linux
 - Ubuntu
+keywords:
+- linux
+- ubuntu
+- ssh
 ---
 1. 安装ssh服务
-
-{% codeblock %}
+{% codeblock lang:sh %}
 apt-get install openssh-server
 {% endcodeblock %}
 
 1. 开启ssh服务
-
-{% codeblock %}
+{% codeblock lang:sh %}
 service ssh start
 {% endcodeblock %}
 
 1. ssh配置文件
-
-{% codeblock %}
+{% codeblock lang:sh %}
 vi /etc/ssh/sshd_config
 {% endcodeblock %}

@@ -8,15 +8,16 @@ categories:
 - 学习笔记
 - Linux
 - 通用
+keywords:
+- linux
+- war
 ---
 1. Unzip
-
-{% codeblock %}
+{% codeblock lang:sh %}
 unzip -oq common.war -d common
 {% endcodeblock %}
 
 1. jar
-
-{% codeblock %}
+{% codeblock lang:sh %}
 jar -xvf game.war
 {% endcodeblock %}

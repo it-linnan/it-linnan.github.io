@@ -8,6 +8,11 @@ categories:
 - 学习笔记
 - 开发语言
 - Java
+keywords:
+- linux
+- web container
+- web容器
+- 默认servlet
 ---
 
 | 默认servlet-name  | 容器                         |
