@@ -14,6 +14,13 @@
 
 
 
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
 
 
 
@@ -102,7 +109,7 @@
 <meta property="og:site_name" content="Linn&#39;s Blog">
 <meta property="og:description" content="MySQL官网下载安装包 解压到本地目录 新建my.ini cd到bin目录下 初始化数据，执行命令123mysqld --initialize-- 据说执行这句话可以免密陆mysqld --initialize-insecure --user=mysql">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-06T03:01:18.476Z">
+<meta property="og:updated_time" content="2018-06-06T08:35:38.026Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL在Windows环境下安装">
 <meta name="twitter:description" content="MySQL官网下载安装包 解压到本地目录 新建my.ini cd到bin目录下 初始化数据，执行命令123mysqld --initialize-- 据说执行这句话可以免密陆mysqld --initialize-insecure --user=mysql">
@@ -450,7 +457,7 @@
 <li>登陆mysql<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p</span><br></pre></td></tr></table></figure></li>
 <li>提示输入密码，初始无密码，直接回车</li>
 <li>切换数据库<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> mysql</span><br></pre></td></tr></table></figure></li>
-<li>修改密码<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">update</span> <span class="keyword">user</span> <span class="keyword">set</span> <span class="keyword">password</span> = <span class="keyword">password</span>(<span class="string">'newpsw'</span>) <span class="keyword">where</span> <span class="keyword">user</span> = <span class="string">'roo'</span>;</span><br></pre></td></tr></table></figure></li>
+<li>修改密码<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">update</span> <span class="keyword">user</span> <span class="keyword">set</span> <span class="keyword">password</span> = <span class="keyword">password</span>(<span class="string">'newpsw'</span>) <span class="keyword">where</span> <span class="keyword">user</span> = <span class="string">'root'</span>;</span><br></pre></td></tr></table></figure></li>
 <li>刷新权限表<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">flush</span> <span class="keyword">privileges</span>;</span><br></pre></td></tr></table></figure></li>
 <li>修改主机名，允许所有ip连接<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">update</span> <span class="keyword">user</span> <span class="keyword">set</span> <span class="keyword">hosts</span> = <span class="string">'%'</span> <span class="keyword">where</span> <span class="keyword">user</span> = <span class="string">'root'</span>;</span><br></pre></td></tr></table></figure></li>
 <li>退出mysql<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">exit</span></span><br></pre></td></tr></table></figure></li>
@@ -473,6 +480,24 @@
 
     
 
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Linn
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://it-linnan.github.io/mysql在windows环境下安装.html" title="MySQL在Windows环境下安装">https://it-linnan.github.io/mysql在windows环境下安装.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
     
 
     <footer class="post-footer">
@@ -581,7 +606,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-count">22</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -603,7 +628,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">21</span>
+                <span class="site-state-item-count">23</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

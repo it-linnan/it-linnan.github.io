@@ -85,7 +85,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="websphere,was,jsp,web.xml" />
 
 
 
@@ -101,13 +101,18 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Linn&#39;s Blog">
-<meta property="og:url" content="https://it-linnan.github.io/tags/mysql/index.html">
+<meta name="description" content="在WebSphere下部署应用时，更新任何文件都应该通过控制台更新的方式去更新。而且在集群部署的情况下，通过控制台更新可以将更新文件同步到所有节点上。 在某些特殊情况下，需要手动更新。这时，就需要我们手动删除缓存，同步相关文件。如果是集群部署，还需要将更新文件手动同步到所有节点上。这里介绍一下手动更新jsp和web.xml的方法。">
+<meta name="keywords" content="websphere,was,jsp,web.xml">
+<meta property="og:type" content="article">
+<meta property="og:title" content="WebSphere更新jsp和web.xml">
+<meta property="og:url" content="https://it-linnan.github.io/websphere更新jsp和web-xml.html">
 <meta property="og:site_name" content="Linn&#39;s Blog">
+<meta property="og:description" content="在WebSphere下部署应用时，更新任何文件都应该通过控制台更新的方式去更新。而且在集群部署的情况下，通过控制台更新可以将更新文件同步到所有节点上。 在某些特殊情况下，需要手动更新。这时，就需要我们手动删除缓存，同步相关文件。如果是集群部署，还需要将更新文件手动同步到所有节点上。这里介绍一下手动更新jsp和web.xml的方法。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-06-21T08:23:28.333Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linn&#39;s Blog">
+<meta name="twitter:title" content="WebSphere更新jsp和web.xml">
+<meta name="twitter:description" content="在WebSphere下部署应用时，更新任何文件都应该通过控制台更新的方式去更新。而且在集群部署的情况下，通过控制台更新可以将更新文件同步到所有节点上。 在某些特殊情况下，需要手动更新。这时，就需要我们手动删除缓存，同步相关文件。如果是集群部署，还需要将更新文件手动同步到所有节点上。这里介绍一下手动更新jsp和web.xml的方法。">
 
 
 
@@ -136,13 +141,13 @@
 
 
 
-  <link rel="canonical" href="https://it-linnan.github.io/tags/mysql/"/>
+  <link rel="canonical" href="https://it-linnan.github.io/websphere更新jsp和web-xml.html"/>
 
 
 
 
 
-  <title>标签: mysql | Linn's Blog</title>
+  <title>WebSphere更新jsp和web.xml | Linn's Blog</title>
   
 
 
@@ -176,7 +181,7 @@
     
   
 
-  <div class="container sidebar-position-left  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -304,82 +309,237 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h2>mysql<small>标签</small>
-        </h2>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://it-linnan.github.io/websphere更新jsp和web-xml.html">
 
-      <h3 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Linn">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/default_avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Linn's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/mysql在windows环境下安装.html" itemprop="url">
-              
-                <span itemprop="name">MySQL在Windows环境下安装</span>
-              
-            </a>
         
-      </h3>
+          <h2 class="post-title" itemprop="name headline">WebSphere更新jsp和web.xml</h2>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-05-30T09:20:03+08:00"
-              content="2018-05-30" >
-          05-30
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-15T08:47:26+08:00">
+                2018-06-15
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/部署相关/" itemprop="url" rel="index">
+                    <span itemprop="name">部署相关</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/部署相关/WebSphere/" itemprop="url" rel="index">
+                    <span itemprop="name">WebSphere</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/websphere更新jsp和web-xml.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="websphere更新jsp和web-xml.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
+      
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/mysql官方docker镜像使用.html" itemprop="url">
-              
-                <span itemprop="name">MySQL官方Docker镜像使用</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-05-30T08:36:18+08:00"
-              content="2018-05-30" >
-          05-30
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+      
+        <p>在WebSphere下部署应用时，更新任何文件都应该通过控制台更新的方式去更新。而且在集群部署的情况下，通过控制台更新可以将更新文件同步到所有节点上。</p>
+<p>在某些特殊情况下，需要手动更新。这时，就需要我们手动删除缓存，同步相关文件。如果是集群部署，还需要将更新文件手动同步到所有节点上。这里介绍一下手动更新jsp和web.xml的方法。<br><a id="more"></a></p>
+<h3 id="手动更新jsp"><a href="#手动更新jsp" class="headerlink" title="手动更新jsp"></a>手动更新jsp</h3><ol>
+<li>将jsp文件上传到was服务器上。</li>
+<li>删除缓存目录下，jsp编译后生成的class文件<figure class="highlight sh"><figcaption><span>jsp缓存目录</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;was_home&#125;\AppServer\profiles\AppSrv01\temp</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="手动更新web-xml"><a href="#手动更新web-xml" class="headerlink" title="手动更新web.xml"></a>手动更新web.xml</h3><ol>
+<li>将web.xml上传到was服务器上.</li>
+<li>将更新内容同步到web_merged.xml文件中</li>
+<li>同步缓存<figure class="highlight sh"><figcaption><span>web.xml缓存目录</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">config\cells\&lt;cell_name&gt;\applications\&lt;ear_name&gt;\deployments\&lt;app_name&gt;\&lt;war_name&gt;\WEB-INF</span><br></pre></td></tr></table></figure></li>
+</ol>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Linn
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://it-linnan.github.io/websphere更新jsp和web-xml.html" title="WebSphere更新jsp和web.xml">https://it-linnan.github.io/websphere更新jsp和web-xml.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/websphere/" rel="tag"># websphere</a>
+          
+            <a href="/tags/was/" rel="tag"># was</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/websphere下log4j2自定义插件未加载的解决办法.html" rel="next" title="WebSphere下log4j2自定义插件未加载的解决办法">
+                <i class="fa fa-chevron-left"></i> WebSphere下log4j2自定义插件未加载的解决办法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/git之sshkey使用.html" rel="prev" title="Git之SSHKey使用">
+                Git之SSHKey使用 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -387,6 +547,17 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -407,8 +578,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/default_avatar.jpg"
@@ -470,6 +650,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#手动更新jsp"><span class="nav-number">1.</span> <span class="nav-text">手动更新jsp</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#手动更新web-xml"><span class="nav-number">2.</span> <span class="nav-text">手动更新web.xml</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -595,10 +791,10 @@
 
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
 
-  
+
 
   
 
@@ -616,6 +812,18 @@
       <script id="dsq-count-scr" src="https://linnblog.disqus.com/count.js" async></script>
     
 
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://it-linnan.github.io/websphere更新jsp和web-xml.html';
+          this.page.identifier = 'websphere更新jsp和web-xml.html';
+          this.page.title = 'WebSphere更新jsp和web.xml';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://linnblog.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
     
 
   

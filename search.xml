@@ -1,6 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Git之SSHKey使用]]></title>
+    <url>%2Fgit%E4%B9%8Bsshkey%E4%BD%BF%E7%94%A8.html</url>
+    <content type="text"><![CDATA[使用SSH Key可以免密登录ssh服务器，在我们日常使用git的时候，一般会使用SSH Key。 使用SSH Key的步骤如下： 生成SSH Key打开命令行工具，输入如下命令12345678910111213141516171819202122232425262728ssh-keygen -t rsa -C "Linn"-- 提示如下内容，如果使用默认文件，直接敲回车。或者输入指定文件路径后，敲回车。-- 请输入保存密钥的文件名，不输入的情况，将默认使用~/.ssh/id_rsaGenerating public/private rsa key pair.Enter file in which to save the key (~/.ssh/id_rsa):-- 提示如下内容，如果不设置密码，直接敲回车。或者输入密码后，敲回车。-- 输入密码，不输入表示无密码Enter passphrase (empty for no passphrase):-- 提示如下内容，如果不设置密码，直接敲回车。或者输入相同密码后，敲回车。-- 再次输入密码Enter same passphrase again:-- 提示如下内容，密钥生成成功。密钥生成的位置是~/.ssh，其中Linn是私钥，Linn.pub是公钥。Your identification has been saved in Linn.Your public key has been saved in Linn.pub.The key fingerprint is:SHA256:/Rc6E9x+bExy8rHYkenvIudnWXGZ097JunbOO16xcwY LinnThe key's randomart image is:+---[RSA 2048]----+| E++|| . . .=|| . o . . + || +.+.+.* || S=.*o@=+o|| o.B+XX+|| .=*o+*|| o+.o || |+----[SHA256]-----+ 添加SSH Key到ssh-agent执行ssh-add命令1ssh-add Linn 添加成功1Identity added: Linn (Linn) 如果出现如下提示，说明ssh-agent服务未启动，需要先启动服务，再执行ssh-add命令1Could not open a connection to your authentication agent. 启动ssh-agent服务1ssh-agent bash 登录Github或其他Git后台，添加公钥 测试1ssh git@github.com 配置成功123PTY allocation request failed on channel 0Hi xxx! You've successfully authenticated, but GitHub does not provide shell access.Connection to github.com closed. 关于SSH agent如果您的私钥使用密码短语来加密了的话，每一次使用 SSH 密钥对进行登录的时候，您都必须输入正确的密码短语。而 SSH agent 程序能够将您的已解密的私钥缓存起来，在需要的时候提供给您的 SSH 客户端。这样子，您就只需要将私钥加入 SSH agent 缓存的时候输入一次密码短语就可以了。这为您经常使用 SSH 连接提供了不少便利。SSH agent 一般会设置成在登录会话的时候自动启动，并在整个会话中保持运行。有不少的 SSH agent 供您选择，我们将为您介绍几种常用的 SSH agent，您可以根据您的需要进行选择。 wikiSSH agents]]></content>
+      <categories>
+        <category>学习笔记</category>
+        <category>开发语言</category>
+        <category>工具使用</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+        <tag>ssh key</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[WebSphere更新jsp和web.xml]]></title>
+    <url>%2Fwebsphere%E6%9B%B4%E6%96%B0jsp%E5%92%8Cweb-xml.html</url>
+    <content type="text"><![CDATA[在WebSphere下部署应用时，更新任何文件都应该通过控制台更新的方式去更新。而且在集群部署的情况下，通过控制台更新可以将更新文件同步到所有节点上。 在某些特殊情况下，需要手动更新。这时，就需要我们手动删除缓存，同步相关文件。如果是集群部署，还需要将更新文件手动同步到所有节点上。这里介绍一下手动更新jsp和web.xml的方法。 手动更新jsp 将jsp文件上传到was服务器上。 删除缓存目录下，jsp编译后生成的class文件jsp缓存目录1&#123;was_home&#125;\AppServer\profiles\AppSrv01\temp 手动更新web.xml 将web.xml上传到was服务器上. 将更新内容同步到web_merged.xml文件中 同步缓存web.xml缓存目录1config\cells\&lt;cell_name&gt;\applications\&lt;ear_name&gt;\deployments\&lt;app_name&gt;\&lt;war_name&gt;\WEB-INF]]></content>
+      <categories>
+        <category>学习笔记</category>
+        <category>部署相关</category>
+        <category>WebSphere</category>
+      </categories>
+      <tags>
+        <tag>websphere</tag>
+        <tag>was</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[WebSphere下log4j2自定义插件未加载的解决办法]]></title>
     <url>%2Fwebsphere%E4%B8%8Blog4j2%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8F%92%E4%BB%B6%E6%9C%AA%E5%8A%A0%E8%BD%BD%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95.html</url>
     <content type="text"><![CDATA[之前，我们采用引用共享库的方式，解决了WebSphere自带jar包与项目下log4j2相关的jar包冲突的问题。WebSphere自带jar包与应用jar包冲突的解决办法 但是启动工程后发现，log4j2没有加载自定义插件。 在log4j的官网上，我查到了如下介绍（可以跳过这段英文介绍，后面有翻译）：In Log4j 2 a plugin is declared by adding a @Plugin annotation to the class declaration. During initialization the Configuration will invoke the PluginManager to load the built-in Log4j plugins as well as any custom plugins. The PluginManager locates plugins by looking in five places: Serialized plugin listing files on the classpath. These files are generated automatically during the build (more details below). (OSGi only) Serialized plugin listing files in each active OSGi bundle. A BundleListener is added on activation to continue checking new bundles after log4j-core has started. A comma-separated list of packages specified by the log4j.plugin.packages system property. Packages passed to the static PluginManager.addPackages method (before Log4j configuration occurs). The packages declared in your log4j2 configuration file. Apache Log4j 2插件介绍 大意就是，log4j2支持插件机制，在启动阶段，PluginManager不仅会加载内建插件，也会加载自定义插件。PluginManager会在5个位置查找插件。 我们采用的是，在配置文件中定义插件扫描包位置，自定义插件放在扫描包下。再看官方对插件扫描包位置配置项的说明（只截取部分）：The configuration element in the XML file accepts several attributes: Attribute Name Description packages A comma separated list of package names to search for plugins. Plugins are only loaded once per classloader so changing this value may not have any effect upon reconfiguration. Apache Log4j 2配置项说明注意看我标注的这句话，每个类加载器只加载一次插件。 之前在我们在建立共享库的时候，勾选了【请对此共享库使用隔离的类装入器】，此时共享库将使用独立的类加载器，而我们的自定义插件没有放在共享库中，自然扫描不到。 解决办法是，在共享库的配置中，取消勾选【请对此共享库使用隔离的类装入器】。]]></content>
@@ -114,7 +142,7 @@
   <entry>
     <title><![CDATA[MySQL在Windows环境下安装]]></title>
     <url>%2Fmysql%E5%9C%A8windows%E7%8E%AF%E5%A2%83%E4%B8%8B%E5%AE%89%E8%A3%85.html</url>
-    <content type="text"><![CDATA[MySQL官网下载安装包 解压到本地目录 新建my.ini cd到bin目录下 初始化数据，执行命令123mysqld --initialize-- 据说执行这句话可以免密陆mysqld --initialize-insecure --user=mysql 注册windows服务1mysqld --install MySQL --defaultsfile="d:\DataBase\MySql\mysql-5.7.16-winx64\my.ini" 启动mysql服务1net start mysql 登陆mysql1mysql -u root -p 提示输入密码，初始无密码，直接回车 切换数据库1use mysql 修改密码1update user set password = password('newpsw') where user = 'roo'; 刷新权限表1flush privileges; 修改主机名，允许所有ip连接1update user set hosts = '%' where user = 'root'; 退出mysql1exit 如需关闭服务 1net stop mysql 注意： 5.7版本之后，初始化数据后，会自动分配一个密码，密码可在一个.err文件中查看日志获取 在my.ini中配置一项可以不使用密码登陆，在[mysqld]下输入skip-grant-tables 12345678910my.ini[mysql]default-character-set=utf8[mysqld]basedir =d:\DataBase\MySql\mysql-5.7.16-winx64datadir =d:\DataBase\MySql\mysql-5.7.16-winx64\dataport =3306character-set-server=utf8[client]default-character-set=utf8]]></content>
+    <content type="text"><![CDATA[MySQL官网下载安装包 解压到本地目录 新建my.ini cd到bin目录下 初始化数据，执行命令123mysqld --initialize-- 据说执行这句话可以免密陆mysqld --initialize-insecure --user=mysql 注册windows服务1mysqld --install MySQL --defaultsfile="d:\DataBase\MySql\mysql-5.7.16-winx64\my.ini" 启动mysql服务1net start mysql 登陆mysql1mysql -u root -p 提示输入密码，初始无密码，直接回车 切换数据库1use mysql 修改密码1update user set password = password('newpsw') where user = 'root'; 刷新权限表1flush privileges; 修改主机名，允许所有ip连接1update user set hosts = '%' where user = 'root'; 退出mysql1exit 如需关闭服务 1net stop mysql 注意： 5.7版本之后，初始化数据后，会自动分配一个密码，密码可在一个.err文件中查看日志获取 在my.ini中配置一项可以不使用密码登陆，在[mysqld]下输入skip-grant-tables 12345678910my.ini[mysql]default-character-set=utf8[mysqld]basedir =d:\DataBase\MySql\mysql-5.7.16-winx64datadir =d:\DataBase\MySql\mysql-5.7.16-winx64\dataport =3306character-set-server=utf8[client]default-character-set=utf8]]></content>
       <categories>
         <category>学习笔记</category>
         <category>部署相关</category>
@@ -243,21 +271,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[CentOS防火墙使用]]></title>
-    <url>%2Fcentos%E9%98%B2%E7%81%AB%E5%A2%99%E4%BD%BF%E7%94%A8.html</url>
-    <content type="text"><![CDATA[启动防火墙查看防火墙是否启动1systemctl status firewalld 如果没有启动，启动1systemctl start firewalld 开放端口命令 12firewall-cmd --zone=public --add-port=1. 1. /tcp --permanentsystemctl restart firewalld 关闭端口命令 12firewall-cmd --zone=public --remove-port=1. 1. /tcp -permanentsystemctl restart firewalld 查看开放端口命令 1firewall-cmd --zone=public --list-ports]]></content>
-      <categories>
-        <category>学习笔记</category>
-        <category>Linux</category>
-        <category>CentOS</category>
-      </categories>
-      <tags>
-        <tag>linux</tag>
-        <tag>centos</tag>
-        <tag>firewall</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[虚拟机VMware环境下CentOS初始化配置网卡]]></title>
     <url>%2F%E8%99%9A%E6%8B%9F%E6%9C%BAvmware%E7%8E%AF%E5%A2%83%E4%B8%8Bcentos%E5%88%9D%E5%A7%8B%E5%8C%96%E9%85%8D%E7%BD%AE%E7%BD%91%E5%8D%A1.html</url>
     <content type="text"><![CDATA[检测网卡1ipconfig 发现只有ens33和lo两个网卡，需要将ens33修改为eth0 修改网卡名称，将其中得NAME和DEVICE项修改为eth0 1vi /etc/sysconfig/network-scripts/ifcfg-ens33 修改配置文件名称 1mv /etc/sysconfig/network-scripts/ifcfg-ens33 /etc/sysconfig/network-scripts/ifcfg-eth0 编辑/etc/default/grub并加入“net.ifnames=0 biosdevname=0 ”到GRUBCMDLINELINUX变量 12345678vi /etc/default/grubGRUB_TIMEOUT=5GRUB_DISTRIBUTOR="$(sed 's, release .*$,,g' /etc/system-release)"GRUB_DEFAULT=savedGRUB_DISABLE_SUBMENU=trueGRUB_TERMINAL_OUTPUT="console"GRUB_CMDLINE_LINUX="crashkernel=auto net.ifnames=0 biosdevname=0 rhgb quiet"GRUB_DISABLE_RECOVERY="true" 运行命令grub2-mkconfig -o /boot/grub2/grub.cfg 来重新生成GRUB配置并更新内核参数 1grub2-mkconfig -o /boot/grub2/grub.cfg 重启OS 1reboot 检测网卡以验证 1ifconfig]]></content>
@@ -270,6 +283,21 @@
         <tag>linux</tag>
         <tag>centos</tag>
         <tag>vmware</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[CentOS防火墙使用]]></title>
+    <url>%2Fcentos%E9%98%B2%E7%81%AB%E5%A2%99%E4%BD%BF%E7%94%A8.html</url>
+    <content type="text"><![CDATA[启动防火墙查看防火墙是否启动1systemctl status firewalld 如果没有启动，启动1systemctl start firewalld 开放端口命令 12firewall-cmd --zone=public --add-port=1. 1. /tcp --permanentsystemctl restart firewalld 关闭端口命令 12firewall-cmd --zone=public --remove-port=1. 1. /tcp -permanentsystemctl restart firewalld 查看开放端口命令 1firewall-cmd --zone=public --list-ports]]></content>
+      <categories>
+        <category>学习笔记</category>
+        <category>Linux</category>
+        <category>CentOS</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+        <tag>centos</tag>
+        <tag>firewall</tag>
       </tags>
   </entry>
   <entry>
