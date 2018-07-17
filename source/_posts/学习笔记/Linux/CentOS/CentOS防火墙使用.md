@@ -14,7 +14,9 @@ keywords:
 - centos
 - firewall
 ---
-1. 启动防火墙
+
+# 启动防火墙
+
 查看防火墙是否启动
 {% codeblock lang:sh %}
 systemctl status firewalld
@@ -23,20 +25,24 @@ systemctl status firewalld
 {% codeblock lang:sh %}
 systemctl start firewalld
 {% endcodeblock %}
+
+# 开放端口命令
+
 <!-- more -->
-1. 开放端口命令
 {% codeblock lang:sh %}
 firewall-cmd --zone=public --add-port=1. 1. /tcp --permanent
 systemctl restart firewalld
 {% endcodeblock %}
 
-1. 关闭端口命令
+# 关闭端口命令
+
 {% codeblock lang:sh %}
 firewall-cmd --zone=public --remove-port=1. 1. /tcp -permanent
 systemctl restart firewalld
 {% endcodeblock %}
 
-1. 查看开放端口命令
+# 查看开放端口命令
+
 {% codeblock lang:sh %}
 firewall-cmd --zone=public --list-ports
 {% endcodeblock %}

@@ -12,6 +12,7 @@ keywords:
 - websphere
 - was
 ---
+
 取消控制台认证
 在was node的安装目录下，查找安全文件security.xml
 {% codeblock lang:sh %}

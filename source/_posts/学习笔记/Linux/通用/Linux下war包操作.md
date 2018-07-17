@@ -12,12 +12,14 @@ keywords:
 - linux
 - war
 ---
-1. Unzip
+
+# Unzip
 {% codeblock lang:sh %}
 unzip -oq common.war -d common
 {% endcodeblock %}
 
-1. jar
+# jar
+
 {% codeblock lang:sh %}
 jar -xvf game.war
 {% endcodeblock %}

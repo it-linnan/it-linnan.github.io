@@ -14,17 +14,21 @@ keywords:
 - ubuntu
 - ssh
 ---
-1. 安装ssh服务
+
+# 安装ssh服务
+
 {% codeblock lang:sh %}
 apt-get install openssh-server
 {% endcodeblock %}
 
-1. 开启ssh服务
+# 开启ssh服务
+
 {% codeblock lang:sh %}
 service ssh start
 {% endcodeblock %}
 
-1. ssh配置文件
+# ssh配置文件
+
 {% codeblock lang:sh %}
 vi /etc/ssh/sshd_config
 {% endcodeblock %}

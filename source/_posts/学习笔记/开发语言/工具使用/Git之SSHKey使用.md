@@ -12,10 +12,15 @@ keywords:
 - git
 - ssh key
 ---
+
+# SSH key作用
+
 使用SSH Key可以免密登录ssh服务器，在我们日常使用git的时候，一般会使用SSH Key。
 
-使用SSH Key的步骤如下：
-1. 生成SSH Key
+# 使用SSH Key的步骤
+
+## 生成SSH Key
+
 打开命令行工具，输入如下命令
 {% codeblock lang:sh %}
 ssh-keygen -t rsa -C "Linn"
@@ -48,7 +53,9 @@ The key's randomart image is:
 +----[SHA256]-----+
 {% endcodeblock %}
 <!-- more -->
-1. 添加SSH Key到ssh-agent
+
+## 添加SSH Key到ssh-agent
+
 执行ssh-add命令
 {% codeblock lang:sh %}
 ssh-add Linn
@@ -65,8 +72,11 @@ Could not open a connection to your authentication agent.
 {% codeblock lang:sh %}
 ssh-agent bash
 {% endcodeblock %}
-1. 登录Github或其他Git后台，添加公钥
-1. 测试
+
+## 登录Github或其他Git后台，添加公钥
+
+## 测试
+
 {% codeblock lang:sh %}
 ssh git@github.com
 {% endcodeblock %}
@@ -77,7 +87,8 @@ Hi xxx! You've successfully authenticated, but GitHub does not provide shell acc
 Connection to github.com closed.
 {% endcodeblock %}
 
-关于SSH agent
+# 关于SSH agent
+
 {% blockquote wiki https://wiki.archlinux.org/index.php/SSH_keys_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)#SSH_agents SSH agents %}
 如果您的私钥使用密码短语来加密了的话，每一次使用 SSH 密钥对进行登录的时候，您都必须输入正确的密码短语。
 而 SSH agent 程序能够将您的已解密的私钥缓存起来，在需要的时候提供给您的 SSH 客户端。这样子，您就只需要将私钥加入 SSH agent 缓存的时候输入一次密码短语就可以了。这为您经常使用 SSH 连接提供了不少便利。

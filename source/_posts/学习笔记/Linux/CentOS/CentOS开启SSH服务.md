@@ -15,7 +15,8 @@ keywords:
 - ssh
 ---
 
-1. 安装openssh-server
+# 安装openssh-server
+
 {% codeblock lang:sh %}
 yum list installed |grep openssh-server
 {% endcodeblock %}
@@ -24,31 +25,43 @@ yum list installed |grep openssh-server
 yum install openssh-server
 {% endcodeblock %}
 <!-- more -->
-1. 修改sshd服务配置文件
+
+# 修改sshd服务配置文件
+
+## 编辑sshd服务配置文件
+
 {% codeblock lang:sh %}
 vi /etc/ssh/sshd_config
 {% endcodeblock %}
-开启监听
+
+## 开启监听
+
 {% codeblock lang:sh %}
 Port 22
 ListenAddress 0.0.0.0
 ListenAddress ::
 {% endcodeblock %}
-允许远程登录
+
+## 允许远程登录
+
 {% codeblock lang:sh %}
 PermitRootLogin yes
 {% endcodeblock %}
-使用用户名密码作为连接验证
+
+## 使用用户名密码作为连接验证
+
 {% codeblock lang:sh %}
 PasswordAuthentication yes
 {% endcodeblock %}
 
-1. 开启sshd服务
+# 开启sshd服务
+
 {% codeblock lang:sh %}
 service sshd start
 {% endcodeblock %}
 
-1. 配置开机自启动
+# 配置开机自启动
+
 {% codeblock lang:sh %}
 systemctl enable sshd
 {% endcodeblock %}

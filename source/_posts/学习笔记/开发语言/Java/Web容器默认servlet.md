@@ -15,6 +15,8 @@ keywords:
 - 默认servlet
 ---
 
+# 常见中间件默认servlet
+
 | 默认servlet-name  | 容器                         |
 | :---------------: | :--------------------------: |
 | default           | Tomcat Jetty JBoss GlassFish |
@@ -22,6 +24,8 @@ keywords:
 | resin-file        | Resin                        |
 | FileServlet       | WebLogic                     |
 | SimpleFileServlet | WebSphere                    |
+
+# 在spring项目中使用默认servlet
 
 在spring配置文件中开启如下配置，即可开启默认servlet
 {% codeblock lang:xml %}
