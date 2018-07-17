@@ -101,18 +101,18 @@
 
 
 
-<meta name="description" content="在WebSphere下部署应用时，更新任何文件都应该通过控制台更新的方式去更新。而且在集群部署的情况下，通过控制台更新可以将更新文件同步到所有节点上。 在某些特殊情况下，需要手动更新。这时，就需要我们手动删除缓存，同步相关文件。如果是集群部署，还需要将更新文件手动同步到所有节点上。这里介绍一下手动更新jsp和web.xml的方法。">
+<meta name="description" content="WebShphere更新应用在WebSphere下部署应用时，更新任何文件都应该通过控制台更新的方式去更新。而且在集群部署的情况下，通过控制台更新可以将更新文件同步到所有节点上。 在某些特殊情况下，需要手动更新。这时，就需要我们手动删除缓存，同步相关文件。如果是集群部署，还需要将更新文件手动同步到所有节点上。这里介绍一下手动更新jsp和web.xml的方法。">
 <meta name="keywords" content="websphere,was,jsp,web.xml">
 <meta property="og:type" content="article">
 <meta property="og:title" content="WebSphere更新jsp和web.xml">
 <meta property="og:url" content="https://it-linnan.github.io/websphere更新jsp和web-xml.html">
 <meta property="og:site_name" content="Linn&#39;s Blog">
-<meta property="og:description" content="在WebSphere下部署应用时，更新任何文件都应该通过控制台更新的方式去更新。而且在集群部署的情况下，通过控制台更新可以将更新文件同步到所有节点上。 在某些特殊情况下，需要手动更新。这时，就需要我们手动删除缓存，同步相关文件。如果是集群部署，还需要将更新文件手动同步到所有节点上。这里介绍一下手动更新jsp和web.xml的方法。">
+<meta property="og:description" content="WebShphere更新应用在WebSphere下部署应用时，更新任何文件都应该通过控制台更新的方式去更新。而且在集群部署的情况下，通过控制台更新可以将更新文件同步到所有节点上。 在某些特殊情况下，需要手动更新。这时，就需要我们手动删除缓存，同步相关文件。如果是集群部署，还需要将更新文件手动同步到所有节点上。这里介绍一下手动更新jsp和web.xml的方法。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-21T08:23:28.333Z">
+<meta property="og:updated_time" content="2018-07-17T05:46:17.926Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="WebSphere更新jsp和web.xml">
-<meta name="twitter:description" content="在WebSphere下部署应用时，更新任何文件都应该通过控制台更新的方式去更新。而且在集群部署的情况下，通过控制台更新可以将更新文件同步到所有节点上。 在某些特殊情况下，需要手动更新。这时，就需要我们手动删除缓存，同步相关文件。如果是集群部署，还需要将更新文件手动同步到所有节点上。这里介绍一下手动更新jsp和web.xml的方法。">
+<meta name="twitter:description" content="WebShphere更新应用在WebSphere下部署应用时，更新任何文件都应该通过控制台更新的方式去更新。而且在集群部署的情况下，通过控制台更新可以将更新文件同步到所有节点上。 在某些特殊情况下，需要手动更新。这时，就需要我们手动删除缓存，同步相关文件。如果是集群部署，还需要将更新文件手动同步到所有节点上。这里介绍一下手动更新jsp和web.xml的方法。">
 
 
 
@@ -445,14 +445,14 @@
       
 
       
-        <p>在WebSphere下部署应用时，更新任何文件都应该通过控制台更新的方式去更新。而且在集群部署的情况下，通过控制台更新可以将更新文件同步到所有节点上。</p>
+        <h1 id="WebShphere更新应用"><a href="#WebShphere更新应用" class="headerlink" title="WebShphere更新应用"></a>WebShphere更新应用</h1><p>在WebSphere下部署应用时，更新任何文件都应该通过控制台更新的方式去更新。而且在集群部署的情况下，通过控制台更新可以将更新文件同步到所有节点上。</p>
 <p>在某些特殊情况下，需要手动更新。这时，就需要我们手动删除缓存，同步相关文件。如果是集群部署，还需要将更新文件手动同步到所有节点上。这里介绍一下手动更新jsp和web.xml的方法。<br><a id="more"></a></p>
-<h3 id="手动更新jsp"><a href="#手动更新jsp" class="headerlink" title="手动更新jsp"></a>手动更新jsp</h3><ol>
+<h1 id="WebSphere手动更新应用方法"><a href="#WebSphere手动更新应用方法" class="headerlink" title="WebSphere手动更新应用方法"></a>WebSphere手动更新应用方法</h1><h2 id="手动更新jsp"><a href="#手动更新jsp" class="headerlink" title="手动更新jsp"></a>手动更新jsp</h2><ol>
 <li>将jsp文件上传到was服务器上。</li>
 <li>删除缓存目录下，jsp编译后生成的class文件<figure class="highlight sh"><figcaption><span>jsp缓存目录</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;was_home&#125;\AppServer\profiles\AppSrv01\temp</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<h3 id="手动更新web-xml"><a href="#手动更新web-xml" class="headerlink" title="手动更新web.xml"></a>手动更新web.xml</h3><ol>
+<h2 id="手动更新web-xml"><a href="#手动更新web-xml" class="headerlink" title="手动更新web.xml"></a>手动更新web.xml</h2><ol>
 <li>将web.xml上传到was服务器上.</li>
 <li>将更新内容同步到web_merged.xml文件中</li>
 <li>同步缓存<figure class="highlight sh"><figcaption><span>web.xml缓存目录</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">config\cells\&lt;cell_name&gt;\applications\&lt;ear_name&gt;\deployments\&lt;app_name&gt;\&lt;war_name&gt;\WEB-INF</span><br></pre></td></tr></table></figure></li>
@@ -603,7 +603,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-count">23</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -625,7 +625,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-count">24</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -660,7 +660,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#手动更新jsp"><span class="nav-number">1.</span> <span class="nav-text">手动更新jsp</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#手动更新web-xml"><span class="nav-number">2.</span> <span class="nav-text">手动更新web.xml</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#WebShphere更新应用"><span class="nav-number">1.</span> <span class="nav-text">WebShphere更新应用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#WebSphere手动更新应用方法"><span class="nav-number">2.</span> <span class="nav-text">WebSphere手动更新应用方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#手动更新jsp"><span class="nav-number">2.1.</span> <span class="nav-text">手动更新jsp</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#手动更新web-xml"><span class="nav-number">2.2.</span> <span class="nav-text">手动更新web.xml</span></a></li></ol></li></ol></div>
             
 
           </div>

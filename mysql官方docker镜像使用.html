@@ -101,18 +101,18 @@
 
 
 
-<meta name="description" content="启动mysql服务实例拉取镜像12docker pull mysqldocker pull mysql:5.7 启动实例1docker run --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=password -d mysql:5.7">
+<meta name="description" content="启动mysql服务实例拉取镜像12docker pull mysqldocker pull mysql:5.7 启动实例1docker run --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=password -d mysql:5.7 测试mysql服务实例安装mysql客户端">
 <meta name="keywords" content="docker,mysql,linux,ubuntu">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MySQL官方Docker镜像使用">
 <meta property="og:url" content="https://it-linnan.github.io/mysql官方docker镜像使用.html">
 <meta property="og:site_name" content="Linn&#39;s Blog">
-<meta property="og:description" content="启动mysql服务实例拉取镜像12docker pull mysqldocker pull mysql:5.7 启动实例1docker run --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=password -d mysql:5.7">
+<meta property="og:description" content="启动mysql服务实例拉取镜像12docker pull mysqldocker pull mysql:5.7 启动实例1docker run --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=password -d mysql:5.7 测试mysql服务实例安装mysql客户端">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-06T02:42:13.185Z">
+<meta property="og:updated_time" content="2018-07-17T06:03:31.895Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL官方Docker镜像使用">
-<meta name="twitter:description" content="启动mysql服务实例拉取镜像12docker pull mysqldocker pull mysql:5.7 启动实例1docker run --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=password -d mysql:5.7">
+<meta name="twitter:description" content="启动mysql服务实例拉取镜像12docker pull mysqldocker pull mysql:5.7 启动实例1docker run --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=password -d mysql:5.7 测试mysql服务实例安装mysql客户端">
 
 
 
@@ -445,24 +445,14 @@
       
 
       
-        <ol>
-<li>启动mysql服务实例<br>拉取镜像<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker pull mysql</span><br><span class="line">docker pull mysql:5.7</span><br></pre></td></tr></table></figure>
-启动实例<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=password -d mysql:5.7</span><br></pre></td></tr></table></figure>
-<a id="more"></a></li>
-<li><p>测试mysql服务实例<br>安装mysql客户端</p>
+        <h1 id="启动mysql服务实例"><a href="#启动mysql服务实例" class="headerlink" title="启动mysql服务实例"></a>启动mysql服务实例</h1><h2 id="拉取镜像"><a href="#拉取镜像" class="headerlink" title="拉取镜像"></a>拉取镜像</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker pull mysql</span><br><span class="line">docker pull mysql:5.7</span><br></pre></td></tr></table></figure>
+<h2 id="启动实例"><a href="#启动实例" class="headerlink" title="启动实例"></a>启动实例</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=password -d mysql:5.7</span><br></pre></td></tr></table></figure>
+<h1 id="测试mysql服务实例"><a href="#测试mysql服务实例" class="headerlink" title="测试mysql服务实例"></a>测试mysql服务实例</h1><h2 id="安装mysql客户端"><a href="#安装mysql客户端" class="headerlink" title="安装mysql客户端"></a>安装mysql客户端</h2><a id="more"></a>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install mysql-client-core-5.7</span><br></pre></td></tr></table></figure>
-<p>登录mysql</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -h127.0.0.1 -P3306 -uroot -ppassword</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>使用自定义MySQL配置文件<br>默认情况下，MySQL的启动配置文件是/etc/mysql/my.cnf，引用了/etc/mysql/conf.d和/etc/mysql/mysql.conf.d文件夹<br>想要使用自定义配置文件，可将配置文件挂载到mysql容器的/etc/mysql/conf.d和/etc/mysql/mysql.conf.d目录下</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --name mysql -p 3307:3306 -v /mnt/share/custom.cnf:/etc/mysql/conf.d/custom.cnf -e MYSQL_ROOT_PASSWORD=password -d mysql:5.7</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>使用自定义MySQL配置<br>也可以使用命令行参数来指定配置</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --name mysql -p 3307:3306 -v /mnt/share/custom.cnf:/etc/mysql/conf.d/custom.cnf -e MYSQL_ROOT_PASSWORD=password -d mysql:5.7 --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci --lower_case_table_names=1</span><br></pre></td></tr></table></figure>
-<p>可以通过以下命令，查看可配参数</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -it --rm mysql:tag --verbose --hel</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
+<h2 id="登录mysql"><a href="#登录mysql" class="headerlink" title="登录mysql"></a>登录mysql</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -h127.0.0.1 -P3306 -uroot -ppassword</span><br></pre></td></tr></table></figure>
+<h1 id="使用自定义MySQL配置文件"><a href="#使用自定义MySQL配置文件" class="headerlink" title="使用自定义MySQL配置文件"></a>使用自定义MySQL配置文件</h1><p>默认情况下，MySQL的启动配置文件是/etc/mysql/my.cnf，引用了/etc/mysql/conf.d和/etc/mysql/mysql.conf.d文件夹<br>想要使用自定义配置文件，可将配置文件挂载到mysql容器的/etc/mysql/conf.d和/etc/mysql/mysql.conf.d目录下<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --name mysql -p 3307:3306 -v /mnt/share/custom.cnf:/etc/mysql/conf.d/custom.cnf -e MYSQL_ROOT_PASSWORD=password -d mysql:5.7</span><br></pre></td></tr></table></figure></p>
+<h1 id="使用自定义MySQL配置"><a href="#使用自定义MySQL配置" class="headerlink" title="使用自定义MySQL配置"></a>使用自定义MySQL配置</h1><h2 id="使用命令行参数来指定配置"><a href="#使用命令行参数来指定配置" class="headerlink" title="使用命令行参数来指定配置"></a>使用命令行参数来指定配置</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --name mysql -p 3307:3306 -v /mnt/share/custom.cnf:/etc/mysql/conf.d/custom.cnf -e MYSQL_ROOT_PASSWORD=password -d mysql:5.7 --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci --lower_case_table_names=1</span><br></pre></td></tr></table></figure>
+<h2 id="查看可配参数"><a href="#查看可配参数" class="headerlink" title="查看可配参数"></a>查看可配参数</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -it --rm mysql:tag --verbose --hel</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -588,8 +578,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/default_avatar.jpg"
@@ -604,7 +603,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-count">23</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -626,7 +625,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-count">24</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -651,6 +650,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#启动mysql服务实例"><span class="nav-number">1.</span> <span class="nav-text">启动mysql服务实例</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#拉取镜像"><span class="nav-number">1.1.</span> <span class="nav-text">拉取镜像</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启动实例"><span class="nav-number">1.2.</span> <span class="nav-text">启动实例</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#测试mysql服务实例"><span class="nav-number">2.</span> <span class="nav-text">测试mysql服务实例</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装mysql客户端"><span class="nav-number">2.1.</span> <span class="nav-text">安装mysql客户端</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#登录mysql"><span class="nav-number">2.2.</span> <span class="nav-text">登录mysql</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用自定义MySQL配置文件"><span class="nav-number">3.</span> <span class="nav-text">使用自定义MySQL配置文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用自定义MySQL配置"><span class="nav-number">4.</span> <span class="nav-text">使用自定义MySQL配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用命令行参数来指定配置"><span class="nav-number">4.1.</span> <span class="nav-text">使用命令行参数来指定配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看可配参数"><span class="nav-number">4.2.</span> <span class="nav-text">查看可配参数</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

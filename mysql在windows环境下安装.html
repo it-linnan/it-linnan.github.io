@@ -101,18 +101,18 @@
 
 
 
-<meta name="description" content="MySQL官网下载安装包 解压到本地目录 新建my.ini cd到bin目录下 初始化数据，执行命令123mysqld --initialize-- 据说执行这句话可以免密陆mysqld --initialize-insecure --user=mysql">
+<meta name="description" content="下载官方安装包MySQL 解压到本地目录新建my.ini12345678910my.ini[mysql]default-character-set=utf8[mysqld]basedir =d:\DataBase\MySql\mysql-5.7.16-winx64datadir =d:\DataBase\MySql\mysql-5.7.16-winx64\dataport =3306charact">
 <meta name="keywords" content="mysql,windows">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MySQL在Windows环境下安装">
 <meta property="og:url" content="https://it-linnan.github.io/mysql在windows环境下安装.html">
 <meta property="og:site_name" content="Linn&#39;s Blog">
-<meta property="og:description" content="MySQL官网下载安装包 解压到本地目录 新建my.ini cd到bin目录下 初始化数据，执行命令123mysqld --initialize-- 据说执行这句话可以免密陆mysqld --initialize-insecure --user=mysql">
+<meta property="og:description" content="下载官方安装包MySQL 解压到本地目录新建my.ini12345678910my.ini[mysql]default-character-set=utf8[mysqld]basedir =d:\DataBase\MySql\mysql-5.7.16-winx64datadir =d:\DataBase\MySql\mysql-5.7.16-winx64\dataport =3306charact">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-06T08:35:38.026Z">
+<meta property="og:updated_time" content="2018-07-17T06:06:39.376Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL在Windows环境下安装">
-<meta name="twitter:description" content="MySQL官网下载安装包 解压到本地目录 新建my.ini cd到bin目录下 初始化数据，执行命令123mysqld --initialize-- 据说执行这句话可以免密陆mysqld --initialize-insecure --user=mysql">
+<meta name="twitter:description" content="下载官方安装包MySQL 解压到本地目录新建my.ini12345678910my.ini[mysql]default-character-set=utf8[mysqld]basedir =d:\DataBase\MySql\mysql-5.7.16-winx64datadir =d:\DataBase\MySql\mysql-5.7.16-winx64\dataport =3306charact">
 
 
 
@@ -445,31 +445,20 @@
       
 
       
-        <ol>
-<li><a href="https://www.mysql.com/cn/downloads/" target="_blank" rel="noopener">MySQL官网下载安装包</a></li>
-<li>解压到本地目录</li>
-<li>新建my.ini</li>
-<li>cd到bin目录下</li>
-<li>初始化数据，执行命令<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mysqld --initialize</span><br><span class="line">-- 据说执行这句话可以免密陆</span><br><span class="line">mysqld --initialize-insecure --user=mysql</span><br></pre></td></tr></table></figure>
-<a id="more"></a></li>
-<li>注册windows服务<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqld --install MySQL --defaultsfile=<span class="string">"d:\DataBase\MySql\mysql-5.7.16-winx64\my.ini"</span></span><br></pre></td></tr></table></figure></li>
-<li>启动mysql服务<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net start mysql</span><br></pre></td></tr></table></figure></li>
-<li>登陆mysql<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p</span><br></pre></td></tr></table></figure></li>
-<li>提示输入密码，初始无密码，直接回车</li>
-<li>切换数据库<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> mysql</span><br></pre></td></tr></table></figure></li>
-<li>修改密码<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">update</span> <span class="keyword">user</span> <span class="keyword">set</span> <span class="keyword">password</span> = <span class="keyword">password</span>(<span class="string">'newpsw'</span>) <span class="keyword">where</span> <span class="keyword">user</span> = <span class="string">'root'</span>;</span><br></pre></td></tr></table></figure></li>
-<li>刷新权限表<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">flush</span> <span class="keyword">privileges</span>;</span><br></pre></td></tr></table></figure></li>
-<li>修改主机名，允许所有ip连接<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">update</span> <span class="keyword">user</span> <span class="keyword">set</span> <span class="keyword">hosts</span> = <span class="string">'%'</span> <span class="keyword">where</span> <span class="keyword">user</span> = <span class="string">'root'</span>;</span><br></pre></td></tr></table></figure></li>
-<li>退出mysql<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">exit</span></span><br></pre></td></tr></table></figure></li>
-<li><p>如需关闭服务</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net stop mysql</span><br></pre></td></tr></table></figure>
-<p><code>注意：</code></p>
-</li>
-<li><p>5.7版本之后，初始化数据后，会自动分配一个密码，密码可在一个.err文件中查看日志获取</p>
-</li>
-<li>在my.ini中配置一项可以不使用密码登陆，在[mysqld]下输入skip-grant-tables</li>
-</ol>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">my.ini</span><br><span class="line">[mysql]</span><br><span class="line">default-character-set=utf8</span><br><span class="line">[mysqld]</span><br><span class="line">basedir =d:\DataBase\MySql\mysql-5.7.16-winx64</span><br><span class="line">datadir =d:\DataBase\MySql\mysql-5.7.16-winx64\data</span><br><span class="line">port =3306</span><br><span class="line">character-set-server=utf8</span><br><span class="line">[client]</span><br><span class="line">default-character-set=utf8</span><br></pre></td></tr></table></figure>
+        <h1 id="下载官方安装包"><a href="#下载官方安装包" class="headerlink" title="下载官方安装包"></a>下载官方安装包</h1><a href="https://www.mysql.com/cn/downloads/" target="_blank" rel="noopener">MySQL</a>
+<h1 id="解压到本地目录"><a href="#解压到本地目录" class="headerlink" title="解压到本地目录"></a>解压到本地目录</h1><h1 id="新建my-ini"><a href="#新建my-ini" class="headerlink" title="新建my.ini"></a>新建my.ini</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">my.ini</span><br><span class="line">[mysql]</span><br><span class="line">default-character-set=utf8</span><br><span class="line">[mysqld]</span><br><span class="line">basedir =d:\DataBase\MySql\mysql-5.7.16-winx64</span><br><span class="line">datadir =d:\DataBase\MySql\mysql-5.7.16-winx64\data</span><br><span class="line">port =3306</span><br><span class="line">character-set-server=utf8</span><br><span class="line">[client]</span><br><span class="line">default-character-set=utf8</span><br></pre></td></tr></table></figure>
+<h1 id="cd到bin目录下"><a href="#cd到bin目录下" class="headerlink" title="cd到bin目录下"></a>cd到bin目录下</h1><h1 id="初始化数据，执行命令"><a href="#初始化数据，执行命令" class="headerlink" title="初始化数据，执行命令"></a>初始化数据，执行命令</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mysqld --initialize</span><br><span class="line">-- 据说执行这句话可以免密陆</span><br><span class="line">mysqld --initialize-insecure --user=mysql</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h1 id="注册windows服务"><a href="#注册windows服务" class="headerlink" title="注册windows服务"></a>注册windows服务</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqld --install MySQL --defaultsfile=<span class="string">"d:\DataBase\MySql\mysql-5.7.16-winx64\my.ini"</span></span><br></pre></td></tr></table></figure>
+<h1 id="启动mysql服务"><a href="#启动mysql服务" class="headerlink" title="启动mysql服务"></a>启动mysql服务</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net start mysql</span><br></pre></td></tr></table></figure>
+<h1 id="登陆mysql"><a href="#登陆mysql" class="headerlink" title="登陆mysql"></a>登陆mysql</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p</span><br></pre></td></tr></table></figure>
+<h1 id="提示输入密码，初始无密码，直接回车"><a href="#提示输入密码，初始无密码，直接回车" class="headerlink" title="提示输入密码，初始无密码，直接回车"></a>提示输入密码，初始无密码，直接回车</h1><h1 id="切换数据库"><a href="#切换数据库" class="headerlink" title="切换数据库"></a>切换数据库</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> mysql</span><br></pre></td></tr></table></figure>
+<h1 id="修改密码"><a href="#修改密码" class="headerlink" title="修改密码"></a>修改密码</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">update</span> <span class="keyword">user</span> <span class="keyword">set</span> <span class="keyword">password</span> = <span class="keyword">password</span>(<span class="string">'newpsw'</span>) <span class="keyword">where</span> <span class="keyword">user</span> = <span class="string">'root'</span>;</span><br></pre></td></tr></table></figure>
+<h1 id="刷新权限表"><a href="#刷新权限表" class="headerlink" title="刷新权限表"></a>刷新权限表</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">flush</span> <span class="keyword">privileges</span>;</span><br></pre></td></tr></table></figure>
+<h1 id="修改主机名，允许所有ip连接"><a href="#修改主机名，允许所有ip连接" class="headerlink" title="修改主机名，允许所有ip连接"></a>修改主机名，允许所有ip连接</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">update</span> <span class="keyword">user</span> <span class="keyword">set</span> <span class="keyword">hosts</span> = <span class="string">'%'</span> <span class="keyword">where</span> <span class="keyword">user</span> = <span class="string">'root'</span>;</span><br></pre></td></tr></table></figure>
+<h1 id="退出mysql"><a href="#退出mysql" class="headerlink" title="退出mysql"></a>退出mysql</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">exit</span></span><br></pre></td></tr></table></figure>
+<h1 id="如需关闭服务"><a href="#如需关闭服务" class="headerlink" title="如需关闭服务"></a>如需关闭服务</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net stop mysql</span><br></pre></td></tr></table></figure>
+<h1 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h1><h2 id="5-7版本之后，初始化数据后，会自动分配一个密码，密码可在一个-err文件中查看日志获取"><a href="#5-7版本之后，初始化数据后，会自动分配一个密码，密码可在一个-err文件中查看日志获取" class="headerlink" title="5.7版本之后，初始化数据后，会自动分配一个密码，密码可在一个.err文件中查看日志获取"></a>5.7版本之后，初始化数据后，会自动分配一个密码，密码可在一个.err文件中查看日志获取</h2><h2 id="在my-ini中配置一项可以不使用密码登陆，在-mysqld-下输入skip-grant-tables"><a href="#在my-ini中配置一项可以不使用密码登陆，在-mysqld-下输入skip-grant-tables" class="headerlink" title="在my.ini中配置一项可以不使用密码登陆，在[mysqld]下输入skip-grant-tables"></a>在my.ini中配置一项可以不使用密码登陆，在[mysqld]下输入skip-grant-tables</h2>
       
     </div>
     
@@ -590,8 +579,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/default_avatar.jpg"
@@ -606,7 +604,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-count">23</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -628,7 +626,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-count">24</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -653,6 +651,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#下载官方安装包"><span class="nav-number">1.</span> <span class="nav-text">下载官方安装包</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解压到本地目录"><span class="nav-number">2.</span> <span class="nav-text">解压到本地目录</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#新建my-ini"><span class="nav-number">3.</span> <span class="nav-text">新建my.ini</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#cd到bin目录下"><span class="nav-number">4.</span> <span class="nav-text">cd到bin目录下</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#初始化数据，执行命令"><span class="nav-number">5.</span> <span class="nav-text">初始化数据，执行命令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#注册windows服务"><span class="nav-number">6.</span> <span class="nav-text">注册windows服务</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#启动mysql服务"><span class="nav-number">7.</span> <span class="nav-text">启动mysql服务</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#登陆mysql"><span class="nav-number">8.</span> <span class="nav-text">登陆mysql</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#提示输入密码，初始无密码，直接回车"><span class="nav-number">9.</span> <span class="nav-text">提示输入密码，初始无密码，直接回车</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#切换数据库"><span class="nav-number">10.</span> <span class="nav-text">切换数据库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#修改密码"><span class="nav-number">11.</span> <span class="nav-text">修改密码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#刷新权限表"><span class="nav-number">12.</span> <span class="nav-text">刷新权限表</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#修改主机名，允许所有ip连接"><span class="nav-number">13.</span> <span class="nav-text">修改主机名，允许所有ip连接</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#退出mysql"><span class="nav-number">14.</span> <span class="nav-text">退出mysql</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#如需关闭服务"><span class="nav-number">15.</span> <span class="nav-text">如需关闭服务</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#注意"><span class="nav-number">16.</span> <span class="nav-text">注意</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#5-7版本之后，初始化数据后，会自动分配一个密码，密码可在一个-err文件中查看日志获取"><span class="nav-number">16.1.</span> <span class="nav-text">5.7版本之后，初始化数据后，会自动分配一个密码，密码可在一个.err文件中查看日志获取</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在my-ini中配置一项可以不使用密码登陆，在-mysqld-下输入skip-grant-tables"><span class="nav-number">16.2.</span> <span class="nav-text">在my.ini中配置一项可以不使用密码登陆，在[mysqld]下输入skip-grant-tables</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

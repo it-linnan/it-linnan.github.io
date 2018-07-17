@@ -101,18 +101,18 @@
 
 
 
-<meta name="description" content="之前，我们采用引用共享库的方式，解决了WebSphere自带jar包与项目下log4j2相关的jar包冲突的问题。WebSphere自带jar包与应用jar包冲突的解决办法 但是启动工程后发现，log4j2没有加载自定义插件。 在log4j的官网上，我查到了如下介绍（可以跳过这段英文介绍，后面有翻译）：">
+<meta name="description" content="jar包冲突解决方案之前，我们采用引用共享库的方式，解决了WebSphere自带jar包与项目下log4j2相关的jar包冲突的问题。WebSphere自带jar包与应用jar包冲突的解决办法 问题现象解决了jar包冲突的问题后，顺利启动工程。启动后发现，log4j2没有加载自定义插件。 log4j2插件机制在log4j的官网上，我查到了如下介绍（可以跳过这段英文介绍，后面有翻译）：">
 <meta name="keywords" content="websphere,was,log4j2,自定义插件">
 <meta property="og:type" content="article">
 <meta property="og:title" content="WebSphere下log4j2自定义插件未加载的解决办法">
 <meta property="og:url" content="https://it-linnan.github.io/websphere下log4j2自定义插件未加载的解决办法.html">
 <meta property="og:site_name" content="Linn&#39;s Blog">
-<meta property="og:description" content="之前，我们采用引用共享库的方式，解决了WebSphere自带jar包与项目下log4j2相关的jar包冲突的问题。WebSphere自带jar包与应用jar包冲突的解决办法 但是启动工程后发现，log4j2没有加载自定义插件。 在log4j的官网上，我查到了如下介绍（可以跳过这段英文介绍，后面有翻译）：">
+<meta property="og:description" content="jar包冲突解决方案之前，我们采用引用共享库的方式，解决了WebSphere自带jar包与项目下log4j2相关的jar包冲突的问题。WebSphere自带jar包与应用jar包冲突的解决办法 问题现象解决了jar包冲突的问题后，顺利启动工程。启动后发现，log4j2没有加载自定义插件。 log4j2插件机制在log4j的官网上，我查到了如下介绍（可以跳过这段英文介绍，后面有翻译）：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-05T06:17:44.615Z">
+<meta property="og:updated_time" content="2018-07-17T05:49:35.145Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="WebSphere下log4j2自定义插件未加载的解决办法">
-<meta name="twitter:description" content="之前，我们采用引用共享库的方式，解决了WebSphere自带jar包与项目下log4j2相关的jar包冲突的问题。WebSphere自带jar包与应用jar包冲突的解决办法 但是启动工程后发现，log4j2没有加载自定义插件。 在log4j的官网上，我查到了如下介绍（可以跳过这段英文介绍，后面有翻译）：">
+<meta name="twitter:description" content="jar包冲突解决方案之前，我们采用引用共享库的方式，解决了WebSphere自带jar包与项目下log4j2相关的jar包冲突的问题。WebSphere自带jar包与应用jar包冲突的解决办法 问题现象解决了jar包冲突的问题后，顺利启动工程。启动后发现，log4j2没有加载自定义插件。 log4j2插件机制在log4j的官网上，我查到了如下介绍（可以跳过这段英文介绍，后面有翻译）：">
 
 
 
@@ -445,14 +445,14 @@
       
 
       
-        <p>之前，我们采用引用共享库的方式，解决了WebSphere自带jar包与项目下log4j2相关的jar包冲突的问题。<br><a href="/websphere自带jar包与应用jar包冲突的解决办法.html" title="WebSphere自带jar包与应用jar包冲突的解决办法">WebSphere自带jar包与应用jar包冲突的解决办法</a></p>
-<p>但是启动工程后发现，log4j2没有加载自定义插件。</p>
-<p>在log4j的官网上，我查到了如下介绍（可以跳过这段英文介绍，后面有翻译）：<br><a id="more"></a><br><blockquote><p>In Log4j 2 a plugin is declared by adding a @Plugin annotation to the class declaration. During initialization the Configuration will invoke the PluginManager to load the built-in Log4j plugins as well as any custom plugins. The <code>PluginManager</code> locates plugins by looking in five places:</p>
+        <h1 id="jar包冲突解决方案"><a href="#jar包冲突解决方案" class="headerlink" title="jar包冲突解决方案"></a>jar包冲突解决方案</h1><p>之前，我们采用引用共享库的方式，解决了WebSphere自带jar包与项目下log4j2相关的jar包冲突的问题。<br><a href="/websphere自带jar包与应用jar包冲突的解决办法.html" title="WebSphere自带jar包与应用jar包冲突的解决办法">WebSphere自带jar包与应用jar包冲突的解决办法</a></p>
+<h1 id="问题现象"><a href="#问题现象" class="headerlink" title="问题现象"></a>问题现象</h1><p>解决了jar包冲突的问题后，顺利启动工程。启动后发现，log4j2没有加载<strong><em>自定义插件</em></strong>。</p>
+<h1 id="log4j2插件机制"><a href="#log4j2插件机制" class="headerlink" title="log4j2插件机制"></a>log4j2插件机制</h1><p>在log4j的官网上，我查到了如下介绍（可以跳过这段英文介绍，后面有翻译）：<br><a id="more"></a><br><blockquote><p>In Log4j 2 a plugin is declared by adding a @Plugin annotation to the class declaration. During initialization the Configuration will invoke the PluginManager to load the built-in Log4j plugins as well as any custom plugins. The <strong>PluginManager</strong> locates plugins by looking in five places:</p>
 <ol>
 <li>Serialized plugin listing files on the classpath. These files are generated automatically during the build (more details below).</li>
-<li>(OSGi only) Serialized plugin listing files in each active OSGi bundle. A <code>BundleListener</code> is added on activation to continue checking new bundles after <code>log4j-core</code> has started.</li>
-<li>A comma-separated list of packages specified by the <code>log4j.plugin.packages</code> system property.</li>
-<li>Packages passed to the static <code>PluginManager.addPackages</code> method (before Log4j configuration occurs).</li>
+<li>(OSGi only) Serialized plugin listing files in each active OSGi bundle. A <strong>BundleListener</strong> is added on activation to continue checking new bundles after <strong>log4j-core</strong> has started.</li>
+<li>A comma-separated list of packages specified by the <strong>log4j.plugin.packages</strong> system property.</li>
+<li>Packages passed to the static <strong>PluginManager.addPackages</strong> method (before Log4j configuration occurs).</li>
 <li>The packages declared in your log4j2 configuration file.</li>
 </ol>
 <footer><strong>Apache Log4j 2</strong><cite><a href="https://logging.apache.org/log4j/2.x/manual/plugins.html" target="_blank" rel="noopener">插件介绍</a></cite></footer></blockquote></p>
@@ -468,13 +468,13 @@
 <tbody>
 <tr>
 <td style="text-align:center">packages</td>
-<td style="text-align:center">A comma separated list of package names to search for plugins. <code>Plugins are only loaded once per classloader</code> so changing this value may not have any effect upon reconfiguration.</td>
+<td style="text-align:center">A comma separated list of package names to search for plugins. <strong>Plugins are only loaded once per classloader</strong> so changing this value may not have any effect upon reconfiguration.</td>
 </tr>
 </tbody>
 </table>
 <footer><strong>Apache Log4j 2</strong><cite><a href="https://logging.apache.org/log4j/2.x/manual/configuration.html#ConfigurationSyntax" target="_blank" rel="noopener">配置项说明</a></cite></footer></blockquote><br>注意看我标注的这句话，每个类加载器只加载一次插件。</p>
-<p>之前在我们在建立共享库的时候，勾选了【请对此共享库使用隔离的类装入器】，此时共享库将使用独立的类加载器，而我们的自定义插件没有放在共享库中，自然扫描不到。</p>
-<p>解决办法是，在共享库的配置中，取消勾选【请对此共享库使用隔离的类装入器】。</p>
+<h1 id="问题原因"><a href="#问题原因" class="headerlink" title="问题原因"></a>问题原因</h1><p>之前在我们在建立共享库的时候，勾选了【请对此共享库使用隔离的类装入器】，此时共享库将使用独立的类加载器，而我们的自定义插件没有放在共享库中，自然扫描不到。</p>
+<h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><p>解决办法是，在共享库的配置中，取消勾选【请对此共享库使用隔离的类装入器】。</p>
 
       
     </div>
@@ -596,8 +596,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/default_avatar.jpg"
@@ -612,7 +621,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-count">23</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -634,7 +643,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-count">24</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -659,6 +668,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#jar包冲突解决方案"><span class="nav-number">1.</span> <span class="nav-text">jar包冲突解决方案</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#问题现象"><span class="nav-number">2.</span> <span class="nav-text">问题现象</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#log4j2插件机制"><span class="nav-number">3.</span> <span class="nav-text">log4j2插件机制</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#问题原因"><span class="nav-number">4.</span> <span class="nav-text">问题原因</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解决方案"><span class="nav-number">5.</span> <span class="nav-text">解决方案</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

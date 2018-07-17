@@ -101,21 +101,21 @@
 
 
 
-<meta name="description" content="虚拟机安装增强功能   宿主机任意位置创建一个文件夹，用于宿主机与虚拟机交换文件">
+<meta name="description" content="虚拟机安装增强功能 宿主机任意位置创建一个文件夹，用于宿主机与虚拟机交换文件">
 <meta name="keywords" content="linux,ubuntu,virtualbox,共享文件夹">
 <meta property="og:type" content="article">
 <meta property="og:title" content="虚拟机Virtual Box环境下Ubuntu初始化配置共享文件夹">
 <meta property="og:url" content="https://it-linnan.github.io/虚拟机virtual-box环境下ubuntu初始化配置共享文件夹.html">
 <meta property="og:site_name" content="Linn&#39;s Blog">
-<meta property="og:description" content="虚拟机安装增强功能   宿主机任意位置创建一个文件夹，用于宿主机与虚拟机交换文件">
+<meta property="og:description" content="虚拟机安装增强功能 宿主机任意位置创建一个文件夹，用于宿主机与虚拟机交换文件">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://it-linnan.github.io/虚拟机virtual-box环境下ubuntu初始化配置共享文件夹/1.png">
 <meta property="og:image" content="https://it-linnan.github.io/虚拟机virtual-box环境下ubuntu初始化配置共享文件夹/3-1.png">
 <meta property="og:image" content="https://it-linnan.github.io/虚拟机virtual-box环境下ubuntu初始化配置共享文件夹/3-2.png">
-<meta property="og:updated_time" content="2018-06-06T02:31:34.578Z">
+<meta property="og:updated_time" content="2018-07-17T05:58:38.956Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="虚拟机Virtual Box环境下Ubuntu初始化配置共享文件夹">
-<meta name="twitter:description" content="虚拟机安装增强功能   宿主机任意位置创建一个文件夹，用于宿主机与虚拟机交换文件">
+<meta name="twitter:description" content="虚拟机安装增强功能 宿主机任意位置创建一个文件夹，用于宿主机与虚拟机交换文件">
 <meta name="twitter:image" content="https://it-linnan.github.io/虚拟机virtual-box环境下ubuntu初始化配置共享文件夹/1.png">
 
 
@@ -449,23 +449,12 @@
       
 
       
-        <ol>
-<li><p>虚拟机安装增强功能</p>
-<img src="/虚拟机virtual-box环境下ubuntu初始化配置共享文件夹/1.png">
-</li>
-<li><p>宿主机任意位置创建一个文件夹，用于宿主机与虚拟机交换文件</p>
-<a id="more"></a></li>
-<li><p>创建共享文件夹，选择在步骤2中创建的文件夹路径</p>
-<img src="/虚拟机virtual-box环境下ubuntu初始化配置共享文件夹/3-1.png">
+        <h1 id="虚拟机安装增强功能"><a href="#虚拟机安装增强功能" class="headerlink" title="虚拟机安装增强功能"></a>虚拟机安装增强功能</h1><img src="/虚拟机virtual-box环境下ubuntu初始化配置共享文件夹/1.png">
+<h1 id="宿主机任意位置创建一个文件夹，用于宿主机与虚拟机交换文件"><a href="#宿主机任意位置创建一个文件夹，用于宿主机与虚拟机交换文件" class="headerlink" title="宿主机任意位置创建一个文件夹，用于宿主机与虚拟机交换文件"></a>宿主机任意位置创建一个文件夹，用于宿主机与虚拟机交换文件</h1><a id="more"></a>
+<h1 id="创建共享文件夹，选择在步骤2中创建的文件夹路径"><a href="#创建共享文件夹，选择在步骤2中创建的文件夹路径" class="headerlink" title="创建共享文件夹，选择在步骤2中创建的文件夹路径"></a>创建共享文件夹，选择在步骤2中创建的文件夹路径</h1><img src="/虚拟机virtual-box环境下ubuntu初始化配置共享文件夹/3-1.png">
 <img src="/虚拟机virtual-box环境下ubuntu初始化配置共享文件夹/3-2.png">
-</li>
-<li><p>虚拟机mnt文件夹下创建一个文件夹，用于虚拟机与宿主机交换文件</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /mnt</span><br><span class="line">mkdir share</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>建立共享文件夹映射</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /mnt</span><br><span class="line">sudo mount -t vboxsf ShareSwap share</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
+<h1 id="虚拟机mnt文件夹下创建一个文件夹，用于虚拟机与宿主机交换文件"><a href="#虚拟机mnt文件夹下创建一个文件夹，用于虚拟机与宿主机交换文件" class="headerlink" title="虚拟机mnt文件夹下创建一个文件夹，用于虚拟机与宿主机交换文件"></a>虚拟机mnt文件夹下创建一个文件夹，用于虚拟机与宿主机交换文件</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /mnt</span><br><span class="line">mkdir share</span><br></pre></td></tr></table></figure>
+<h1 id="建立共享文件夹映射"><a href="#建立共享文件夹映射" class="headerlink" title="建立共享文件夹映射"></a>建立共享文件夹映射</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /mnt</span><br><span class="line">sudo mount -t vboxsf ShareSwap share</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -589,8 +578,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/default_avatar.jpg"
@@ -605,7 +603,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-count">23</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -627,7 +625,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-count">24</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -652,6 +650,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#虚拟机安装增强功能"><span class="nav-number">1.</span> <span class="nav-text">虚拟机安装增强功能</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#宿主机任意位置创建一个文件夹，用于宿主机与虚拟机交换文件"><span class="nav-number">2.</span> <span class="nav-text">宿主机任意位置创建一个文件夹，用于宿主机与虚拟机交换文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建共享文件夹，选择在步骤2中创建的文件夹路径"><span class="nav-number">3.</span> <span class="nav-text">创建共享文件夹，选择在步骤2中创建的文件夹路径</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#虚拟机mnt文件夹下创建一个文件夹，用于虚拟机与宿主机交换文件"><span class="nav-number">4.</span> <span class="nav-text">虚拟机mnt文件夹下创建一个文件夹，用于虚拟机与宿主机交换文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#建立共享文件夹映射"><span class="nav-number">5.</span> <span class="nav-text">建立共享文件夹映射</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

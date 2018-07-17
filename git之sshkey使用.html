@@ -101,18 +101,18 @@
 
 
 
-<meta name="description" content="使用SSH Key可以免密登录ssh服务器，在我们日常使用git的时候，一般会使用SSH Key。 使用SSH Key的步骤如下：  生成SSH Key打开命令行工具，输入如下命令12345678910111213141516171819202122232425262728ssh-keygen -t rsa -C &quot;Linn&quot;-- 提示如下内容，如果使用默认文件，直接敲回车。或者输入指定文件路径后">
+<meta name="description" content="SSH key作用使用SSH Key可以免密登录ssh服务器，在我们日常使用git的时候，一般会使用SSH Key。 使用SSH Key的步骤生成SSH Key打开命令行工具，输入如下命令12345678910111213141516171819202122232425262728ssh-keygen -t rsa -C &quot;Linn&quot;-- 提示如下内容，如果使用默认文件，直接敲回车。或者输入指定文">
 <meta name="keywords" content="git,ssh key">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git之SSHKey使用">
 <meta property="og:url" content="https://it-linnan.github.io/git之sshkey使用.html">
 <meta property="og:site_name" content="Linn&#39;s Blog">
-<meta property="og:description" content="使用SSH Key可以免密登录ssh服务器，在我们日常使用git的时候，一般会使用SSH Key。 使用SSH Key的步骤如下：  生成SSH Key打开命令行工具，输入如下命令12345678910111213141516171819202122232425262728ssh-keygen -t rsa -C &quot;Linn&quot;-- 提示如下内容，如果使用默认文件，直接敲回车。或者输入指定文件路径后">
+<meta property="og:description" content="SSH key作用使用SSH Key可以免密登录ssh服务器，在我们日常使用git的时候，一般会使用SSH Key。 使用SSH Key的步骤生成SSH Key打开命令行工具，输入如下命令12345678910111213141516171819202122232425262728ssh-keygen -t rsa -C &quot;Linn&quot;-- 提示如下内容，如果使用默认文件，直接敲回车。或者输入指定文">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-22T03:41:50.722Z">
+<meta property="og:updated_time" content="2018-07-17T05:39:16.928Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git之SSHKey使用">
-<meta name="twitter:description" content="使用SSH Key可以免密登录ssh服务器，在我们日常使用git的时候，一般会使用SSH Key。 使用SSH Key的步骤如下：  生成SSH Key打开命令行工具，输入如下命令12345678910111213141516171819202122232425262728ssh-keygen -t rsa -C &quot;Linn&quot;-- 提示如下内容，如果使用默认文件，直接敲回车。或者输入指定文件路径后">
+<meta name="twitter:description" content="SSH key作用使用SSH Key可以免密登录ssh服务器，在我们日常使用git的时候，一般会使用SSH Key。 使用SSH Key的步骤生成SSH Key打开命令行工具，输入如下命令12345678910111213141516171819202122232425262728ssh-keygen -t rsa -C &quot;Linn&quot;-- 提示如下内容，如果使用默认文件，直接敲回车。或者输入指定文">
 
 
 
@@ -445,23 +445,13 @@
       
 
       
-        <p>使用SSH Key可以免密登录ssh服务器，在我们日常使用git的时候，一般会使用SSH Key。</p>
-<p>使用SSH Key的步骤如下：</p>
-<ol>
-<li>生成SSH Key<br>打开命令行工具，输入如下命令<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">"Linn"</span></span><br><span class="line">-- 提示如下内容，如果使用默认文件，直接敲回车。或者输入指定文件路径后，敲回车。</span><br><span class="line">-- 请输入保存密钥的文件名，不输入的情况，将默认使用~/.ssh/id_rsa</span><br><span class="line">Generating public/private rsa key pair.</span><br><span class="line">Enter file <span class="keyword">in</span> <span class="built_in">which</span> to save the key (~/.ssh/id_rsa):</span><br><span class="line">-- 提示如下内容，如果不设置密码，直接敲回车。或者输入密码后，敲回车。</span><br><span class="line">-- 输入密码，不输入表示无密码</span><br><span class="line">Enter passphrase (empty <span class="keyword">for</span> no passphrase):</span><br><span class="line">-- 提示如下内容，如果不设置密码，直接敲回车。或者输入相同密码后，敲回车。</span><br><span class="line">-- 再次输入密码</span><br><span class="line">Enter same passphrase again:</span><br><span class="line">-- 提示如下内容，密钥生成成功。密钥生成的位置是~/.ssh，其中Linn是私钥，Linn.pub是公钥。</span><br><span class="line">Your identification has been saved <span class="keyword">in</span> Linn.</span><br><span class="line">Your public key has been saved <span class="keyword">in</span> Linn.pub.</span><br><span class="line">The key fingerprint is:</span><br><span class="line">SHA256:/Rc6E9x+bExy8rHYkenvIudnWXGZ097JunbOO16xcwY Linn</span><br><span class="line">The key<span class="string">'s randomart image is:</span></span><br><span class="line"><span class="string">+---[RSA 2048]----+</span></span><br><span class="line"><span class="string">|              E++|</span></span><br><span class="line"><span class="string">|        . .    .=|</span></span><br><span class="line"><span class="string">|       . o . . + |</span></span><br><span class="line"><span class="string">|        +.+.+.*  |</span></span><br><span class="line"><span class="string">|        S=.*o@=+o|</span></span><br><span class="line"><span class="string">|          o.B+XX+|</span></span><br><span class="line"><span class="string">|           .=*o+*|</span></span><br><span class="line"><span class="string">|            o+.o |</span></span><br><span class="line"><span class="string">|                 |</span></span><br><span class="line"><span class="string">+----[SHA256]-----+</span></span><br></pre></td></tr></table></figure>
-<a id="more"></a></li>
-<li>添加SSH Key到ssh-agent<br>执行ssh-add命令<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-add Linn</span><br></pre></td></tr></table></figure>
-添加成功<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Identity added: Linn (Linn)</span><br></pre></td></tr></table></figure>
-如果出现如下提示，说明ssh-agent服务未启动，需要先启动服务，再执行ssh-add命令<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Could not open a connection to your authentication agent.</span><br></pre></td></tr></table></figure>
-启动ssh-agent服务<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-agent bash</span><br></pre></td></tr></table></figure></li>
-<li>登录Github或其他Git后台，添加公钥</li>
-<li>测试<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh git@github.com</span><br></pre></td></tr></table></figure>
-配置成功<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">PTY allocation request failed on channel 0</span><br><span class="line">Hi xxx! You<span class="string">'ve successfully authenticated, but GitHub does not provide shell access.</span></span><br><span class="line"><span class="string">Connection to github.com closed.</span></span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>关于SSH agent<br><blockquote><p>如果您的私钥使用密码短语来加密了的话，每一次使用 SSH 密钥对进行登录的时候，您都必须输入正确的密码短语。<br>而 SSH agent 程序能够将您的已解密的私钥缓存起来，在需要的时候提供给您的 SSH 客户端。这样子，您就只需要将私钥加入 SSH agent 缓存的时候输入一次密码短语就可以了。这为您经常使用 SSH 连接提供了不少便利。<br>SSH agent 一般会设置成在登录会话的时候自动启动，并在整个会话中保持运行。有不少的 SSH agent 供您选择，我们将为您介绍几种常用的 SSH agent，您可以根据您的需要进行选择。</p>
-<footer><strong>wiki</strong><cite><a href="https://wiki.archlinux.org/index.php/SSH_keys_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)#SSH_agents" target="_blank" rel="noopener">SSH agents</a></cite></footer></blockquote></p>
-
+        <h1 id="SSH-key作用"><a href="#SSH-key作用" class="headerlink" title="SSH key作用"></a>SSH key作用</h1><p>使用SSH Key可以免密登录ssh服务器，在我们日常使用git的时候，一般会使用SSH Key。</p>
+<h1 id="使用SSH-Key的步骤"><a href="#使用SSH-Key的步骤" class="headerlink" title="使用SSH Key的步骤"></a>使用SSH Key的步骤</h1><h2 id="生成SSH-Key"><a href="#生成SSH-Key" class="headerlink" title="生成SSH Key"></a>生成SSH Key</h2><p>打开命令行工具，输入如下命令<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">"Linn"</span></span><br><span class="line">-- 提示如下内容，如果使用默认文件，直接敲回车。或者输入指定文件路径后，敲回车。</span><br><span class="line">-- 请输入保存密钥的文件名，不输入的情况，将默认使用~/.ssh/id_rsa</span><br><span class="line">Generating public/private rsa key pair.</span><br><span class="line">Enter file <span class="keyword">in</span> <span class="built_in">which</span> to save the key (~/.ssh/id_rsa):</span><br><span class="line">-- 提示如下内容，如果不设置密码，直接敲回车。或者输入密码后，敲回车。</span><br><span class="line">-- 输入密码，不输入表示无密码</span><br><span class="line">Enter passphrase (empty <span class="keyword">for</span> no passphrase):</span><br><span class="line">-- 提示如下内容，如果不设置密码，直接敲回车。或者输入相同密码后，敲回车。</span><br><span class="line">-- 再次输入密码</span><br><span class="line">Enter same passphrase again:</span><br><span class="line">-- 提示如下内容，密钥生成成功。密钥生成的位置是~/.ssh，其中Linn是私钥，Linn.pub是公钥。</span><br><span class="line">Your identification has been saved <span class="keyword">in</span> Linn.</span><br><span class="line">Your public key has been saved <span class="keyword">in</span> Linn.pub.</span><br><span class="line">The key fingerprint is:</span><br><span class="line">SHA256:/Rc6E9x+bExy8rHYkenvIudnWXGZ097JunbOO16xcwY Linn</span><br><span class="line">The key<span class="string">'s randomart image is:</span></span><br><span class="line"><span class="string">+---[RSA 2048]----+</span></span><br><span class="line"><span class="string">|              E++|</span></span><br><span class="line"><span class="string">|        . .    .=|</span></span><br><span class="line"><span class="string">|       . o . . + |</span></span><br><span class="line"><span class="string">|        +.+.+.*  |</span></span><br><span class="line"><span class="string">|        S=.*o@=+o|</span></span><br><span class="line"><span class="string">|          o.B+XX+|</span></span><br><span class="line"><span class="string">|           .=*o+*|</span></span><br><span class="line"><span class="string">|            o+.o |</span></span><br><span class="line"><span class="string">|                 |</span></span><br><span class="line"><span class="string">+----[SHA256]-----+</span></span><br></pre></td></tr></table></figure><br><a id="more"></a></p>
+<h2 id="添加SSH-Key到ssh-agent"><a href="#添加SSH-Key到ssh-agent" class="headerlink" title="添加SSH Key到ssh-agent"></a>添加SSH Key到ssh-agent</h2><p>执行ssh-add命令<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-add Linn</span><br></pre></td></tr></table></figure><br>添加成功<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Identity added: Linn (Linn)</span><br></pre></td></tr></table></figure><br>如果出现如下提示，说明ssh-agent服务未启动，需要先启动服务，再执行ssh-add命令<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Could not open a connection to your authentication agent.</span><br></pre></td></tr></table></figure><br>启动ssh-agent服务<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-agent bash</span><br></pre></td></tr></table></figure></p>
+<h2 id="登录Github或其他Git后台，添加公钥"><a href="#登录Github或其他Git后台，添加公钥" class="headerlink" title="登录Github或其他Git后台，添加公钥"></a>登录Github或其他Git后台，添加公钥</h2><h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh git@github.com</span><br></pre></td></tr></table></figure>
+<p>配置成功<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">PTY allocation request failed on channel 0</span><br><span class="line">Hi xxx! You<span class="string">'ve successfully authenticated, but GitHub does not provide shell access.</span></span><br><span class="line"><span class="string">Connection to github.com closed.</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="关于SSH-agent"><a href="#关于SSH-agent" class="headerlink" title="关于SSH agent"></a>关于SSH agent</h1><blockquote><p>如果您的私钥使用密码短语来加密了的话，每一次使用 SSH 密钥对进行登录的时候，您都必须输入正确的密码短语。<br>而 SSH agent 程序能够将您的已解密的私钥缓存起来，在需要的时候提供给您的 SSH 客户端。这样子，您就只需要将私钥加入 SSH agent 缓存的时候输入一次密码短语就可以了。这为您经常使用 SSH 连接提供了不少便利。<br>SSH agent 一般会设置成在登录会话的时候自动启动，并在整个会话中保持运行。有不少的 SSH agent 供您选择，我们将为您介绍几种常用的 SSH agent，您可以根据您的需要进行选择。</p>
+<footer><strong>wiki</strong><cite><a href="https://wiki.archlinux.org/index.php/SSH_keys_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)#SSH_agents" target="_blank" rel="noopener">SSH agents</a></cite></footer></blockquote>
       
     </div>
     
@@ -521,6 +511,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/maven个性化打包说明.html" rel="prev" title="Maven个性化打包说明">
+                Maven个性化打包说明 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -578,8 +572,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/default_avatar.jpg"
@@ -594,7 +597,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-count">23</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -616,7 +619,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-count">24</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -641,6 +644,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#SSH-key作用"><span class="nav-number">1.</span> <span class="nav-text">SSH key作用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用SSH-Key的步骤"><span class="nav-number">2.</span> <span class="nav-text">使用SSH Key的步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#生成SSH-Key"><span class="nav-number">2.1.</span> <span class="nav-text">生成SSH Key</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加SSH-Key到ssh-agent"><span class="nav-number">2.2.</span> <span class="nav-text">添加SSH Key到ssh-agent</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#登录Github或其他Git后台，添加公钥"><span class="nav-number">2.3.</span> <span class="nav-text">登录Github或其他Git后台，添加公钥</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试"><span class="nav-number">2.4.</span> <span class="nav-text">测试</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#关于SSH-agent"><span class="nav-number">3.</span> <span class="nav-text">关于SSH agent</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

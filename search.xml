@@ -1,9 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Maven个性化打包说明]]></title>
+    <url>%2Fmaven%E4%B8%AA%E6%80%A7%E5%8C%96%E6%89%93%E5%8C%85%E8%AF%B4%E6%98%8E.html</url>
+    <content type="text"><![CDATA[以实际项目为例，介绍maven打包插件的使用，实现个性化打包。 工程目录结构miapp项目分为两个模块 yd-miapp模块为web项目 java代码部分其中，function目录下，存在不同中心的组件代码 静态资源部分其中，views目录下，存在不同中心的静态资源 目前war包目录结构目前war包中包含了全部的组件代码和静态资源，与工程目录结构类似。 独立打包后war包目录结构比如，我们打包的是城市代码为00031400。独立打包时，只包含00031400城市的组件和静态资源。 注意，00000000和99999999是特殊的城市代码，d00000000存放的是公共资源，d99999999存放的是模板资源。 打包操作新建配置文件在yd-miapp/src/main/resources/filters目录下新建配置文件，配置文件命名规则是product-centerid.xml，比如product-00031400.xml、product-00055500.xml 编写配置项配置文件中的配置项请参考sample-db2、sample-mysql、sample-oracle 执行以下maven打包命令进入miapp目录下，执行以下maven命令。其中centerid是中心编码，比如00031400、0005550012mvn clean package -Dp=centeridmvn clean package -Dp=00031400 原理maven提供了一个打包插件，maven-war-plugin，负责收集Web应用程序的所有的依赖，类和资源，并将它们打包到war包中。 打包插件提供了一系列参数，通过配置这些参数，可以个性化输出的war包。 我们使用了以下参数来进行独立打包。 属性 类型 支持版本 描述 &lt;warSourceExcludes> String - 在编译周期完成后，向target目录复制文件时忽略的目录列表，用逗号分隔。使用表达式％regex []，可以使用正则表达式语法。 &lt;packagingExcludes> String 2.1-alpha-2 最终构建war包之前，从target目录抽取war包文件时忽略的目录列表，用逗号分隔。使用表达式％regex []，可以使用正则表达式语法。 我们在独立打包时，想要忽略的就是除当前城市以外的组件和资源文件，而且需要保留d00000000和d99999999目录。因此，使用如下表达式过滤资源。123%regex[WEB-INF/classes/function/d(?!(?:$&#123;p&#125;|00000000|99999999).+$).+],%regex[WEB-INF/views/assets/plugins/d(?!(?:$&#123;p&#125;|00000000|99999999).+$).+],%regex[WEB-INF/views/d(?!(?:$&#123;p&#125;|00000000|99999999).+$).+] 首先，在pom.xml中配置了maven-war-plugin1234567891011121314151617&lt;plugin&gt; &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt; &lt;artifactId&gt;maven-war-plugin&lt;/artifactId&gt; &lt;configuration&gt; &lt;webResources&gt; &lt;resource&gt; &lt;directory&gt;src/main/webapp&lt;/directory&gt; &lt;includes&gt; &lt;include&gt;WEB-INF/web.xml&lt;/include&gt; &lt;/includes&gt; &lt;filtering&gt;true&lt;/filtering&gt; &lt;/resource&gt; &lt;/webResources&gt; &lt;warSourceExcludes&gt;$&#123;packagingExcludes&#125;&lt;/warSourceExcludes&gt; &lt;packagingExcludes&gt;$&#123;packagingExcludes&#125;&lt;/packagingExcludes&gt; &lt;/configuration&gt;&lt;/plugin&gt; 然后在pom.xml中配置了一个生产环境使用的公共profile。123456789101112131415161718192021&lt;profile&gt; &lt;id&gt;product&lt;/id&gt; &lt;build&gt; &lt;filters&gt; &lt;filter&gt;$&#123;basedir&#125;/src/main/resources/filters/product-$&#123;p&#125;.properties&lt;/filter&gt; &lt;/filters&gt; &lt;/build&gt; &lt;properties&gt; &lt;packagingExcludes&gt; %regex[WEB-INF/classes/function/d(?!(?:$&#123;p&#125;|00000000|99999999).+$).+], %regex[WEB-INF/views/assets/plugins/d(?!(?:$&#123;p&#125;|00000000|99999999).+$).+], %regex[WEB-INF/views/d(?!(?:$&#123;p&#125;|00000000|99999999).+$).+] &lt;/packagingExcludes&gt; &lt;/properties&gt; &lt;activation&gt; &lt;property&gt; &lt;name&gt;p&lt;/name&gt; &lt;value&gt;&lt;/value&gt; &lt;/property&gt; &lt;/activation&gt;&lt;/profile&gt; 公共profile激活条件是，执行maven命令时，传入参数p（maven命令传参数的方式是：-D参数名=参数值，比如：-Dp=00031400）公共profile激活后，会使用product-centerid.properties进行参数初始化，根据资源过滤表达式进行打包，最终实现独立打包。]]></content>
+      <categories>
+        <category>学习笔记</category>
+        <category>开发语言</category>
+        <category>工具使用</category>
+      </categories>
+      <tags>
+        <tag>war</tag>
+        <tag>maven</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Git之SSHKey使用]]></title>
     <url>%2Fgit%E4%B9%8Bsshkey%E4%BD%BF%E7%94%A8.html</url>
-    <content type="text"><![CDATA[使用SSH Key可以免密登录ssh服务器，在我们日常使用git的时候，一般会使用SSH Key。 使用SSH Key的步骤如下： 生成SSH Key打开命令行工具，输入如下命令12345678910111213141516171819202122232425262728ssh-keygen -t rsa -C "Linn"-- 提示如下内容，如果使用默认文件，直接敲回车。或者输入指定文件路径后，敲回车。-- 请输入保存密钥的文件名，不输入的情况，将默认使用~/.ssh/id_rsaGenerating public/private rsa key pair.Enter file in which to save the key (~/.ssh/id_rsa):-- 提示如下内容，如果不设置密码，直接敲回车。或者输入密码后，敲回车。-- 输入密码，不输入表示无密码Enter passphrase (empty for no passphrase):-- 提示如下内容，如果不设置密码，直接敲回车。或者输入相同密码后，敲回车。-- 再次输入密码Enter same passphrase again:-- 提示如下内容，密钥生成成功。密钥生成的位置是~/.ssh，其中Linn是私钥，Linn.pub是公钥。Your identification has been saved in Linn.Your public key has been saved in Linn.pub.The key fingerprint is:SHA256:/Rc6E9x+bExy8rHYkenvIudnWXGZ097JunbOO16xcwY LinnThe key's randomart image is:+---[RSA 2048]----+| E++|| . . .=|| . o . . + || +.+.+.* || S=.*o@=+o|| o.B+XX+|| .=*o+*|| o+.o || |+----[SHA256]-----+ 添加SSH Key到ssh-agent执行ssh-add命令1ssh-add Linn 添加成功1Identity added: Linn (Linn) 如果出现如下提示，说明ssh-agent服务未启动，需要先启动服务，再执行ssh-add命令1Could not open a connection to your authentication agent. 启动ssh-agent服务1ssh-agent bash 登录Github或其他Git后台，添加公钥 测试1ssh git@github.com 配置成功123PTY allocation request failed on channel 0Hi xxx! You've successfully authenticated, but GitHub does not provide shell access.Connection to github.com closed. 关于SSH agent如果您的私钥使用密码短语来加密了的话，每一次使用 SSH 密钥对进行登录的时候，您都必须输入正确的密码短语。而 SSH agent 程序能够将您的已解密的私钥缓存起来，在需要的时候提供给您的 SSH 客户端。这样子，您就只需要将私钥加入 SSH agent 缓存的时候输入一次密码短语就可以了。这为您经常使用 SSH 连接提供了不少便利。SSH agent 一般会设置成在登录会话的时候自动启动，并在整个会话中保持运行。有不少的 SSH agent 供您选择，我们将为您介绍几种常用的 SSH agent，您可以根据您的需要进行选择。 wikiSSH agents]]></content>
+    <content type="text"><![CDATA[SSH key作用使用SSH Key可以免密登录ssh服务器，在我们日常使用git的时候，一般会使用SSH Key。 使用SSH Key的步骤生成SSH Key打开命令行工具，输入如下命令12345678910111213141516171819202122232425262728ssh-keygen -t rsa -C "Linn"-- 提示如下内容，如果使用默认文件，直接敲回车。或者输入指定文件路径后，敲回车。-- 请输入保存密钥的文件名，不输入的情况，将默认使用~/.ssh/id_rsaGenerating public/private rsa key pair.Enter file in which to save the key (~/.ssh/id_rsa):-- 提示如下内容，如果不设置密码，直接敲回车。或者输入密码后，敲回车。-- 输入密码，不输入表示无密码Enter passphrase (empty for no passphrase):-- 提示如下内容，如果不设置密码，直接敲回车。或者输入相同密码后，敲回车。-- 再次输入密码Enter same passphrase again:-- 提示如下内容，密钥生成成功。密钥生成的位置是~/.ssh，其中Linn是私钥，Linn.pub是公钥。Your identification has been saved in Linn.Your public key has been saved in Linn.pub.The key fingerprint is:SHA256:/Rc6E9x+bExy8rHYkenvIudnWXGZ097JunbOO16xcwY LinnThe key's randomart image is:+---[RSA 2048]----+| E++|| . . .=|| . o . . + || +.+.+.* || S=.*o@=+o|| o.B+XX+|| .=*o+*|| o+.o || |+----[SHA256]-----+ 添加SSH Key到ssh-agent执行ssh-add命令1ssh-add Linn添加成功1Identity added: Linn (Linn)如果出现如下提示，说明ssh-agent服务未启动，需要先启动服务，再执行ssh-add命令1Could not open a connection to your authentication agent.启动ssh-agent服务1ssh-agent bash 登录Github或其他Git后台，添加公钥测试1ssh git@github.com 配置成功123PTY allocation request failed on channel 0Hi xxx! You've successfully authenticated, but GitHub does not provide shell access.Connection to github.com closed. 关于SSH agent如果您的私钥使用密码短语来加密了的话，每一次使用 SSH 密钥对进行登录的时候，您都必须输入正确的密码短语。而 SSH agent 程序能够将您的已解密的私钥缓存起来，在需要的时候提供给您的 SSH 客户端。这样子，您就只需要将私钥加入 SSH agent 缓存的时候输入一次密码短语就可以了。这为您经常使用 SSH 连接提供了不少便利。SSH agent 一般会设置成在登录会话的时候自动启动，并在整个会话中保持运行。有不少的 SSH agent 供您选择，我们将为您介绍几种常用的 SSH agent，您可以根据您的需要进行选择。 wikiSSH agents]]></content>
       <categories>
         <category>学习笔记</category>
         <category>开发语言</category>
@@ -17,7 +31,7 @@
   <entry>
     <title><![CDATA[WebSphere更新jsp和web.xml]]></title>
     <url>%2Fwebsphere%E6%9B%B4%E6%96%B0jsp%E5%92%8Cweb-xml.html</url>
-    <content type="text"><![CDATA[在WebSphere下部署应用时，更新任何文件都应该通过控制台更新的方式去更新。而且在集群部署的情况下，通过控制台更新可以将更新文件同步到所有节点上。 在某些特殊情况下，需要手动更新。这时，就需要我们手动删除缓存，同步相关文件。如果是集群部署，还需要将更新文件手动同步到所有节点上。这里介绍一下手动更新jsp和web.xml的方法。 手动更新jsp 将jsp文件上传到was服务器上。 删除缓存目录下，jsp编译后生成的class文件jsp缓存目录1&#123;was_home&#125;\AppServer\profiles\AppSrv01\temp 手动更新web.xml 将web.xml上传到was服务器上. 将更新内容同步到web_merged.xml文件中 同步缓存web.xml缓存目录1config\cells\&lt;cell_name&gt;\applications\&lt;ear_name&gt;\deployments\&lt;app_name&gt;\&lt;war_name&gt;\WEB-INF]]></content>
+    <content type="text"><![CDATA[WebShphere更新应用在WebSphere下部署应用时，更新任何文件都应该通过控制台更新的方式去更新。而且在集群部署的情况下，通过控制台更新可以将更新文件同步到所有节点上。 在某些特殊情况下，需要手动更新。这时，就需要我们手动删除缓存，同步相关文件。如果是集群部署，还需要将更新文件手动同步到所有节点上。这里介绍一下手动更新jsp和web.xml的方法。 WebSphere手动更新应用方法手动更新jsp 将jsp文件上传到was服务器上。 删除缓存目录下，jsp编译后生成的class文件jsp缓存目录1&#123;was_home&#125;\AppServer\profiles\AppSrv01\temp 手动更新web.xml 将web.xml上传到was服务器上. 将更新内容同步到web_merged.xml文件中 同步缓存web.xml缓存目录1config\cells\&lt;cell_name&gt;\applications\&lt;ear_name&gt;\deployments\&lt;app_name&gt;\&lt;war_name&gt;\WEB-INF]]></content>
       <categories>
         <category>学习笔记</category>
         <category>部署相关</category>
@@ -31,7 +45,7 @@
   <entry>
     <title><![CDATA[WebSphere下log4j2自定义插件未加载的解决办法]]></title>
     <url>%2Fwebsphere%E4%B8%8Blog4j2%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8F%92%E4%BB%B6%E6%9C%AA%E5%8A%A0%E8%BD%BD%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95.html</url>
-    <content type="text"><![CDATA[之前，我们采用引用共享库的方式，解决了WebSphere自带jar包与项目下log4j2相关的jar包冲突的问题。WebSphere自带jar包与应用jar包冲突的解决办法 但是启动工程后发现，log4j2没有加载自定义插件。 在log4j的官网上，我查到了如下介绍（可以跳过这段英文介绍，后面有翻译）：In Log4j 2 a plugin is declared by adding a @Plugin annotation to the class declaration. During initialization the Configuration will invoke the PluginManager to load the built-in Log4j plugins as well as any custom plugins. The PluginManager locates plugins by looking in five places: Serialized plugin listing files on the classpath. These files are generated automatically during the build (more details below). (OSGi only) Serialized plugin listing files in each active OSGi bundle. A BundleListener is added on activation to continue checking new bundles after log4j-core has started. A comma-separated list of packages specified by the log4j.plugin.packages system property. Packages passed to the static PluginManager.addPackages method (before Log4j configuration occurs). The packages declared in your log4j2 configuration file. Apache Log4j 2插件介绍 大意就是，log4j2支持插件机制，在启动阶段，PluginManager不仅会加载内建插件，也会加载自定义插件。PluginManager会在5个位置查找插件。 我们采用的是，在配置文件中定义插件扫描包位置，自定义插件放在扫描包下。再看官方对插件扫描包位置配置项的说明（只截取部分）：The configuration element in the XML file accepts several attributes: Attribute Name Description packages A comma separated list of package names to search for plugins. Plugins are only loaded once per classloader so changing this value may not have any effect upon reconfiguration. Apache Log4j 2配置项说明注意看我标注的这句话，每个类加载器只加载一次插件。 之前在我们在建立共享库的时候，勾选了【请对此共享库使用隔离的类装入器】，此时共享库将使用独立的类加载器，而我们的自定义插件没有放在共享库中，自然扫描不到。 解决办法是，在共享库的配置中，取消勾选【请对此共享库使用隔离的类装入器】。]]></content>
+    <content type="text"><![CDATA[jar包冲突解决方案之前，我们采用引用共享库的方式，解决了WebSphere自带jar包与项目下log4j2相关的jar包冲突的问题。WebSphere自带jar包与应用jar包冲突的解决办法 问题现象解决了jar包冲突的问题后，顺利启动工程。启动后发现，log4j2没有加载自定义插件。 log4j2插件机制在log4j的官网上，我查到了如下介绍（可以跳过这段英文介绍，后面有翻译）：In Log4j 2 a plugin is declared by adding a @Plugin annotation to the class declaration. During initialization the Configuration will invoke the PluginManager to load the built-in Log4j plugins as well as any custom plugins. The PluginManager locates plugins by looking in five places: Serialized plugin listing files on the classpath. These files are generated automatically during the build (more details below). (OSGi only) Serialized plugin listing files in each active OSGi bundle. A BundleListener is added on activation to continue checking new bundles after log4j-core has started. A comma-separated list of packages specified by the log4j.plugin.packages system property. Packages passed to the static PluginManager.addPackages method (before Log4j configuration occurs). The packages declared in your log4j2 configuration file. Apache Log4j 2插件介绍 大意就是，log4j2支持插件机制，在启动阶段，PluginManager不仅会加载内建插件，也会加载自定义插件。PluginManager会在5个位置查找插件。 我们采用的是，在配置文件中定义插件扫描包位置，自定义插件放在扫描包下。再看官方对插件扫描包位置配置项的说明（只截取部分）：The configuration element in the XML file accepts several attributes: Attribute Name Description packages A comma separated list of package names to search for plugins. Plugins are only loaded once per classloader so changing this value may not have any effect upon reconfiguration. Apache Log4j 2配置项说明注意看我标注的这句话，每个类加载器只加载一次插件。 问题原因之前在我们在建立共享库的时候，勾选了【请对此共享库使用隔离的类装入器】，此时共享库将使用独立的类加载器，而我们的自定义插件没有放在共享库中，自然扫描不到。 解决方案解决办法是，在共享库的配置中，取消勾选【请对此共享库使用隔离的类装入器】。]]></content>
       <categories>
         <category>学习笔记</category>
         <category>部署相关</category>
@@ -45,7 +59,7 @@
   <entry>
     <title><![CDATA[WebSphere自带jar包与应用jar包冲突的解决办法]]></title>
     <url>%2Fwebsphere%E8%87%AA%E5%B8%A6jar%E5%8C%85%E4%B8%8E%E5%BA%94%E7%94%A8jar%E5%8C%85%E5%86%B2%E7%AA%81%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95.html</url>
-    <content type="text"><![CDATA[在WebSphere8.5下安装我们的应用，一直提示NullPointerException，然而在Tomcat、Weblogic下都没有该问题。 分析错误日志，发现报错信息与log4j有关，而我们也确实使用了log4j，版本是2.10.0。 尝试着将log4j的jar包和slf4j的jar包从war包中删除，再安装，就启动成功了。此时再手动将之前移除的jar包放到应用的lib路径下，日志也可以正常打印了。 原因可能是我们所使用的log4j、slf4j的jar包，websphere8.5本身提供，而且自带的jar包与我们使用的版本不一致。在默认情况下，容器会优先加载自带的jar包，从而导致应用启动失败，提示NullPointerException。 解决办法如下： 在应用服务器上，新建共享库文件夹，将你希望优先加载的jar包放在该路径下。如果是集群部署，需要在所有集群服务器上，都建立这样的文件夹，路径需要保持一致。 在控制台中，新建共享库。点击左侧菜单【环境-&gt;共享库】 点击【新建】按钮。类路径填写在上一步中新建的共享库文件夹路径 在已安装的应用中，引入共享库。进入应用的配置界面，点击【共享库引用】 选择应用程序或模块，点击【引用共享库】按钮 选择需要引用的共享库 安装应用过程中，引入共享库。选择详细安装 在【步骤 4: 映射共享库】中，引入共享库]]></content>
+    <content type="text"><![CDATA[问题现象在WebSphere8.5下安装我们的应用，一直提示NullPointerException，然而在Tomcat、Weblogic下都没有该问题。 分析错误日志，发现报错信息与log4j有关，而我们也确实使用了log4j，版本是2.10.0。 尝试解决尝试着将log4j的jar包和slf4j的jar包从war包中删除，再安装，就启动成功了。此时再手动将之前移除的jar包放到应用的lib路径下，日志也可以正常打印了。 原因原因可能是我们所使用的log4j、slf4j的jar包，websphere8.5本身提供，而且自带的jar包与我们使用的版本不一致。在默认情况下，容器会优先加载自带的jar包，从而导致应用启动失败，提示NullPointerException。 解决方案 新建共享库文件夹在应用服务器上，新建共享库文件夹，将你希望优先加载的jar包放在该路径下。如果是集群部署，需要在所有集群服务器上，都建立这样的文件夹，路径需要保持一致。 在控制台中，新建共享库点击左侧菜单【环境-&gt;共享库】点击【新建】按钮。类路径填写在上一步中新建的共享库文件夹路径 在已安装的应用中，引入共享库进入应用的配置界面，点击【共享库引用】选择应用程序或模块，点击【引用共享库】按钮选择需要引用的共享库 安装应用过程中，引入共享库选择详细安装在【步骤 4: 映射共享库】中，引入共享库]]></content>
       <categories>
         <category>学习笔记</category>
         <category>部署相关</category>
@@ -59,7 +73,7 @@
   <entry>
     <title><![CDATA[Intellij IDEA 远程调试Tomcat下的应用]]></title>
     <url>%2Fintellij-idea-%E8%BF%9C%E7%A8%8B%E8%B0%83%E8%AF%95tomcat%E4%B8%8B%E7%9A%84%E5%BA%94%E7%94%A8.html</url>
-    <content type="text"><![CDATA[在Tomcat的bin目录下找到catalina.bat，搜索JPDA_ADDRESS，即为远程调试监听端口，默认为8000 1set JPDA_ADDRESS = 8000 cd到bin目录下，运行catalina.bat，并开启远程调试功能 1catalina.bat jpda start 在intellij中，新建远程服务器 配置远程服务的ip和端口 配置远程调试监听端口 在intellij中启动即可]]></content>
+    <content type="text"><![CDATA[配置Tomcat远程调试端口在Tomcat的bin目录下找到catalina.bat，搜索JPDA_ADDRESS，即为远程调试监听端口，默认为8000 1set JPDA_ADDRESS = 8000 cd到bin目录下，运行catalina.bat，并开启远程调试功能1catalina.bat jpda start 在intellij中，新建远程服务器 配置远程服务的ip和端口 配置远程调试监听端口 在intellij中启动即可]]></content>
       <categories>
         <category>学习笔记</category>
         <category>开发语言</category>
@@ -73,7 +87,7 @@
   <entry>
     <title><![CDATA[Web容器默认servlet]]></title>
     <url>%2Fweb%E5%AE%B9%E5%99%A8%E9%BB%98%E8%AE%A4servlet.html</url>
-    <content type="text"><![CDATA[默认servlet-name 容器 default Tomcat Jetty JBoss GlassFish _ah_default Google App Engine resin-file Resin FileServlet WebLogic SimpleFileServlet WebSphere 在spring配置文件中开启如下配置，即可开启默认servlet1&lt;mvc:default-servlet-handler/&gt;]]></content>
+    <content type="text"><![CDATA[常见中间件默认servlet 默认servlet-name 容器 default Tomcat Jetty JBoss GlassFish _ah_default Google App Engine resin-file Resin FileServlet WebLogic SimpleFileServlet WebSphere 在spring项目中使用默认servlet在spring配置文件中开启如下配置，即可开启默认servlet1&lt;mvc:default-servlet-handler/&gt;]]></content>
       <categories>
         <category>学习笔记</category>
         <category>开发语言</category>
@@ -87,7 +101,7 @@
   <entry>
     <title><![CDATA[C#中程序集版本名词解释]]></title>
     <url>%2Fc-%E4%B8%AD%E7%A8%8B%E5%BA%8F%E9%9B%86%E7%89%88%E6%9C%AC%E5%90%8D%E8%AF%8D%E8%A7%A3%E9%87%8A.html</url>
-    <content type="text"><![CDATA[微软内部开发有一个版本号命名规则，格式如下: Major Minor Build Revision 主要版本号 次要版本号 生成号 修订号 eg：2.23.159.23Major：名称相同但主要版本号不同的程序集不可互换。 更高版本号可能表明大幅重写无法假定向后兼容的产品。 Minor：如果两个程序集的名称和主要版本号相同，而次要版本号不同，这指示显著增强，但照顾到了向后兼容性。 该较高的次要版本号可指示产品的修正版或完全向后兼容的新版本。 Build：生成号的不同表示对相同源所作的重新编译。 处理器、 平台或编译器更改时，可能使用不同的生成号。 Revision：名称、主要版本号和次要版本号都相同但修订号不同的程序集应是完全可互换的。 更高修订号可能在修复以前发布的程序集安全漏洞的版本中使用。 AssemblyVersion（程序集版本） 在.NET Framework中编译和运行时使用的版本号，使用该版本号定位和加载指定程序集。当你在你的项目中引用了指定的程序集，其版本号将会嵌入到你的项目中。在运行时，CLR通过该版本号加载指定程序集。注意，仅当程序集使用强命名时，才会使用程序集名称、公钥、语言信息以及该版本号查找指定程序集，否则只会根据文件名进行查找。 AssemblyFileVersion（文件版本） 在文件系统中给文件的版本号，会在Windows资源管理器中显示。但是，在.NET Framework引用类库时从来不会用到这个版本。]]></content>
+    <content type="text"><![CDATA[微软内部开发有一个版本号命名规则，格式如下: Major Minor Build Revision 主要版本号 次要版本号 生成号 修订号 eg：2.23.159.23 版本号各部分解释Major名称相同但主要版本号不同的程序集不可互换。 更高版本号可能表明大幅重写无法假定向后兼容的产品。 Minor如果两个程序集的名称和主要版本号相同，而次要版本号不同，这指示显著增强，但照顾到了向后兼容性。 该较高的次要版本号可指示产品的修正版或完全向后兼容的新版本。 Build生成号的不同表示对相同源所作的重新编译。 处理器、 平台或编译器更改时，可能使用不同的生成号。 Revision名称、主要版本号和次要版本号都相同但修订号不同的程序集应是完全可互换的。 更高修订号可能在修复以前发布的程序集安全漏洞的版本中使用。 程序集相关信息（AssemblyInfo)AssemblyVersion（程序集版本）在.NET Framework中编译和运行时使用的版本号，使用该版本号定位和加载指定程序集。当你在你的项目中引用了指定的程序集，其版本号将会嵌入到你的项目中。在运行时，CLR通过该版本号加载指定程序集。注意，仅当程序集使用强命名时，才会使用程序集名称、公钥、语言信息以及该版本号查找指定程序集，否则只会根据文件名进行查找。 AssemblyFileVersion（文件版本）在文件系统中给文件的版本号，会在Windows资源管理器中显示。但是，在.NET Framework引用类库时从来不会用到这个版本。]]></content>
       <categories>
         <category>学习笔记</category>
         <category>开发语言</category>
@@ -100,7 +114,7 @@
   <entry>
     <title><![CDATA[C#调用ocx的方法]]></title>
     <url>%2Fc-%E8%B0%83%E7%94%A8ocx%E7%9A%84%E6%96%B9%E6%B3%95.html</url>
-    <content type="text"><![CDATA[一、Winform工程中调用ocx 在项目中添加对ocx的引用 将ocx文件拖拽至工具箱 将ocx控件从工具箱中拖拽到窗体上 二、类库工程中调用ocx 编译ocx文件 打开Visual Studio命令提示符 输入命令aximp xxx.ocx，生成两个dll文件 将两个dll文件放到项目路径下 在项目中添加引用，引用Ax开头的dll 调用ocx控件的方法 123Ocx ocx = new Ocx();ocx.CreateControl();ocx.method();]]></content>
+    <content type="text"><![CDATA[Winform工程中调用ocx在项目中添加对ocx的引用将ocx文件拖拽至工具箱将ocx控件从工具箱中拖拽到窗体上 类库工程中调用ocx编译ocx文件打开Visual Studio命令提示符输入命令aximp xxx.ocx，生成两个dll文件 将两个dll文件放到项目路径下在项目中添加引用，引用Ax开头的dll调用ocx控件的方法123Ocx ocx = new Ocx();ocx.CreateControl();ocx.method();]]></content>
       <categories>
         <category>学习笔记</category>
         <category>开发语言</category>
@@ -128,7 +142,7 @@
   <entry>
     <title><![CDATA[WebSphere下配置servlet可访问WEB-INF]]></title>
     <url>%2Fwebsphere%E4%B8%8B%E9%85%8D%E7%BD%AEservlet%E5%8F%AF%E8%AE%BF%E9%97%AEweb-inf.html</url>
-    <content type="text"><![CDATA[WebSphere的WebContainer配置项说明 WebSphere的WebContainer配置项中： Attributename Data type Default value Description exposeWebInfOnDispatch boolean false If true, a servlet can access files in the WEB-INF directory. If false (default), a servlet cannot access files the WEB-INF directory. exposeWebInfOnDispatch属性默认值为false，servlet不能访问WEB-INF目录。 按照下图配置，可访问WEB-INF目录]]></content>
+    <content type="text"><![CDATA[WebSphere的WebContainer配置项说明WebSphere的WebContainer配置项中： Attributename Data type Default value Description exposeWebInfOnDispatch boolean false If true, a servlet can access files in the WEB-INF directory. If false (default), a servlet cannot access files the WEB-INF directory. exposeWebInfOnDispatch属性默认值为false，servlet不能访问WEB-INF目录。 配置示例按照下图配置，可访问WEB-INF目录]]></content>
       <categories>
         <category>学习笔记</category>
         <category>部署相关</category>
@@ -142,7 +156,7 @@
   <entry>
     <title><![CDATA[MySQL在Windows环境下安装]]></title>
     <url>%2Fmysql%E5%9C%A8windows%E7%8E%AF%E5%A2%83%E4%B8%8B%E5%AE%89%E8%A3%85.html</url>
-    <content type="text"><![CDATA[MySQL官网下载安装包 解压到本地目录 新建my.ini cd到bin目录下 初始化数据，执行命令123mysqld --initialize-- 据说执行这句话可以免密陆mysqld --initialize-insecure --user=mysql 注册windows服务1mysqld --install MySQL --defaultsfile="d:\DataBase\MySql\mysql-5.7.16-winx64\my.ini" 启动mysql服务1net start mysql 登陆mysql1mysql -u root -p 提示输入密码，初始无密码，直接回车 切换数据库1use mysql 修改密码1update user set password = password('newpsw') where user = 'root'; 刷新权限表1flush privileges; 修改主机名，允许所有ip连接1update user set hosts = '%' where user = 'root'; 退出mysql1exit 如需关闭服务 1net stop mysql 注意： 5.7版本之后，初始化数据后，会自动分配一个密码，密码可在一个.err文件中查看日志获取 在my.ini中配置一项可以不使用密码登陆，在[mysqld]下输入skip-grant-tables 12345678910my.ini[mysql]default-character-set=utf8[mysqld]basedir =d:\DataBase\MySql\mysql-5.7.16-winx64datadir =d:\DataBase\MySql\mysql-5.7.16-winx64\dataport =3306character-set-server=utf8[client]default-character-set=utf8]]></content>
+    <content type="text"><![CDATA[下载官方安装包MySQL 解压到本地目录新建my.ini12345678910my.ini[mysql]default-character-set=utf8[mysqld]basedir =d:\DataBase\MySql\mysql-5.7.16-winx64datadir =d:\DataBase\MySql\mysql-5.7.16-winx64\dataport =3306character-set-server=utf8[client]default-character-set=utf8 cd到bin目录下初始化数据，执行命令123mysqld --initialize-- 据说执行这句话可以免密陆mysqld --initialize-insecure --user=mysql 注册windows服务1mysqld --install MySQL --defaultsfile="d:\DataBase\MySql\mysql-5.7.16-winx64\my.ini" 启动mysql服务1net start mysql 登陆mysql1mysql -u root -p 提示输入密码，初始无密码，直接回车切换数据库1use mysql 修改密码1update user set password = password('newpsw') where user = 'root'; 刷新权限表1flush privileges; 修改主机名，允许所有ip连接1update user set hosts = '%' where user = 'root'; 退出mysql1exit 如需关闭服务1net stop mysql 注意5.7版本之后，初始化数据后，会自动分配一个密码，密码可在一个.err文件中查看日志获取在my.ini中配置一项可以不使用密码登陆，在[mysqld]下输入skip-grant-tables]]></content>
       <categories>
         <category>学习笔记</category>
         <category>部署相关</category>
@@ -156,7 +170,7 @@
   <entry>
     <title><![CDATA[MySQL官方Docker镜像使用]]></title>
     <url>%2Fmysql%E5%AE%98%E6%96%B9docker%E9%95%9C%E5%83%8F%E4%BD%BF%E7%94%A8.html</url>
-    <content type="text"><![CDATA[启动mysql服务实例拉取镜像12docker pull mysqldocker pull mysql:5.7 启动实例1docker run --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=password -d mysql:5.7 测试mysql服务实例安装mysql客户端 1apt-get install mysql-client-core-5.7 登录mysql 1mysql -h127.0.0.1 -P3306 -uroot -ppassword 使用自定义MySQL配置文件默认情况下，MySQL的启动配置文件是/etc/mysql/my.cnf，引用了/etc/mysql/conf.d和/etc/mysql/mysql.conf.d文件夹想要使用自定义配置文件，可将配置文件挂载到mysql容器的/etc/mysql/conf.d和/etc/mysql/mysql.conf.d目录下 1docker run --name mysql -p 3307:3306 -v /mnt/share/custom.cnf:/etc/mysql/conf.d/custom.cnf -e MYSQL_ROOT_PASSWORD=password -d mysql:5.7 使用自定义MySQL配置也可以使用命令行参数来指定配置 1docker run --name mysql -p 3307:3306 -v /mnt/share/custom.cnf:/etc/mysql/conf.d/custom.cnf -e MYSQL_ROOT_PASSWORD=password -d mysql:5.7 --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci --lower_case_table_names=1 可以通过以下命令，查看可配参数 1docker run -it --rm mysql:tag --verbose --hel]]></content>
+    <content type="text"><![CDATA[启动mysql服务实例拉取镜像12docker pull mysqldocker pull mysql:5.7 启动实例1docker run --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=password -d mysql:5.7 测试mysql服务实例安装mysql客户端 1apt-get install mysql-client-core-5.7 登录mysql1mysql -h127.0.0.1 -P3306 -uroot -ppassword 使用自定义MySQL配置文件默认情况下，MySQL的启动配置文件是/etc/mysql/my.cnf，引用了/etc/mysql/conf.d和/etc/mysql/mysql.conf.d文件夹想要使用自定义配置文件，可将配置文件挂载到mysql容器的/etc/mysql/conf.d和/etc/mysql/mysql.conf.d目录下1docker run --name mysql -p 3307:3306 -v /mnt/share/custom.cnf:/etc/mysql/conf.d/custom.cnf -e MYSQL_ROOT_PASSWORD=password -d mysql:5.7 使用自定义MySQL配置使用命令行参数来指定配置1docker run --name mysql -p 3307:3306 -v /mnt/share/custom.cnf:/etc/mysql/conf.d/custom.cnf -e MYSQL_ROOT_PASSWORD=password -d mysql:5.7 --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci --lower_case_table_names=1 查看可配参数1docker run -it --rm mysql:tag --verbose --hel]]></content>
       <categories>
         <category>学习笔记</category>
         <category>部署相关</category>
@@ -186,7 +200,7 @@
   <entry>
     <title><![CDATA[Linux下war包操作]]></title>
     <url>%2Flinux%E4%B8%8Bwar%E5%8C%85%E6%93%8D%E4%BD%9C.html</url>
-    <content type="text"><![CDATA[Unzip 1unzip -oq common.war -d common jar 1jar -xvf game.war]]></content>
+    <content type="text"><![CDATA[Unzip1unzip -oq common.war -d common jar1jar -xvf game.war]]></content>
       <categories>
         <category>学习笔记</category>
         <category>Linux</category>
@@ -200,7 +214,7 @@
   <entry>
     <title><![CDATA[Linux下端口进程互查]]></title>
     <url>%2Flinux%E4%B8%8B%E7%AB%AF%E5%8F%A3%E8%BF%9B%E7%A8%8B%E4%BA%92%E6%9F%A5.html</url>
-    <content type="text"><![CDATA[先查看进程pid1ps -ef |grep 进程名 通过pid查看占用端口 1netstat -nap |grep 进程id 通过端口查看进程 1netstat -nap |grep 端口号]]></content>
+    <content type="text"><![CDATA[先查看进程pid1ps -ef |grep 进程名 通过pid查看占用端口1netstat -nap |grep 进程id 通过端口查看进程1netstat -nap |grep 端口号]]></content>
       <categories>
         <category>学习笔记</category>
         <category>Linux</category>
@@ -213,7 +227,7 @@
   <entry>
     <title><![CDATA[虚拟机Virtual Box环境下Ubuntu初始化配置网卡]]></title>
     <url>%2F%E8%99%9A%E6%8B%9F%E6%9C%BAvirtual-box%E7%8E%AF%E5%A2%83%E4%B8%8Bubuntu%E5%88%9D%E5%A7%8B%E5%8C%96%E9%85%8D%E7%BD%AE%E7%BD%91%E5%8D%A1.html</url>
-    <content type="text"><![CDATA[配置网卡为桥接模式 配置虚拟机ip、网关与宿主机在同一网段 断开再连接 完成！]]></content>
+    <content type="text"><![CDATA[配置网卡为桥接模式 配置虚拟机ip、网关与宿主机在同一网段 断开再连接]]></content>
       <categories>
         <category>学习笔记</category>
         <category>Linux</category>
@@ -228,7 +242,7 @@
   <entry>
     <title><![CDATA[虚拟机Virtual Box环境下Ubuntu初始化配置共享文件夹]]></title>
     <url>%2F%E8%99%9A%E6%8B%9F%E6%9C%BAvirtual-box%E7%8E%AF%E5%A2%83%E4%B8%8Bubuntu%E5%88%9D%E5%A7%8B%E5%8C%96%E9%85%8D%E7%BD%AE%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9.html</url>
-    <content type="text"><![CDATA[虚拟机安装增强功能 宿主机任意位置创建一个文件夹，用于宿主机与虚拟机交换文件 创建共享文件夹，选择在步骤2中创建的文件夹路径 虚拟机mnt文件夹下创建一个文件夹，用于虚拟机与宿主机交换文件 12cd /mntmkdir share 建立共享文件夹映射 12cd /mntsudo mount -t vboxsf ShareSwap share]]></content>
+    <content type="text"><![CDATA[虚拟机安装增强功能 宿主机任意位置创建一个文件夹，用于宿主机与虚拟机交换文件 创建共享文件夹，选择在步骤2中创建的文件夹路径 虚拟机mnt文件夹下创建一个文件夹，用于虚拟机与宿主机交换文件12cd /mntmkdir share 建立共享文件夹映射12cd /mntsudo mount -t vboxsf ShareSwap share]]></content>
       <categories>
         <category>学习笔记</category>
         <category>Linux</category>
@@ -243,7 +257,7 @@
   <entry>
     <title><![CDATA[Ubuntu离线安装软件包]]></title>
     <url>%2Fubuntu%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%E5%8C%85.html</url>
-    <content type="text"><![CDATA[Ubuntu软件包格式为deb 离线安装命令1sudo dpkg -i xxx.deb PS:使用apt-get命令安装软件时，所有下载的deb包都缓存到了/var/cache/apt/archives目录下]]></content>
+    <content type="text"><![CDATA[Ubuntu软件包格式为deb离线安装命令1sudo dpkg -i xxx.deb 使用apt-get命令安装软件时，所有下载的deb包都缓存到了/var/cache/apt/archives目录下]]></content>
       <categories>
         <category>学习笔记</category>
         <category>Linux</category>
@@ -258,7 +272,7 @@
   <entry>
     <title><![CDATA[Ubuntu开启SSH服务]]></title>
     <url>%2Fubuntu%E5%BC%80%E5%90%AFssh%E6%9C%8D%E5%8A%A1.html</url>
-    <content type="text"><![CDATA[安装ssh服务 1apt-get install openssh-server 开启ssh服务 1service ssh start ssh配置文件 1vi /etc/ssh/sshd_config]]></content>
+    <content type="text"><![CDATA[安装ssh服务1apt-get install openssh-server 开启ssh服务1service ssh start ssh配置文件1vi /etc/ssh/sshd_config]]></content>
       <categories>
         <category>学习笔记</category>
         <category>Linux</category>
@@ -273,7 +287,7 @@
   <entry>
     <title><![CDATA[虚拟机VMware环境下CentOS初始化配置网卡]]></title>
     <url>%2F%E8%99%9A%E6%8B%9F%E6%9C%BAvmware%E7%8E%AF%E5%A2%83%E4%B8%8Bcentos%E5%88%9D%E5%A7%8B%E5%8C%96%E9%85%8D%E7%BD%AE%E7%BD%91%E5%8D%A1.html</url>
-    <content type="text"><![CDATA[检测网卡1ipconfig 发现只有ens33和lo两个网卡，需要将ens33修改为eth0 修改网卡名称，将其中得NAME和DEVICE项修改为eth0 1vi /etc/sysconfig/network-scripts/ifcfg-ens33 修改配置文件名称 1mv /etc/sysconfig/network-scripts/ifcfg-ens33 /etc/sysconfig/network-scripts/ifcfg-eth0 编辑/etc/default/grub并加入“net.ifnames=0 biosdevname=0 ”到GRUBCMDLINELINUX变量 12345678vi /etc/default/grubGRUB_TIMEOUT=5GRUB_DISTRIBUTOR="$(sed 's, release .*$,,g' /etc/system-release)"GRUB_DEFAULT=savedGRUB_DISABLE_SUBMENU=trueGRUB_TERMINAL_OUTPUT="console"GRUB_CMDLINE_LINUX="crashkernel=auto net.ifnames=0 biosdevname=0 rhgb quiet"GRUB_DISABLE_RECOVERY="true" 运行命令grub2-mkconfig -o /boot/grub2/grub.cfg 来重新生成GRUB配置并更新内核参数 1grub2-mkconfig -o /boot/grub2/grub.cfg 重启OS 1reboot 检测网卡以验证 1ifconfig]]></content>
+    <content type="text"><![CDATA[检测网卡1ipconfig 发现只有ens33和lo两个网卡，需要将ens33修改为eth0 修改网卡名称将其中的NAME和DEVICE项修改为eth01vi /etc/sysconfig/network-scripts/ifcfg-ens33 修改配置文件名称1mv /etc/sysconfig/network-scripts/ifcfg-ens33 /etc/sysconfig/network-scripts/ifcfg-eth0 编辑/etc/default/grub配置文件加入net.ifnames=0 biosdevname=0到GRUBCMDLINELINUX变量12345678vi /etc/default/grubGRUB_TIMEOUT=5GRUB_DISTRIBUTOR="$(sed 's, release .*$,,g' /etc/system-release)"GRUB_DEFAULT=savedGRUB_DISABLE_SUBMENU=trueGRUB_TERMINAL_OUTPUT="console"GRUB_CMDLINE_LINUX="crashkernel=auto net.ifnames=0 biosdevname=0 rhgb quiet"GRUB_DISABLE_RECOVERY="true" 重新生成GRUB配置并更新内核参数运行命令grub2-mkconfig -o /boot/grub2/grub.cfg1grub2-mkconfig -o /boot/grub2/grub.cfg 重启OS1reboot 检测网卡以验证1ifconfig]]></content>
       <categories>
         <category>学习笔记</category>
         <category>Linux</category>
@@ -288,7 +302,7 @@
   <entry>
     <title><![CDATA[CentOS防火墙使用]]></title>
     <url>%2Fcentos%E9%98%B2%E7%81%AB%E5%A2%99%E4%BD%BF%E7%94%A8.html</url>
-    <content type="text"><![CDATA[启动防火墙查看防火墙是否启动1systemctl status firewalld 如果没有启动，启动1systemctl start firewalld 开放端口命令 12firewall-cmd --zone=public --add-port=1. 1. /tcp --permanentsystemctl restart firewalld 关闭端口命令 12firewall-cmd --zone=public --remove-port=1. 1. /tcp -permanentsystemctl restart firewalld 查看开放端口命令 1firewall-cmd --zone=public --list-ports]]></content>
+    <content type="text"><![CDATA[启动防火墙查看防火墙是否启动1systemctl status firewalld如果没有启动，启动1systemctl start firewalld 开放端口命令 12firewall-cmd --zone=public --add-port=1. 1. /tcp --permanentsystemctl restart firewalld 关闭端口命令12firewall-cmd --zone=public --remove-port=1. 1. /tcp -permanentsystemctl restart firewalld 查看开放端口命令1firewall-cmd --zone=public --list-ports]]></content>
       <categories>
         <category>学习笔记</category>
         <category>Linux</category>
@@ -303,7 +317,7 @@
   <entry>
     <title><![CDATA[CentOS开启SSH服务]]></title>
     <url>%2Fcentos%E5%BC%80%E5%90%AFssh%E6%9C%8D%E5%8A%A1.html</url>
-    <content type="text"><![CDATA[安装openssh-server1yum list installed |grep openssh-server 如果有输出，证明已经安装了openssh-server，如果没有，需要安装1yum install openssh-server 修改sshd服务配置文件 1vi /etc/ssh/sshd_config 开启监听 123Port 22ListenAddress 0.0.0.0ListenAddress :: 允许远程登录 1PermitRootLogin yes 使用用户名密码作为连接验证 1PasswordAuthentication yes 开启sshd服务 1service sshd start 配置开机自启动 1systemctl enable sshd]]></content>
+    <content type="text"><![CDATA[安装openssh-server1yum list installed |grep openssh-server 如果有输出，证明已经安装了openssh-server，如果没有，需要安装1yum install openssh-server 修改sshd服务配置文件编辑sshd服务配置文件1vi /etc/ssh/sshd_config 开启监听123Port 22ListenAddress 0.0.0.0ListenAddress :: 允许远程登录1PermitRootLogin yes 使用用户名密码作为连接验证1PasswordAuthentication yes 开启sshd服务1service sshd start 配置开机自启动1systemctl enable sshd]]></content>
       <categories>
         <category>学习笔记</category>
         <category>Linux</category>

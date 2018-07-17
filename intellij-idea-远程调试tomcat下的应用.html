@@ -101,21 +101,21 @@
 
 
 
-<meta name="description" content="在Tomcat的bin目录下找到catalina.bat，搜索JPDA_ADDRESS，即为远程调试监听端口，默认为8000 1set JPDA_ADDRESS = 8000  cd到bin目录下，运行catalina.bat，并开启远程调试功能 1catalina.bat jpda start">
+<meta name="description" content="配置Tomcat远程调试端口在Tomcat的bin目录下找到catalina.bat，搜索JPDA_ADDRESS，即为远程调试监听端口，默认为8000 1set JPDA_ADDRESS = 8000 cd到bin目录下，运行catalina.bat，并开启远程调试功能1catalina.bat jpda start">
 <meta name="keywords" content="intellij idea,tomcat,远程调试">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Intellij IDEA 远程调试Tomcat下的应用">
 <meta property="og:url" content="https://it-linnan.github.io/intellij-idea-远程调试tomcat下的应用.html">
 <meta property="og:site_name" content="Linn&#39;s Blog">
-<meta property="og:description" content="在Tomcat的bin目录下找到catalina.bat，搜索JPDA_ADDRESS，即为远程调试监听端口，默认为8000 1set JPDA_ADDRESS = 8000  cd到bin目录下，运行catalina.bat，并开启远程调试功能 1catalina.bat jpda start">
+<meta property="og:description" content="配置Tomcat远程调试端口在Tomcat的bin目录下找到catalina.bat，搜索JPDA_ADDRESS，即为远程调试监听端口，默认为8000 1set JPDA_ADDRESS = 8000 cd到bin目录下，运行catalina.bat，并开启远程调试功能1catalina.bat jpda start">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://it-linnan.github.io/intellij-idea-远程调试tomcat下的应用/3.png">
 <meta property="og:image" content="https://it-linnan.github.io/intellij-idea-远程调试tomcat下的应用/4.png">
 <meta property="og:image" content="https://it-linnan.github.io/intellij-idea-远程调试tomcat下的应用/5.png">
-<meta property="og:updated_time" content="2018-06-06T02:32:20.550Z">
+<meta property="og:updated_time" content="2018-07-17T06:14:35.788Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Intellij IDEA 远程调试Tomcat下的应用">
-<meta name="twitter:description" content="在Tomcat的bin目录下找到catalina.bat，搜索JPDA_ADDRESS，即为远程调试监听端口，默认为8000 1set JPDA_ADDRESS = 8000  cd到bin目录下，运行catalina.bat，并开启远程调试功能 1catalina.bat jpda start">
+<meta name="twitter:description" content="配置Tomcat远程调试端口在Tomcat的bin目录下找到catalina.bat，搜索JPDA_ADDRESS，即为远程调试监听端口，默认为8000 1set JPDA_ADDRESS = 8000 cd到bin目录下，运行catalina.bat，并开启远程调试功能1catalina.bat jpda start">
 <meta name="twitter:image" content="https://it-linnan.github.io/intellij-idea-远程调试tomcat下的应用/3.png">
 
 
@@ -449,26 +449,14 @@
       
 
       
-        <ol>
-<li><p>在Tomcat的bin目录下找到catalina.bat，搜索JPDA_ADDRESS，即为远程调试监听端口，默认为8000</p>
+        <h1 id="配置Tomcat远程调试端口"><a href="#配置Tomcat远程调试端口" class="headerlink" title="配置Tomcat远程调试端口"></a>配置Tomcat远程调试端口</h1><p>在Tomcat的bin目录下找到catalina.bat，搜索JPDA_ADDRESS，即为远程调试监听端口，默认为8000</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set</span> JPDA_ADDRESS = 8000</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>cd到bin目录下，运行catalina.bat，并开启远程调试功能</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">catalina.bat jpda start</span><br></pre></td></tr></table></figure>
-<a id="more"></a></li>
-<li><p>在intellij中，新建远程服务器</p>
-<img src="/intellij-idea-远程调试tomcat下的应用/3.png">
-</li>
-<li><p>配置远程服务的ip和端口</p>
-<img src="/intellij-idea-远程调试tomcat下的应用/4.png">
-</li>
-<li><p>配置远程调试监听端口</p>
-<img src="/intellij-idea-远程调试tomcat下的应用/5.png">
-</li>
-<li><p>在intellij中启动即可</p>
-</li>
-</ol>
-
+<h1 id="cd到bin目录下，运行catalina-bat，并开启远程调试功能"><a href="#cd到bin目录下，运行catalina-bat，并开启远程调试功能" class="headerlink" title="cd到bin目录下，运行catalina.bat，并开启远程调试功能"></a>cd到bin目录下，运行catalina.bat，并开启远程调试功能</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">catalina.bat jpda start</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h1 id="在intellij中，新建远程服务器"><a href="#在intellij中，新建远程服务器" class="headerlink" title="在intellij中，新建远程服务器"></a>在intellij中，新建远程服务器</h1><img src="/intellij-idea-远程调试tomcat下的应用/3.png">
+<h1 id="配置远程服务的ip和端口"><a href="#配置远程服务的ip和端口" class="headerlink" title="配置远程服务的ip和端口"></a>配置远程服务的ip和端口</h1><img src="/intellij-idea-远程调试tomcat下的应用/4.png">
+<h1 id="配置远程调试监听端口"><a href="#配置远程调试监听端口" class="headerlink" title="配置远程调试监听端口"></a>配置远程调试监听端口</h1><img src="/intellij-idea-远程调试tomcat下的应用/5.png">
+<h1 id="在intellij中启动即可"><a href="#在intellij中启动即可" class="headerlink" title="在intellij中启动即可"></a>在intellij中启动即可</h1>
       
     </div>
     
@@ -589,8 +577,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/default_avatar.jpg"
@@ -605,7 +602,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-count">23</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -627,7 +624,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-count">24</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -652,6 +649,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#配置Tomcat远程调试端口"><span class="nav-number">1.</span> <span class="nav-text">配置Tomcat远程调试端口</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#cd到bin目录下，运行catalina-bat，并开启远程调试功能"><span class="nav-number">2.</span> <span class="nav-text">cd到bin目录下，运行catalina.bat，并开启远程调试功能</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#在intellij中，新建远程服务器"><span class="nav-number">3.</span> <span class="nav-text">在intellij中，新建远程服务器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#配置远程服务的ip和端口"><span class="nav-number">4.</span> <span class="nav-text">配置远程服务的ip和端口</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#配置远程调试监听端口"><span class="nav-number">5.</span> <span class="nav-text">配置远程调试监听端口</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#在intellij中启动即可"><span class="nav-number">6.</span> <span class="nav-text">在intellij中启动即可</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

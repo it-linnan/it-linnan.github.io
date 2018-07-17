@@ -85,7 +85,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="linux,ubuntu,deb,离线安装" />
+  <meta name="keywords" content="maven,war,maven-war-plugin" />
 
 
 
@@ -101,18 +101,24 @@
 
 
 
-<meta name="description" content="Ubuntu软件包格式为deb离线安装命令1sudo dpkg -i xxx.deb 使用apt-get命令安装软件时，所有下载的deb包都缓存到了/var/cache/apt/archives目录下">
-<meta name="keywords" content="linux,ubuntu,deb,离线安装">
+<meta name="description" content="以实际项目为例，介绍maven打包插件的使用，实现个性化打包。 工程目录结构miapp项目分为两个模块 yd-miapp模块为web项目 java代码部分其中，function目录下，存在不同中心的组件代码 静态资源部分其中，views目录下，存在不同中心的静态资源 目前war包目录结构目前war包中包含了全部的组件代码和静态资源，与工程目录结构类似。 独立打包后war包目录结构比如，我们打包的是">
+<meta name="keywords" content="maven,war,maven-war-plugin">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Ubuntu离线安装软件包">
-<meta property="og:url" content="https://it-linnan.github.io/ubuntu离线安装软件包.html">
+<meta property="og:title" content="Maven个性化打包说明">
+<meta property="og:url" content="https://it-linnan.github.io/maven个性化打包说明.html">
 <meta property="og:site_name" content="Linn&#39;s Blog">
-<meta property="og:description" content="Ubuntu软件包格式为deb离线安装命令1sudo dpkg -i xxx.deb 使用apt-get命令安装软件时，所有下载的deb包都缓存到了/var/cache/apt/archives目录下">
+<meta property="og:description" content="以实际项目为例，介绍maven打包插件的使用，实现个性化打包。 工程目录结构miapp项目分为两个模块 yd-miapp模块为web项目 java代码部分其中，function目录下，存在不同中心的组件代码 静态资源部分其中，views目录下，存在不同中心的静态资源 目前war包目录结构目前war包中包含了全部的组件代码和静态资源，与工程目录结构类似。 独立打包后war包目录结构比如，我们打包的是">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-17T05:56:50.337Z">
+<meta property="og:image" content="https://it-linnan.github.io/maven个性化打包说明/miapp.png">
+<meta property="og:image" content="https://it-linnan.github.io/maven个性化打包说明/yd-miapp.png">
+<meta property="og:image" content="https://it-linnan.github.io/maven个性化打包说明/java.png">
+<meta property="og:image" content="https://it-linnan.github.io/maven个性化打包说明/webapp.png">
+<meta property="og:image" content="https://it-linnan.github.io/maven个性化打包说明/yd-miapp-1.0-SNAPSHOT.png">
+<meta property="og:updated_time" content="2018-07-17T05:30:00.706Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Ubuntu离线安装软件包">
-<meta name="twitter:description" content="Ubuntu软件包格式为deb离线安装命令1sudo dpkg -i xxx.deb 使用apt-get命令安装软件时，所有下载的deb包都缓存到了/var/cache/apt/archives目录下">
+<meta name="twitter:title" content="Maven个性化打包说明">
+<meta name="twitter:description" content="以实际项目为例，介绍maven打包插件的使用，实现个性化打包。 工程目录结构miapp项目分为两个模块 yd-miapp模块为web项目 java代码部分其中，function目录下，存在不同中心的组件代码 静态资源部分其中，views目录下，存在不同中心的静态资源 目前war包目录结构目前war包中包含了全部的组件代码和静态资源，与工程目录结构类似。 独立打包后war包目录结构比如，我们打包的是">
+<meta name="twitter:image" content="https://it-linnan.github.io/maven个性化打包说明/miapp.png">
 
 
 
@@ -141,13 +147,13 @@
 
 
 
-  <link rel="canonical" href="https://it-linnan.github.io/ubuntu离线安装软件包.html"/>
+  <link rel="canonical" href="https://it-linnan.github.io/maven个性化打包说明.html"/>
 
 
 
 
 
-  <title>Ubuntu离线安装软件包 | Linn's Blog</title>
+  <title>Maven个性化打包说明 | Linn's Blog</title>
   
 
 
@@ -323,7 +329,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://it-linnan.github.io/ubuntu离线安装软件包.html">
+    <link itemprop="mainEntityOfPage" href="https://it-linnan.github.io/maven个性化打包说明.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Linn">
@@ -340,7 +346,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">Ubuntu离线安装软件包</h2>
+          <h2 class="post-title" itemprop="name headline">Maven个性化打包说明</h2>
         
 
         <div class="post-meta">
@@ -352,8 +358,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-29T16:39:42+08:00">
-                2018-05-29
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-17T11:37:51+08:00">
+                2018-07-17
               </time>
             
 
@@ -386,8 +392,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习笔记/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
+                  <a href="/categories/学习笔记/开发语言/" itemprop="url" rel="index">
+                    <span itemprop="name">开发语言</span>
                   </a>
                 </span>
 
@@ -397,8 +403,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习笔记/Linux/Ubuntu/" itemprop="url" rel="index">
-                    <span itemprop="name">Ubuntu</span>
+                  <a href="/categories/学习笔记/开发语言/工具使用/" itemprop="url" rel="index">
+                    <span itemprop="name">工具使用</span>
                   </a>
                 </span>
 
@@ -415,9 +421,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/ubuntu离线安装软件包.html#comments" itemprop="discussionUrl">
+                <a href="/maven个性化打包说明.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="ubuntu离线安装软件包.html" itemprop="commentCount"></span>
+                        data-disqus-identifier="maven个性化打包说明.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -445,8 +451,48 @@
       
 
       
-        <h1 id="Ubuntu软件包格式为deb"><a href="#Ubuntu软件包格式为deb" class="headerlink" title="Ubuntu软件包格式为deb"></a>Ubuntu软件包格式为deb</h1><h2 id="离线安装命令"><a href="#离线安装命令" class="headerlink" title="离线安装命令"></a>离线安装命令</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dpkg -i xxx.deb</span><br></pre></td></tr></table></figure>
-<p><strong><em>使用apt-get命令安装软件时，所有下载的deb包都缓存到了/var/cache/apt/archives目录下</em></strong></p>
+        <p>以实际项目为例，介绍maven打包插件的使用，实现个性化打包。</p>
+<h1 id="工程目录结构"><a href="#工程目录结构" class="headerlink" title="工程目录结构"></a>工程目录结构</h1><h2 id="miapp项目分为两个模块"><a href="#miapp项目分为两个模块" class="headerlink" title="miapp项目分为两个模块"></a>miapp项目分为两个模块</h2><img src="/maven个性化打包说明/miapp.png">
+<h2 id="yd-miapp模块为web项目"><a href="#yd-miapp模块为web项目" class="headerlink" title="yd-miapp模块为web项目"></a>yd-miapp模块为web项目</h2><img src="/maven个性化打包说明/yd-miapp.png">
+<h2 id="java代码部分"><a href="#java代码部分" class="headerlink" title="java代码部分"></a>java代码部分</h2><p>其中，function目录下，存在不同中心的组件代码<br><img src="/maven个性化打包说明/java.png"></p>
+<h2 id="静态资源部分"><a href="#静态资源部分" class="headerlink" title="静态资源部分"></a>静态资源部分</h2><p>其中，views目录下，存在不同中心的静态资源<br><img src="/maven个性化打包说明/webapp.png"></p>
+<h1 id="目前war包目录结构"><a href="#目前war包目录结构" class="headerlink" title="目前war包目录结构"></a>目前war包目录结构</h1><p>目前war包中包含了全部的组件代码和静态资源，与工程目录结构类似。</p>
+<h1 id="独立打包后war包目录结构"><a href="#独立打包后war包目录结构" class="headerlink" title="独立打包后war包目录结构"></a>独立打包后war包目录结构</h1><p>比如，我们打包的是城市代码为00031400。独立打包时，只包含00031400城市的组件和静态资源。</p>
+<p><strong><em>注意，00000000和99999999是特殊的城市代码，d00000000存放的是公共资源，d99999999存放的是模板资源。</em></strong><br><img src="/maven个性化打包说明/yd-miapp-1.0-SNAPSHOT.png"><br><a id="more"></a></p>
+<h1 id="打包操作"><a href="#打包操作" class="headerlink" title="打包操作"></a>打包操作</h1><h2 id="新建配置文件"><a href="#新建配置文件" class="headerlink" title="新建配置文件"></a>新建配置文件</h2><p>在yd-miapp/src/main/resources/filters目录下新建配置文件，配置文件命名规则是product-centerid.xml，比如product-00031400.xml、product-00055500.xml</p>
+<h2 id="编写配置项"><a href="#编写配置项" class="headerlink" title="编写配置项"></a>编写配置项</h2><p>配置文件中的配置项请参考sample-db2、sample-mysql、sample-oracle</p>
+<h2 id="执行以下maven打包命令"><a href="#执行以下maven打包命令" class="headerlink" title="执行以下maven打包命令"></a>执行以下maven打包命令</h2><p>进入miapp目录下，执行以下maven命令。其中centerid是中心编码，比如00031400、00055500<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mvn clean package -Dp=centerid</span><br><span class="line">mvn clean package -Dp=00031400</span><br></pre></td></tr></table></figure></p>
+<h1 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h1><p>maven提供了一个打包插件，<a href="https://maven.apache.org/plugins/maven-war-plugin/" target="_blank" rel="noopener">maven-war-plugin</a>，负责收集Web应用程序的所有的依赖，类和资源，并将它们打包到war包中。</p>
+<p>打包插件提供了一系列参数，通过配置这些参数，可以个性化输出的war包。</p>
+<p>我们使用了以下参数来进行独立打包。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">属性</th>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">支持版本</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><a href="https://maven.apache.org/plugins/maven-war-plugin/war-mojo.html#warSourceExcludes" target="_blank" rel="noopener">&lt;warSourceExcludes></a></td>
+<td style="text-align:center">String</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">在编译周期完成后，向target目录复制文件时忽略的目录列表，用逗号分隔。使用表达式％regex []，可以使用正则表达式语法。</td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="https://maven.apache.org/plugins/maven-war-plugin/war-mojo.html#packagingExcludes" target="_blank" rel="noopener">&lt;packagingExcludes></a></td>
+<td style="text-align:center">String</td>
+<td style="text-align:center">2.1-alpha-2</td>
+<td style="text-align:center">最终构建war包之前，从target目录抽取war包文件时忽略的目录列表，用逗号分隔。使用表达式％regex []，可以使用正则表达式语法。</td>
+</tr>
+</tbody>
+</table>
+<p>我们在独立打包时，想要忽略的就是除当前城市以外的组件和资源文件，而且需要保留d00000000和d99999999目录。因此，使用如下表达式过滤资源。<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">%regex[WEB-INF/classes/<span class="keyword">function</span>/d(?!(?:<span class="variable">$&#123;p&#125;</span>|00000000|99999999).+$).+],</span><br><span class="line">%regex[WEB-INF/views/assets/plugins/d(?!(?:<span class="variable">$&#123;p&#125;</span>|00000000|99999999).+$).+],</span><br><span class="line">%regex[WEB-INF/views/d(?!(?:<span class="variable">$&#123;p&#125;</span>|00000000|99999999).+$).+]</span><br></pre></td></tr></table></figure></p>
+<p>首先，在pom.xml中配置了maven-war-plugin<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-war-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">webResources</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">resource</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">directory</span>&gt;</span>src/main/webapp<span class="tag">&lt;/<span class="name">directory</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">includes</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">include</span>&gt;</span>WEB-INF/web.xml<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">includes</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">filtering</span>&gt;</span>true<span class="tag">&lt;/<span class="name">filtering</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">resource</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">webResources</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">warSourceExcludes</span>&gt;</span>$&#123;packagingExcludes&#125;<span class="tag">&lt;/<span class="name">warSourceExcludes</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">packagingExcludes</span>&gt;</span>$&#123;packagingExcludes&#125;<span class="tag">&lt;/<span class="name">packagingExcludes</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>然后在pom.xml中配置了一个生产环境使用的公共profile。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">profile</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">id</span>&gt;</span>product<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">filters</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">filter</span>&gt;</span>$&#123;basedir&#125;/src/main/resources/filters/product-$&#123;p&#125;.properties<span class="tag">&lt;/<span class="name">filter</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">filters</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">packagingExcludes</span>&gt;</span></span><br><span class="line">            %regex[WEB-INF/classes/function/d(?!(?:$&#123;p&#125;|00000000|99999999).+$).+],</span><br><span class="line">            %regex[WEB-INF/views/assets/plugins/d(?!(?:$&#123;p&#125;|00000000|99999999).+$).+],</span><br><span class="line">            %regex[WEB-INF/views/d(?!(?:$&#123;p&#125;|00000000|99999999).+$).+]</span><br><span class="line">        <span class="tag">&lt;/<span class="name">packagingExcludes</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">activation</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">name</span>&gt;</span>p<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">value</span>&gt;</span><span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">activation</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">profile</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>公共profile激活条件是，执行maven命令时，传入参数p（maven命令传参数的方式是：-D参数名=参数值，比如：-Dp=00031400）<br>公共profile激活后，会使用product-centerid.properties进行参数初始化，根据资源过滤表达式进行打包，最终实现独立打包。</p>
 
       
     </div>
@@ -467,7 +513,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://it-linnan.github.io/ubuntu离线安装软件包.html" title="Ubuntu离线安装软件包">https://it-linnan.github.io/ubuntu离线安装软件包.html</a>
+    <a href="https://it-linnan.github.io/maven个性化打包说明.html" title="Maven个性化打包说明">https://it-linnan.github.io/maven个性化打包说明.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -482,11 +528,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/linux/" rel="tag"># linux</a>
+            <a href="/tags/war/" rel="tag"># war</a>
           
-            <a href="/tags/ubuntu/" rel="tag"># ubuntu</a>
-          
-            <a href="/tags/deb/" rel="tag"># deb</a>
+            <a href="/tags/maven/" rel="tag"># maven</a>
           
         </div>
       
@@ -499,8 +543,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/ubuntu开启ssh服务.html" rel="next" title="Ubuntu开启SSH服务">
-                <i class="fa fa-chevron-left"></i> Ubuntu开启SSH服务
+              <a href="/git之sshkey使用.html" rel="next" title="Git之SSHKey使用">
+                <i class="fa fa-chevron-left"></i> Git之SSHKey使用
               </a>
             
           </div>
@@ -508,10 +552,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/虚拟机virtual-box环境下ubuntu初始化配置共享文件夹.html" rel="prev" title="虚拟机Virtual Box环境下Ubuntu初始化配置共享文件夹">
-                虚拟机Virtual Box环境下Ubuntu初始化配置共享文件夹 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -652,7 +692,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Ubuntu软件包格式为deb"><span class="nav-number">1.</span> <span class="nav-text">Ubuntu软件包格式为deb</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#离线安装命令"><span class="nav-number">1.1.</span> <span class="nav-text">离线安装命令</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#工程目录结构"><span class="nav-number">1.</span> <span class="nav-text">工程目录结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#miapp项目分为两个模块"><span class="nav-number">1.1.</span> <span class="nav-text">miapp项目分为两个模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#yd-miapp模块为web项目"><span class="nav-number">1.2.</span> <span class="nav-text">yd-miapp模块为web项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java代码部分"><span class="nav-number">1.3.</span> <span class="nav-text">java代码部分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#静态资源部分"><span class="nav-number">1.4.</span> <span class="nav-text">静态资源部分</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#目前war包目录结构"><span class="nav-number">2.</span> <span class="nav-text">目前war包目录结构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#独立打包后war包目录结构"><span class="nav-number">3.</span> <span class="nav-text">独立打包后war包目录结构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#打包操作"><span class="nav-number">4.</span> <span class="nav-text">打包操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#新建配置文件"><span class="nav-number">4.1.</span> <span class="nav-text">新建配置文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编写配置项"><span class="nav-number">4.2.</span> <span class="nav-text">编写配置项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#执行以下maven打包命令"><span class="nav-number">4.3.</span> <span class="nav-text">执行以下maven打包命令</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#原理"><span class="nav-number">5.</span> <span class="nav-text">原理</span></a></li></ol></div>
             
 
           </div>
@@ -807,9 +847,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'https://it-linnan.github.io/ubuntu离线安装软件包.html';
-          this.page.identifier = 'ubuntu离线安装软件包.html';
-          this.page.title = 'Ubuntu离线安装软件包';
+          this.page.url = 'https://it-linnan.github.io/maven个性化打包说明.html';
+          this.page.identifier = 'maven个性化打包说明.html';
+          this.page.title = 'Maven个性化打包说明';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://linnblog.disqus.com/embed.js';

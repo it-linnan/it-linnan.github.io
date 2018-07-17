@@ -320,6 +320,192 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://it-linnan.github.io/maven个性化打包说明.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Linn">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/default_avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Linn's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/maven个性化打包说明.html" itemprop="url">Maven个性化打包说明</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-17T11:37:51+08:00">
+                2018-07-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/开发语言/" itemprop="url" rel="index">
+                    <span itemprop="name">开发语言</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/开发语言/工具使用/" itemprop="url" rel="index">
+                    <span itemprop="name">工具使用</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/maven个性化打包说明.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="maven个性化打包说明.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>以实际项目为例，介绍maven打包插件的使用，实现个性化打包。</p>
+<h1 id="工程目录结构"><a href="#工程目录结构" class="headerlink" title="工程目录结构"></a>工程目录结构</h1><h2 id="miapp项目分为两个模块"><a href="#miapp项目分为两个模块" class="headerlink" title="miapp项目分为两个模块"></a>miapp项目分为两个模块</h2><img src="/maven个性化打包说明/miapp.png">
+<h2 id="yd-miapp模块为web项目"><a href="#yd-miapp模块为web项目" class="headerlink" title="yd-miapp模块为web项目"></a>yd-miapp模块为web项目</h2><img src="/maven个性化打包说明/yd-miapp.png">
+<h2 id="java代码部分"><a href="#java代码部分" class="headerlink" title="java代码部分"></a>java代码部分</h2><p>其中，function目录下，存在不同中心的组件代码<br><img src="/maven个性化打包说明/java.png"></p>
+<h2 id="静态资源部分"><a href="#静态资源部分" class="headerlink" title="静态资源部分"></a>静态资源部分</h2><p>其中，views目录下，存在不同中心的静态资源<br><img src="/maven个性化打包说明/webapp.png"></p>
+<h1 id="目前war包目录结构"><a href="#目前war包目录结构" class="headerlink" title="目前war包目录结构"></a>目前war包目录结构</h1><p>目前war包中包含了全部的组件代码和静态资源，与工程目录结构类似。</p>
+<h1 id="独立打包后war包目录结构"><a href="#独立打包后war包目录结构" class="headerlink" title="独立打包后war包目录结构"></a>独立打包后war包目录结构</h1><p>比如，我们打包的是城市代码为00031400。独立打包时，只包含00031400城市的组件和静态资源。</p>
+<p><strong><em>注意，00000000和99999999是特殊的城市代码，d00000000存放的是公共资源，d99999999存放的是模板资源。</em></strong><br><img src="/maven个性化打包说明/yd-miapp-1.0-SNAPSHOT.png"><br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/maven个性化打包说明.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://it-linnan.github.io/git之sshkey使用.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -445,10 +631,8 @@
 
       
         
-          <p>使用SSH Key可以免密登录ssh服务器，在我们日常使用git的时候，一般会使用SSH Key。</p>
-<p>使用SSH Key的步骤如下：</p>
-<ol>
-<li>生成SSH Key<br>打开命令行工具，输入如下命令<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">"Linn"</span></span><br><span class="line">-- 提示如下内容，如果使用默认文件，直接敲回车。或者输入指定文件路径后，敲回车。</span><br><span class="line">-- 请输入保存密钥的文件名，不输入的情况，将默认使用~/.ssh/id_rsa</span><br><span class="line">Generating public/private rsa key pair.</span><br><span class="line">Enter file <span class="keyword">in</span> <span class="built_in">which</span> to save the key (~/.ssh/id_rsa):</span><br><span class="line">-- 提示如下内容，如果不设置密码，直接敲回车。或者输入密码后，敲回车。</span><br><span class="line">-- 输入密码，不输入表示无密码</span><br><span class="line">Enter passphrase (empty <span class="keyword">for</span> no passphrase):</span><br><span class="line">-- 提示如下内容，如果不设置密码，直接敲回车。或者输入相同密码后，敲回车。</span><br><span class="line">-- 再次输入密码</span><br><span class="line">Enter same passphrase again:</span><br><span class="line">-- 提示如下内容，密钥生成成功。密钥生成的位置是~/.ssh，其中Linn是私钥，Linn.pub是公钥。</span><br><span class="line">Your identification has been saved <span class="keyword">in</span> Linn.</span><br><span class="line">Your public key has been saved <span class="keyword">in</span> Linn.pub.</span><br><span class="line">The key fingerprint is:</span><br><span class="line">SHA256:/Rc6E9x+bExy8rHYkenvIudnWXGZ097JunbOO16xcwY Linn</span><br><span class="line">The key<span class="string">'s randomart image is:</span></span><br><span class="line"><span class="string">+---[RSA 2048]----+</span></span><br><span class="line"><span class="string">|              E++|</span></span><br><span class="line"><span class="string">|        . .    .=|</span></span><br><span class="line"><span class="string">|       . o . . + |</span></span><br><span class="line"><span class="string">|        +.+.+.*  |</span></span><br><span class="line"><span class="string">|        S=.*o@=+o|</span></span><br><span class="line"><span class="string">|          o.B+XX+|</span></span><br><span class="line"><span class="string">|           .=*o+*|</span></span><br><span class="line"><span class="string">|            o+.o |</span></span><br><span class="line"><span class="string">|                 |</span></span><br><span class="line"><span class="string">+----[SHA256]-----+</span></span><br></pre></td></tr></table></figure>
+          <h1 id="SSH-key作用"><a href="#SSH-key作用" class="headerlink" title="SSH key作用"></a>SSH key作用</h1><p>使用SSH Key可以免密登录ssh服务器，在我们日常使用git的时候，一般会使用SSH Key。</p>
+<h1 id="使用SSH-Key的步骤"><a href="#使用SSH-Key的步骤" class="headerlink" title="使用SSH Key的步骤"></a>使用SSH Key的步骤</h1><h2 id="生成SSH-Key"><a href="#生成SSH-Key" class="headerlink" title="生成SSH Key"></a>生成SSH Key</h2><p>打开命令行工具，输入如下命令<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">"Linn"</span></span><br><span class="line">-- 提示如下内容，如果使用默认文件，直接敲回车。或者输入指定文件路径后，敲回车。</span><br><span class="line">-- 请输入保存密钥的文件名，不输入的情况，将默认使用~/.ssh/id_rsa</span><br><span class="line">Generating public/private rsa key pair.</span><br><span class="line">Enter file <span class="keyword">in</span> <span class="built_in">which</span> to save the key (~/.ssh/id_rsa):</span><br><span class="line">-- 提示如下内容，如果不设置密码，直接敲回车。或者输入密码后，敲回车。</span><br><span class="line">-- 输入密码，不输入表示无密码</span><br><span class="line">Enter passphrase (empty <span class="keyword">for</span> no passphrase):</span><br><span class="line">-- 提示如下内容，如果不设置密码，直接敲回车。或者输入相同密码后，敲回车。</span><br><span class="line">-- 再次输入密码</span><br><span class="line">Enter same passphrase again:</span><br><span class="line">-- 提示如下内容，密钥生成成功。密钥生成的位置是~/.ssh，其中Linn是私钥，Linn.pub是公钥。</span><br><span class="line">Your identification has been saved <span class="keyword">in</span> Linn.</span><br><span class="line">Your public key has been saved <span class="keyword">in</span> Linn.pub.</span><br><span class="line">The key fingerprint is:</span><br><span class="line">SHA256:/Rc6E9x+bExy8rHYkenvIudnWXGZ097JunbOO16xcwY Linn</span><br><span class="line">The key<span class="string">'s randomart image is:</span></span><br><span class="line"><span class="string">+---[RSA 2048]----+</span></span><br><span class="line"><span class="string">|              E++|</span></span><br><span class="line"><span class="string">|        . .    .=|</span></span><br><span class="line"><span class="string">|       . o . . + |</span></span><br><span class="line"><span class="string">|        +.+.+.*  |</span></span><br><span class="line"><span class="string">|        S=.*o@=+o|</span></span><br><span class="line"><span class="string">|          o.B+XX+|</span></span><br><span class="line"><span class="string">|           .=*o+*|</span></span><br><span class="line"><span class="string">|            o+.o |</span></span><br><span class="line"><span class="string">|                 |</span></span><br><span class="line"><span class="string">+----[SHA256]-----+</span></span><br></pre></td></tr></table></figure><br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/git之sshkey使用.html#more" rel="contents">
@@ -627,7 +811,7 @@
 
       
         
-          <p>在WebSphere下部署应用时，更新任何文件都应该通过控制台更新的方式去更新。而且在集群部署的情况下，通过控制台更新可以将更新文件同步到所有节点上。</p>
+          <h1 id="WebShphere更新应用"><a href="#WebShphere更新应用" class="headerlink" title="WebShphere更新应用"></a>WebShphere更新应用</h1><p>在WebSphere下部署应用时，更新任何文件都应该通过控制台更新的方式去更新。而且在集群部署的情况下，通过控制台更新可以将更新文件同步到所有节点上。</p>
 <p>在某些特殊情况下，需要手动更新。这时，就需要我们手动删除缓存，同步相关文件。如果是集群部署，还需要将更新文件手动同步到所有节点上。这里介绍一下手动更新jsp和web.xml的方法。<br>
           <!--noindex-->
           <div class="post-button text-center">
@@ -807,9 +991,9 @@
 
       
         
-          <p>之前，我们采用引用共享库的方式，解决了WebSphere自带jar包与项目下log4j2相关的jar包冲突的问题。<br><a href="/websphere自带jar包与应用jar包冲突的解决办法.html" title="WebSphere自带jar包与应用jar包冲突的解决办法">WebSphere自带jar包与应用jar包冲突的解决办法</a></p>
-<p>但是启动工程后发现，log4j2没有加载自定义插件。</p>
-<p>在log4j的官网上，我查到了如下介绍（可以跳过这段英文介绍，后面有翻译）：<br>
+          <h1 id="jar包冲突解决方案"><a href="#jar包冲突解决方案" class="headerlink" title="jar包冲突解决方案"></a>jar包冲突解决方案</h1><p>之前，我们采用引用共享库的方式，解决了WebSphere自带jar包与项目下log4j2相关的jar包冲突的问题。<br><a href="/websphere自带jar包与应用jar包冲突的解决办法.html" title="WebSphere自带jar包与应用jar包冲突的解决办法">WebSphere自带jar包与应用jar包冲突的解决办法</a></p>
+<h1 id="问题现象"><a href="#问题现象" class="headerlink" title="问题现象"></a>问题现象</h1><p>解决了jar包冲突的问题后，顺利启动工程。启动后发现，log4j2没有加载<strong><em>自定义插件</em></strong>。</p>
+<h1 id="log4j2插件机制"><a href="#log4j2插件机制" class="headerlink" title="log4j2插件机制"></a>log4j2插件机制</h1><p>在log4j的官网上，我查到了如下介绍（可以跳过这段英文介绍，后面有翻译）：<br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/websphere下log4j2自定义插件未加载的解决办法.html#more" rel="contents">
@@ -988,11 +1172,11 @@
 
       
         
-          <p>在WebSphere8.5下安装我们的应用，一直提示NullPointerException，然而在Tomcat、Weblogic下都没有该问题。</p>
+          <h1 id="问题现象"><a href="#问题现象" class="headerlink" title="问题现象"></a>问题现象</h1><p>在WebSphere8.5下安装我们的应用，一直提示NullPointerException，然而在Tomcat、Weblogic下都没有该问题。</p>
 <p>分析错误日志，发现报错信息与log4j有关，而我们也确实使用了log4j，版本是2.10.0。</p>
-<p>尝试着将log4j的jar包和slf4j的jar包从war包中删除，再安装，就启动成功了。此时再手动将之前移除的jar包放到应用的lib路径下，日志也可以正常打印了。</p>
-<p>原因可能是我们所使用的log4j、slf4j的jar包，websphere8.5本身提供，而且自带的jar包与我们使用的版本不一致。在默认情况下，容器会优先加载自带的jar包，从而导致应用启动失败，提示NullPointerException。</p>
-<p>解决办法如下：<br>
+<h1 id="尝试解决"><a href="#尝试解决" class="headerlink" title="尝试解决"></a>尝试解决</h1><p>尝试着将log4j的jar包和slf4j的jar包从war包中删除，再安装，就启动成功了。此时再手动将之前移除的jar包放到应用的lib路径下，日志也可以正常打印了。</p>
+<h1 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h1><p>原因可能是我们所使用的log4j、slf4j的jar包，websphere8.5本身提供，而且自带的jar包与我们使用的版本不一致。在默认情况下，容器会优先加载自带的jar包，从而导致应用启动失败，提示NullPointerException。</p>
+<h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/websphere自带jar包与应用jar包冲突的解决办法.html#more" rel="contents">
@@ -1171,12 +1355,9 @@
 
       
         
-          <ol>
-<li><p>在Tomcat的bin目录下找到catalina.bat，搜索JPDA_ADDRESS，即为远程调试监听端口，默认为8000</p>
+          <h1 id="配置Tomcat远程调试端口"><a href="#配置Tomcat远程调试端口" class="headerlink" title="配置Tomcat远程调试端口"></a>配置Tomcat远程调试端口</h1><p>在Tomcat的bin目录下找到catalina.bat，搜索JPDA_ADDRESS，即为远程调试监听端口，默认为8000</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set</span> JPDA_ADDRESS = 8000</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>cd到bin目录下，运行catalina.bat，并开启远程调试功能</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">catalina.bat jpda start</span><br></pre></td></tr></table></figure>
+<h1 id="cd到bin目录下，运行catalina-bat，并开启远程调试功能"><a href="#cd到bin目录下，运行catalina-bat，并开启远程调试功能" class="headerlink" title="cd到bin目录下，运行catalina.bat，并开启远程调试功能"></a>cd到bin目录下，运行catalina.bat，并开启远程调试功能</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">catalina.bat jpda start</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/intellij-idea-远程调试tomcat下的应用.html#more" rel="contents">
@@ -1356,7 +1537,7 @@
       
         
           
-            <table>
+            <h1 id="常见中间件默认servlet"><a href="#常见中间件默认servlet" class="headerlink" title="常见中间件默认servlet"></a>常见中间件默认servlet</h1><table>
 <thead>
 <tr>
 <th style="text-align:center">默认servlet-name</th>
@@ -1386,7 +1567,7 @@
 </tr>
 </tbody>
 </table>
-<p>在spring配置文件中开启如下配置，即可开启默认servlet<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mvc:default-servlet-handler</span>/&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="在spring项目中使用默认servlet"><a href="#在spring项目中使用默认servlet" class="headerlink" title="在spring项目中使用默认servlet"></a>在spring项目中使用默认servlet</h1><p>在spring配置文件中开启如下配置，即可开启默认servlet<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mvc:default-servlet-handler</span>/&gt;</span></span><br></pre></td></tr></table></figure></p>
 
           
         
@@ -1560,8 +1741,7 @@
 
       
         
-          <p>微软内部开发有一个版本号命名规则，格式如下:</p>
-<table>
+          <h1 id="微软内部开发有一个版本号命名规则，格式如下"><a href="#微软内部开发有一个版本号命名规则，格式如下" class="headerlink" title="微软内部开发有一个版本号命名规则，格式如下:"></a>微软内部开发有一个版本号命名规则，格式如下:</h1><table>
 <thead>
 <tr>
 <th style="text-align:center">Major</th>
@@ -1758,11 +1938,7 @@
 
       
         
-          <p>一、Winform工程中调用ocx</p>
-<ol>
-<li>在项目中添加对ocx的引用</li>
-<li>将ocx文件拖拽至工具箱</li>
-<li><p>将ocx控件从工具箱中拖拽到窗体上</p>
+          <h1 id="Winform工程中调用ocx"><a href="#Winform工程中调用ocx" class="headerlink" title="Winform工程中调用ocx"></a>Winform工程中调用ocx</h1><h2 id="在项目中添加对ocx的引用"><a href="#在项目中添加对ocx的引用" class="headerlink" title="在项目中添加对ocx的引用"></a>在项目中添加对ocx的引用</h2><h2 id="将ocx文件拖拽至工具箱"><a href="#将ocx文件拖拽至工具箱" class="headerlink" title="将ocx文件拖拽至工具箱"></a>将ocx文件拖拽至工具箱</h2><h2 id="将ocx控件从工具箱中拖拽到窗体上"><a href="#将ocx控件从工具箱中拖拽到窗体上" class="headerlink" title="将ocx控件从工具箱中拖拽到窗体上"></a>将ocx控件从工具箱中拖拽到窗体上</h2>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/c-调用ocx的方法.html#more" rel="contents">
@@ -1979,206 +2155,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://it-linnan.github.io/websphere下配置servlet可访问web-inf.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Linn">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/default_avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Linn's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/websphere下配置servlet可访问web-inf.html" itemprop="url">WebSphere下配置servlet可访问WEB-INF</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-30T09:24:20+08:00">
-                2018-05-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">学习笔记</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习笔记/部署相关/" itemprop="url" rel="index">
-                    <span itemprop="name">部署相关</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习笔记/部署相关/WebSphere/" itemprop="url" rel="index">
-                    <span itemprop="name">WebSphere</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/websphere下配置servlet可访问web-inf.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="websphere下配置servlet可访问web-inf.html" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <a href="https://www.ibm.com/support/knowledgecenter/was_beta_liberty/com.ibm.websphere.liberty.autogen.beta.doc/ae/rwlp_config_webContainer.html" target="_blank" rel="noopener">WebSphere的WebContainer配置项说明</a>
-<p>WebSphere的WebContainer配置项中：</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">Attributename</th>
-<th style="text-align:center">Data type</th>
-<th style="text-align:center">Default value</th>
-<th style="text-align:center">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">exposeWebInfOnDispatch</td>
-<td style="text-align:center">boolean</td>
-<td style="text-align:center">false</td>
-<td style="text-align:center">If true, a servlet can access files in the WEB-INF directory. If false (default), a servlet cannot access files the WEB-INF directory.</td>
-</tr>
-</tbody>
-</table>
-<p>exposeWebInfOnDispatch属性默认值为false，servlet不能访问WEB-INF目录。</p>
-<p>按照下图配置，可访问WEB-INF目录<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/websphere下配置servlet可访问web-inf.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2229,7 +2205,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-count">23</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -2251,7 +2227,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-count">24</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
