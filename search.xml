@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[SpringSecurity动态配置]]></title>
+    <url>%2Fspringsecurity%E5%8A%A8%E6%80%81%E9%85%8D%E7%BD%AE.html</url>
+    <content type="text"><![CDATA[我们在开发Web应用时，通常希望保护某些资源（页面或数据），对这些资源做安全控制，比如：未登录的用户访问资源时，自动跳转至登录页面；拥有管理员身份的用户，可以访问某些管理界面。 Spring Security是一个功能强大且可高度自定义的身份验证和访问控制框架。具有以下特性： 对身份验证和授权的全面和可扩展的支持 防止会话固定，点击劫持，跨站点请求伪造等攻击 Servlet API集成 可选与Spring Web MVC集成 还有很多啊.. https://spring.io/projects/spring-security#overview Spring Security]]></content>
+      <categories>
+        <category>开发框架</category>
+        <category>Spring</category>
+        <category>Spring Security</category>
+      </categories>
+      <tags>
+        <tag>Spring</tag>
+        <tag>Spring Security</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Maven个性化打包说明]]></title>
     <url>%2Fmaven%E4%B8%AA%E6%80%A7%E5%8C%96%E6%89%93%E5%8C%85%E8%AF%B4%E6%98%8E.html</url>
     <content type="text"><![CDATA[以实际项目为例，介绍maven打包插件的使用，实现个性化打包。 工程目录结构miapp项目分为两个模块 yd-miapp模块为web项目 java代码部分其中，function目录下，存在不同中心的组件代码 静态资源部分其中，views目录下，存在不同中心的静态资源 目前war包目录结构目前war包中包含了全部的组件代码和静态资源，与工程目录结构类似。 独立打包后war包目录结构比如，我们打包的是城市代码为00031400。独立打包时，只包含00031400城市的组件和静态资源。 注意，00000000和99999999是特殊的城市代码，d00000000存放的是公共资源，d99999999存放的是模板资源。 打包操作新建配置文件在yd-miapp/src/main/resources/filters目录下新建配置文件，配置文件命名规则是product-centerid.xml，比如product-00031400.xml、product-00055500.xml 编写配置项配置文件中的配置项请参考sample-db2、sample-mysql、sample-oracle 执行以下maven打包命令进入miapp目录下，执行以下maven命令。其中centerid是中心编码，比如00031400、0005550012mvn clean package -Dp=centeridmvn clean package -Dp=00031400 原理maven提供了一个打包插件，maven-war-plugin，负责收集Web应用程序的所有的依赖，类和资源，并将它们打包到war包中。 打包插件提供了一系列参数，通过配置这些参数，可以个性化输出的war包。 我们使用了以下参数来进行独立打包。 属性 类型 支持版本 描述 &lt;warSourceExcludes> String - 在编译周期完成后，向target目录复制文件时忽略的目录列表，用逗号分隔。使用表达式％regex []，可以使用正则表达式语法。 &lt;packagingExcludes> String 2.1-alpha-2 最终构建war包之前，从target目录抽取war包文件时忽略的目录列表，用逗号分隔。使用表达式％regex []，可以使用正则表达式语法。 我们在独立打包时，想要忽略的就是除当前城市以外的组件和资源文件，而且需要保留d00000000和d99999999目录。因此，使用如下表达式过滤资源。123%regex[WEB-INF/classes/function/d(?!(?:$&#123;p&#125;|00000000|99999999).+$).+],%regex[WEB-INF/views/assets/plugins/d(?!(?:$&#123;p&#125;|00000000|99999999).+$).+],%regex[WEB-INF/views/d(?!(?:$&#123;p&#125;|00000000|99999999).+$).+] 首先，在pom.xml中配置了maven-war-plugin1234567891011121314151617&lt;plugin&gt; &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt; &lt;artifactId&gt;maven-war-plugin&lt;/artifactId&gt; &lt;configuration&gt; &lt;webResources&gt; &lt;resource&gt; &lt;directory&gt;src/main/webapp&lt;/directory&gt; &lt;includes&gt; &lt;include&gt;WEB-INF/web.xml&lt;/include&gt; &lt;/includes&gt; &lt;filtering&gt;true&lt;/filtering&gt; &lt;/resource&gt; &lt;/webResources&gt; &lt;warSourceExcludes&gt;$&#123;packagingExcludes&#125;&lt;/warSourceExcludes&gt; &lt;packagingExcludes&gt;$&#123;packagingExcludes&#125;&lt;/packagingExcludes&gt; &lt;/configuration&gt;&lt;/plugin&gt; 然后在pom.xml中配置了一个生产环境使用的公共profile。123456789101112131415161718192021&lt;profile&gt; &lt;id&gt;product&lt;/id&gt; &lt;build&gt; &lt;filters&gt; &lt;filter&gt;$&#123;basedir&#125;/src/main/resources/filters/product-$&#123;p&#125;.properties&lt;/filter&gt; &lt;/filters&gt; &lt;/build&gt; &lt;properties&gt; &lt;packagingExcludes&gt; %regex[WEB-INF/classes/function/d(?!(?:$&#123;p&#125;|00000000|99999999).+$).+], %regex[WEB-INF/views/assets/plugins/d(?!(?:$&#123;p&#125;|00000000|99999999).+$).+], %regex[WEB-INF/views/d(?!(?:$&#123;p&#125;|00000000|99999999).+$).+] &lt;/packagingExcludes&gt; &lt;/properties&gt; &lt;activation&gt; &lt;property&gt; &lt;name&gt;p&lt;/name&gt; &lt;value&gt;&lt;/value&gt; &lt;/property&gt; &lt;/activation&gt;&lt;/profile&gt; 公共profile激活条件是，执行maven命令时，传入参数p（maven命令传参数的方式是：-D参数名=参数值，比如：-Dp=00031400）公共profile激活后，会使用product-centerid.properties进行参数初始化，根据资源过滤表达式进行打包，最终实现独立打包。]]></content>
@@ -280,8 +294,8 @@
       </categories>
       <tags>
         <tag>linux</tag>
-        <tag>ubuntu</tag>
         <tag>ssh</tag>
+        <tag>ubuntu</tag>
       </tags>
   </entry>
   <entry>
