@@ -5,6 +5,7 @@ tags:
 - Spring
 - Spring Security
 categories:
+- 学习笔记
 - 开发框架
 - Spring
 - Spring Security
@@ -34,7 +35,7 @@ Spring Security是一个功能强大且可高度自定义的身份验证和访�
 
 我创建的是Maven项目，在pom文件中添加如下依赖：
 {% codeblock pom.xml lang:xml %}
- <dependency>
+<dependency>
     <groupId>org.springframework.security</groupId>
     <artifactId>spring-security-core</artifactId>
     <version>${spring-security.version}</version>
