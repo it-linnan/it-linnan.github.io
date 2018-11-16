@@ -1,5 +1,5 @@
 ---
-title: SpringSecurity动态配置
+title: Spring Security动态配置
 date: 2018-11-08 09:28:08
 tags:
 - Spring
@@ -91,9 +91,9 @@ public class SecurityWebApplicationInitializer extends AbstractSecurityWebApplic
 
 ## 启用Spring Security配置
 
-首先创建一个继承**WebSecurityConfigurerAdapter**抽象类的类，使用**@Configuration**注解使这个类成为Spring的一个配置类，使用**@EnableWebSecurity**注解启用Spring Security。
+首先创建一个继承**WebSecurityConfigurerAdapter**抽象类的类，这样就获得了Spring Security提供的默认配置。然后使用**@Configuration**注解使这个类成为Spring的一个配置类，Spring启动时会读取类中的配置。最后使用**@EnableWebSecurity**注解启用Spring Security。
 
-**WebSecurityConfigurerAdapter**抽象类，提供了一个方便的、开箱即用的Spring Security配置。该配置创建一个名为springSecurityFilterChain的Servlet过滤器，它负责应用程序中的所有安全性（保护应用程序URL，验证提交的用户名和密码，重定向到登录表单等）。想要实现自定义配置，只需要覆写响应的方法。
+**WebSecurityConfigurerAdapter**抽象类，提供了一个方便的、开箱即用的Spring Security配置。该配置创建一个名为springSecurityFilterChain的Servlet过滤器，它负责应用程序中的所有安全性（保护应用程序URL，验证提交的用户名和密码，重定向到登录表单等）。想要实现自定义配置，只需要覆写相应的方法。
 
 {% codeblock 安全配置类 lang:java  %}
 @Configuration
@@ -242,7 +242,8 @@ public class SupportAjaxAuthFailHandler extends SimpleUrlAuthenticationFailureHa
 
 一般来说，用户都是存在表中，Spring Security提供了多种数据源，开箱即用。这里我通过扩展**DaoAuthenticationProvider**，获取基类的所有功能，并新增了一个IP白名单的功能，只有IP白名单内的客户端可以使用正确的用户名密码登录。此外，还需要指定从哪个表里查询，查询哪些字段等。为此，Spring Security规定了一个**UserDetailsService**接口，并提供了一系列开箱即用的实现类，而这里我使用了自己的实现类。
 
-代码清单如下：
+配置登录数据源时，需要覆写**configure**的另外一个重载方法，代码清单如下：
+
 {% codeblock 登录数据源配置 lang:java  %}
 @Override
 protected void configure(AuthenticationManagerBuilder auth) throws Exception {
@@ -341,8 +342,8 @@ public class IpAuthenticationProvider extends DaoAuthenticationProvider {
 假设你有如下需求：
 
 1. Web应用需要支持登出
-2. 登出请求使用的是一个自定义的url
-3. 自定义登出成功或失败的后续处理：比如登出成功时，先提示消息，再跳转到登录页
+1. 登出请求使用的是一个自定义的url
+1. 自定义登出成功或失败的后续处理：比如登出成功时，先提示消息，再跳转到登录页
 
 以下代码可以实现上述需求：
 
@@ -371,6 +372,7 @@ $.ajax({
 ### 资源访问限制
 
 一般来说，web应用都会做角色-菜单配置，即拥有某身份的用户可以访问响应的资源。而这个配置，通常不是硬编码的，可能使在表中配置的，也可能是在配置文件中配置的。代码清单如下：
+
 {% codeblock 资源权限配置 lang:java  %}
 ExpressionUrlAuthorizationConfigurer<HttpSecurity>.ExpressionInterceptUrlRegistry authorizeRequests = http.authorizeRequests();
 // 获取资源-权限映射 权限使用Spring Security提供的安全表达式
@@ -395,6 +397,7 @@ http.exceptionHandling()
 **accessDeniedHandler**方法指定了拒绝请求处理器。也就是指定当用户无权限访问资源时，如何对请求做出响应。
 
 请求大体分为两种，一种是请求页面，一种是请求数据。而对这两种请求的拒绝处理也是不一样的，请求页面时，需要将请求重定向到登录界面，提示用户登录；请求数据时，则返回一个错误信息，提示用户无权访问。代码清单如下：
+
 {% codeblock UnauthorizedAccessDeniedHandler lang:java  %}
 public class UnauthorizedAccessDeniedHandler implements AccessDeniedHandler {
     protected final Logger LOGGER = LogManager.getLogger(getClass());
@@ -450,7 +453,7 @@ public class SecurityHandlerUtil {
 
 #### authenticationEntryPoint
 
-**authenticationEntryPoint**方法指定了用户未登录时的入口点。由于用户尚未通过身份验证，因此需要返回一个响应，指示用户必须先进行身份验证。响应同样时根据请求类型决定，如果请求页面，将重定向到登录页；如果请求数据，将返回错误消息。
+**authenticationEntryPoint**方法指定了用户未登录时的入口点。由于用户尚未通过身份验证，因此需要返回一个响应，指示用户必须先进行身份验证。响应同样是根据请求类型决定，如果请求页面，将重定向到登录页；如果请求数据，将返回错误消息。
 
 {% codeblock UnauthorizedEntryPoint lang:java  %}
 public class UnauthorizedEntryPoint implements AuthenticationEntryPoint {
