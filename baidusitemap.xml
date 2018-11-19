@@ -4,8 +4,65 @@
 
     
   <url>
+    <loc>https://it-linnan.github.io/guacamole%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91.html</loc>
+    <lastmod>2018-11-16T09:01:06.035Z</lastmod>
+    <data>
+        <display>
+        <title>guacamole插件开发</title>
+        <pubTime>2018-11-16T08:33:49.000Z</pubTime>
+        
+        <tag>guacamole</tag>
+         
+        <tag>guacamole extensions</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="https://it-linnan.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+             
+              <breadCrumb title="开发框架" url="https://it-linnan.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6/"/>
+          
+             
+              <breadCrumb title="Guacamole" url="https://it-linnan.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6/Guacamole/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://it-linnan.github.io/log4j2%E5%BC%82%E6%AD%A5%E6%97%A5%E5%BF%97.html</loc>
+    <lastmod>2018-11-16T08:24:31.452Z</lastmod>
+    <data>
+        <display>
+        <title>Log4j2异步日志</title>
+        <pubTime>2018-11-16T05:55:28.000Z</pubTime>
+        
+        <tag>Log4j</tag>
+         
+        <tag>Log4j2</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="https://it-linnan.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+             
+              <breadCrumb title="开发框架" url="https://it-linnan.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6/"/>
+          
+             
+              <breadCrumb title="Log4j" url="https://it-linnan.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6/Log4j/"/>
+          
+             
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://it-linnan.github.io/spring-security%E5%8A%A8%E6%80%81%E9%85%8D%E7%BD%AE.html</loc>
-    <lastmod>2018-11-16T01:47:04.896Z</lastmod>
+    <lastmod>2018-11-16T06:00:27.929Z</lastmod>
     <data>
         <display>
         <title>Spring Security动态配置</title>
@@ -18,14 +75,15 @@
          
            
              
-              <breadCrumb title="开发框架" url="https://it-linnan.github.io/categories/%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6/"/>
+              <breadCrumb title="学习笔记" url="https://it-linnan.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
           
              
-              <breadCrumb title="Spring" url="https://it-linnan.github.io/categories/%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6/Spring/"/>
+              <breadCrumb title="开发框架" url="https://it-linnan.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6/"/>
           
              
-              <breadCrumb title="Spring Security" url="https://it-linnan.github.io/categories/%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6/Spring/Spring-Security/"/>
+              <breadCrumb title="Spring" url="https://it-linnan.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6/Spring/"/>
           
+             
         </display>
     </data>
     </url>

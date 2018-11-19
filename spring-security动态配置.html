@@ -109,7 +109,7 @@
 <meta property="og:site_name" content="Linn&#39;s Blog">
 <meta property="og:description" content="我们在开发Web应用时，通常希望保护某些资源（页面或数据），对这些资源做安全控制，比如：未登录的用户访问资源时，自动跳转至登录页面；拥有管理员身份的用户，可以访问某些管理界面。 本文介绍一种基于Spring Security的动态配置权限的方法，使用的是JavaConfig的方式。 Spring Security是一个功能强大且可高度自定义的身份验证和访问控制框架。具有以下特性：  对身份验证和授">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-16T01:47:04.896Z">
+<meta property="og:updated_time" content="2018-11-16T06:00:27.929Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring Security动态配置">
 <meta name="twitter:description" content="我们在开发Web应用时，通常希望保护某些资源（页面或数据），对这些资源做安全控制，比如：未登录的用户访问资源时，自动跳转至登录页面；拥有管理员身份的用户，可以访问某些管理界面。 本文介绍一种基于Spring Security的动态配置权限的方法，使用的是JavaConfig的方式。 Spring Security是一个功能强大且可高度自定义的身份验证和访问控制框架。具有以下特性：  对身份验证和授">
@@ -375,7 +375,18 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/开发框架/" itemprop="url" rel="index">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/开发框架/" itemprop="url" rel="index">
                     <span itemprop="name">开发框架</span>
                   </a>
                 </span>
@@ -386,7 +397,7 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/开发框架/Spring/" itemprop="url" rel="index">
+                  <a href="/categories/学习笔记/开发框架/Spring/" itemprop="url" rel="index">
                     <span itemprop="name">Spring</span>
                   </a>
                 </span>
@@ -397,7 +408,7 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/开发框架/Spring/Spring-Security/" itemprop="url" rel="index">
+                  <a href="/categories/学习笔记/开发框架/Spring/Spring-Security/" itemprop="url" rel="index">
                     <span itemprop="name">Spring Security</span>
                   </a>
                 </span>
@@ -457,7 +468,7 @@
 </ol>
 <footer><strong>Spring</strong><cite><a href="https://spring.io/projects/spring-security#overview" target="_blank" rel="noopener">Spring Security</a></cite></footer></blockquote>
 <a id="more"></a>
-<h1 id="项目中引入Spring-Security依赖"><a href="#项目中引入Spring-Security依赖" class="headerlink" title="项目中引入Spring Security依赖"></a>项目中引入Spring Security依赖</h1><p>我创建的是Maven项目，在pom文件中添加如下依赖：<br><figure class="highlight xml"><figcaption><span>pom.xml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"> <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.security<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-security-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;spring-security.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.security<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-security-config<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;spring-security.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.security<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-security-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;spring-security.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="项目中引入Spring-Security依赖"><a href="#项目中引入Spring-Security依赖" class="headerlink" title="项目中引入Spring Security依赖"></a>项目中引入Spring Security依赖</h1><p>我创建的是Maven项目，在pom文件中添加如下依赖：<br><figure class="highlight xml"><figcaption><span>pom.xml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.security<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-security-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;spring-security.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.security<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-security-config<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;spring-security.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.security<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-security-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;spring-security.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 <h1 id="在web应用中启用Spring-Security"><a href="#在web应用中启用Spring-Security" class="headerlink" title="在web应用中启用Spring Security"></a>在web应用中启用Spring Security</h1><h2 id="Servlet3-0"><a href="#Servlet3-0" class="headerlink" title="Servlet3.0+"></a>Servlet3.0+</h2><p>如果应用部署在支持Servlet3.0+环境下，可以使用<strong>AbstractSecurityWebApplicationInitializer</strong>启用Spring Security，代码清单如下：</p>
 <figure class="highlight java"><figcaption><span>Spring环境下启用Spring Security</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SecurityWebApplicationInitializer</span> <span class="keyword">extends</span> <span class="title">AbstractSecurityWebApplicationInitializer</span> </span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight java"><figcaption><span>非Spring环境下启用Spring Security</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SecurityWebApplicationInitializer</span> <span class="keyword">extends</span> <span class="title">AbstractSecurityWebApplicationInitializer</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">SecurityWebApplicationInitializer</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(SecurityConfig.class);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -579,6 +590,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/log4j2异步日志.html" rel="prev" title="Log4j2异步日志">
+                Log4j2异步日志 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -661,7 +676,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">24</span>
+                <span class="site-state-item-count">26</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -672,7 +687,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-count">19</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -683,7 +698,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">26</span>
+                <span class="site-state-item-count">30</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
