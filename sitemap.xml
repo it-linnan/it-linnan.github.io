@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://it-linnan.github.io/tags/index.html</loc>
+    
+    <lastmod>2018-11-19T03:08:11.147Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://it-linnan.github.io/categories/index.html</loc>
+    
+    <lastmod>2018-11-19T03:05:04.997Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://it-linnan.github.io/guacamole%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91.html</loc>
     
     <lastmod>2018-11-19T02:49:29.218Z</lastmod>
@@ -198,23 +212,9 @@
   </url>
   
   <url>
-    <loc>https://it-linnan.github.io/tags/index.html</loc>
-    
-    <lastmod>2018-05-29T08:27:29.467Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://it-linnan.github.io/search/index.html</loc>
     
     <lastmod>2018-05-29T08:27:23.834Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://it-linnan.github.io/categories/index.html</loc>
-    
-    <lastmod>2018-05-29T08:27:14.047Z</lastmod>
     
   </url>
   

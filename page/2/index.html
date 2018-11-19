@@ -2,27 +2,15 @@
 
 
 
-
-
-
-
-
-
-
-
-
   
 
 
-<html class="theme-next gemini use-motion" lang="zh-CN">
+<html class="theme-next gemini use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
-
-
-
 
 
 
@@ -57,6 +45,10 @@
 
 
 
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
 
 
 
@@ -65,25 +57,42 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=6.5.0" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.5.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico?v=5.1.4">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.5.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico?v=5.1.4">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.5.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico?v=5.1.4">
 
 
-  <link rel="mask-icon" href="/images/logo.svg?v=6.5.0" color="#222">
-
-
-
+  <link rel="mask-icon" href="/favicon.ico?v=5.1.4" color="#222">
 
 
 
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Linn&#39;s Blog">
+<meta property="og:url" content="https://it-linnan.github.io/page/2/index.html">
+<meta property="og:site_name" content="Linn&#39;s Blog">
+<meta property="og:locale" content="zh-Hans">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linn&#39;s Blog">
 
 
 
@@ -92,13 +101,15 @@
   var CONFIG = {
     root: '/',
     scheme: 'Gemini',
-    version: '6.5.0',
+    version: '5.1.4',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: false,
-    fastclick: false,
-    lazyload: false,
+    fancybox: true,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
     algolia: {
       applicationID: '',
       apiKey: '',
@@ -110,33 +121,12 @@
 </script>
 
 
-  
-
-
-
-
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Linn&#39;s Blog">
-<meta property="og:url" content="https://it-linnan.github.io/page/2/index.html">
-<meta property="og:site_name" content="Linn&#39;s Blog">
-<meta property="og:locale" content="zh-CN">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linn&#39;s Blog">
-
-
-
-
-
 
   <link rel="canonical" href="https://it-linnan.github.io/page/2/"/>
 
 
 
-<script type="text/javascript" id="page.configurations">
-  CONFIG.page = {
-    sidebar: "",
-  };
-</script>
+
 
   <title>Linn's Blog</title>
   
@@ -148,39 +138,9 @@
 
 
 
-
-
-
-  <noscript>
-  <style type="text/css">
-    .use-motion .motion-element,
-    .use-motion .brand,
-    .use-motion .menu-item,
-    .sidebar-inner,
-    .use-motion .post-block,
-    .use-motion .pagination,
-    .use-motion .comments,
-    .use-motion .post-header,
-    .use-motion .post-body,
-    .use-motion .collection-title { opacity: initial; }
-
-    .use-motion .logo,
-    .use-motion .site-title,
-    .use-motion .site-subtitle {
-      opacity: initial;
-      top: initial;
-    }
-
-    .use-motion {
-      .logo-line-before i { left: initial; }
-      .logo-line-after i { right: initial; }
-    }
-  </style>
-</noscript>
-
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
@@ -197,17 +157,19 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
+      <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">Linn's Blog</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
-    
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
   </div>
 
   <div class="site-nav-toggle">
-    <button aria-label="切换导航栏">
+    <button>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -215,94 +177,66 @@
   </div>
 </div>
 
-
-
 <nav class="site-nav">
+  
+
   
     <ul id="menu" class="menu">
       
         
-        
-        
-          
-          <li class="menu-item menu-item-home">
-
-    
-    
-    
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
       
-    
-
-    
-
-    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
-
-  </li>
         
-        
-        
-          
-          <li class="menu-item menu-item-tags">
-
-    
-    
-    
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
       
-    
-
-    
-
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
-
-  </li>
         
-        
-        
-          
-          <li class="menu-item menu-item-categories">
-
-    
-    
-    
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
       
-    
-
-    
-
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
-
-  </li>
         
-        
-        
-          
-          <li class="menu-item menu-item-archives">
-
-    
-    
-    
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
       
-    
 
-    
-
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
-
-  </li>
-
-      
       
         <li class="menu-item menu-item-search">
           
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
         </li>
       
     </ul>
-  
-
   
 
   
@@ -333,23 +267,12 @@
 
 
 
-  
-
-
-
-</div>
+ </div>
     </header>
-
-    
-
 
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
-          
-            
-
-          
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
@@ -362,8 +285,6 @@
   
   
 
-  
-
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
@@ -374,7 +295,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Linn">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="image" content="/images/default_avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -388,20 +309,11 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                
-                <a href="/c-中程序集版本名词解释.html" class="post-title-link" itemprop="https://it-linnan.github.io/page/2/index.html">C#中程序集版本名词解释</a>
-              
-            
-          </h2>
+                <a class="post-title-link" href="/c-中程序集版本名词解释.html" itemprop="url">C#中程序集版本名词解释</a></h2>
         
 
         <div class="post-meta">
           <span class="post-time">
-
-            
-            
-            
-
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -409,30 +321,13 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-
-              
-                
-              
-
-              <time title="创建时间：2018-05-30 09:54:58" itemprop="dateCreated datePublished" datetime="2018-05-30T09:54:58+08:00">2018-05-30</time>
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-30T09:54:58+08:00">
+                2018-05-30
+              </time>
             
 
             
-              
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-11-08 08:58:00" itemprop="dateModified" datetime="2018-11-08T08:58:00+08:00">2018-11-08</time>
-              
             
           </span>
 
@@ -448,21 +343,33 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/学习笔记/" itemprop="url" rel="index"><span itemprop="name">学习笔记</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
 
                 
                 
-                  ，
+                  ， 
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/学习笔记/开发语言/" itemprop="url" rel="index"><span itemprop="name">开发语言</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/开发语言/" itemprop="url" rel="index">
+                    <span itemprop="name">开发语言</span>
+                  </a>
+                </span>
 
                 
                 
-                  ，
+                  ， 
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/学习笔记/开发语言/C/" itemprop="url" rel="index"><span itemprop="name">C#</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/开发语言/C/" itemprop="url" rel="index">
+                    <span itemprop="name">C#</span>
+                  </a>
+                </span>
 
                 
                 
@@ -471,18 +378,6 @@
           
 
           
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/c-中程序集版本名词解释.html#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="c-中程序集版本名词解释.html" itemprop="commentCount"></span>
-                </a>
-              </span>
             
           
 
@@ -529,29 +424,21 @@
 </table>
 <p>eg：2.23.159.23<br>
           <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/c-中程序集版本名词解释.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-         
+          <div class="post-button text-center">
+            <a class="btn" href="/c-中程序集版本名词解释.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
           <!--/noindex-->
         
       
     </div>
-
-    
-
     
     
     
 
     
 
-    
-       
-    
     
 
     
@@ -584,8 +471,6 @@
   
   
 
-  
-
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
@@ -596,7 +481,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Linn">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="image" content="/images/default_avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -610,20 +495,11 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                
-                <a href="/c-调用ocx的方法.html" class="post-title-link" itemprop="https://it-linnan.github.io/page/2/index.html">C#调用ocx的方法</a>
-              
-            
-          </h2>
+                <a class="post-title-link" href="/c-调用ocx的方法.html" itemprop="url">C#调用ocx的方法</a></h2>
         
 
         <div class="post-meta">
           <span class="post-time">
-
-            
-            
-            
-
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -631,30 +507,13 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-
-              
-                
-              
-
-              <time title="创建时间：2018-05-30 09:49:04" itemprop="dateCreated datePublished" datetime="2018-05-30T09:49:04+08:00">2018-05-30</time>
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-30T09:49:04+08:00">
+                2018-05-30
+              </time>
             
 
             
-              
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-07-17 13:37:16" itemprop="dateModified" datetime="2018-07-17T13:37:16+08:00">2018-07-17</time>
-              
             
           </span>
 
@@ -670,21 +529,33 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/学习笔记/" itemprop="url" rel="index"><span itemprop="name">学习笔记</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
 
                 
                 
-                  ，
+                  ， 
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/学习笔记/开发语言/" itemprop="url" rel="index"><span itemprop="name">开发语言</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/开发语言/" itemprop="url" rel="index">
+                    <span itemprop="name">开发语言</span>
+                  </a>
+                </span>
 
                 
                 
-                  ，
+                  ， 
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/学习笔记/开发语言/C/" itemprop="url" rel="index"><span itemprop="name">C#</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/开发语言/C/" itemprop="url" rel="index">
+                    <span itemprop="name">C#</span>
+                  </a>
+                </span>
 
                 
                 
@@ -693,18 +564,6 @@
           
 
           
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/c-调用ocx的方法.html#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="c-调用ocx的方法.html" itemprop="commentCount"></span>
-                </a>
-              </span>
             
           
 
@@ -733,29 +592,21 @@
         
           <h1 id="Winform工程中调用ocx"><a href="#Winform工程中调用ocx" class="headerlink" title="Winform工程中调用ocx"></a>Winform工程中调用ocx</h1><h2 id="在项目中添加对ocx的引用"><a href="#在项目中添加对ocx的引用" class="headerlink" title="在项目中添加对ocx的引用"></a>在项目中添加对ocx的引用</h2><h2 id="将ocx文件拖拽至工具箱"><a href="#将ocx文件拖拽至工具箱" class="headerlink" title="将ocx文件拖拽至工具箱"></a>将ocx文件拖拽至工具箱</h2><h2 id="将ocx控件从工具箱中拖拽到窗体上"><a href="#将ocx控件从工具箱中拖拽到窗体上" class="headerlink" title="将ocx控件从工具箱中拖拽到窗体上"></a>将ocx控件从工具箱中拖拽到窗体上</h2>
           <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/c-调用ocx的方法.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-         
+          <div class="post-button text-center">
+            <a class="btn" href="/c-调用ocx的方法.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
           <!--/noindex-->
         
       
     </div>
-
-    
-
     
     
     
 
     
 
-    
-       
-    
     
 
     
@@ -788,8 +639,6 @@
   
   
 
-  
-
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
@@ -800,7 +649,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Linn">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="image" content="/images/default_avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -814,20 +663,11 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                
-                <a href="/websphere下免密登录.html" class="post-title-link" itemprop="https://it-linnan.github.io/page/2/index.html">WebSphere下免密登录</a>
-              
-            
-          </h2>
+                <a class="post-title-link" href="/websphere下免密登录.html" itemprop="url">WebSphere下免密登录</a></h2>
         
 
         <div class="post-meta">
           <span class="post-time">
-
-            
-            
-            
-
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -835,30 +675,13 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-
-              
-                
-              
-
-              <time title="创建时间：2018-05-30 09:46:20" itemprop="dateCreated datePublished" datetime="2018-05-30T09:46:20+08:00">2018-05-30</time>
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-30T09:46:20+08:00">
+                2018-05-30
+              </time>
             
 
             
-              
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-07-17 13:45:14" itemprop="dateModified" datetime="2018-07-17T13:45:14+08:00">2018-07-17</time>
-              
             
           </span>
 
@@ -874,21 +697,33 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/学习笔记/" itemprop="url" rel="index"><span itemprop="name">学习笔记</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
 
                 
                 
-                  ，
+                  ， 
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/学习笔记/部署相关/" itemprop="url" rel="index"><span itemprop="name">部署相关</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/部署相关/" itemprop="url" rel="index">
+                    <span itemprop="name">部署相关</span>
+                  </a>
+                </span>
 
                 
                 
-                  ，
+                  ， 
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/学习笔记/部署相关/WebSphere/" itemprop="url" rel="index"><span itemprop="name">WebSphere</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/部署相关/WebSphere/" itemprop="url" rel="index">
+                    <span itemprop="name">WebSphere</span>
+                  </a>
+                </span>
 
                 
                 
@@ -897,18 +732,6 @@
           
 
           
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/websphere下免密登录.html#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="websphere下免密登录.html" itemprop="commentCount"></span>
-                </a>
-              </span>
             
           
 
@@ -943,18 +766,12 @@
         
       
     </div>
-
-    
-
     
     
     
 
     
 
-    
-       
-    
     
 
     
@@ -987,8 +804,6 @@
   
   
 
-  
-
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
@@ -999,7 +814,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Linn">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="image" content="/images/default_avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1013,20 +828,11 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                
-                <a href="/websphere下配置servlet可访问web-inf.html" class="post-title-link" itemprop="https://it-linnan.github.io/page/2/index.html">WebSphere下配置servlet可访问WEB-INF</a>
-              
-            
-          </h2>
+                <a class="post-title-link" href="/websphere下配置servlet可访问web-inf.html" itemprop="url">WebSphere下配置servlet可访问WEB-INF</a></h2>
         
 
         <div class="post-meta">
           <span class="post-time">
-
-            
-            
-            
-
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1034,30 +840,13 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-
-              
-                
-              
-
-              <time title="创建时间：2018-05-30 09:24:20" itemprop="dateCreated datePublished" datetime="2018-05-30T09:24:20+08:00">2018-05-30</time>
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-30T09:24:20+08:00">
+                2018-05-30
+              </time>
             
 
             
-              
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-07-17 14:10:27" itemprop="dateModified" datetime="2018-07-17T14:10:27+08:00">2018-07-17</time>
-              
             
           </span>
 
@@ -1073,21 +862,33 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/学习笔记/" itemprop="url" rel="index"><span itemprop="name">学习笔记</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
 
                 
                 
-                  ，
+                  ， 
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/学习笔记/部署相关/" itemprop="url" rel="index"><span itemprop="name">部署相关</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/部署相关/" itemprop="url" rel="index">
+                    <span itemprop="name">部署相关</span>
+                  </a>
+                </span>
 
                 
                 
-                  ，
+                  ， 
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/学习笔记/部署相关/WebSphere/" itemprop="url" rel="index"><span itemprop="name">WebSphere</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/部署相关/WebSphere/" itemprop="url" rel="index">
+                    <span itemprop="name">WebSphere</span>
+                  </a>
+                </span>
 
                 
                 
@@ -1096,18 +897,6 @@
           
 
           
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/websphere下配置servlet可访问web-inf.html#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="websphere下配置servlet可访问web-inf.html" itemprop="commentCount"></span>
-                </a>
-              </span>
             
           
 
@@ -1156,29 +945,21 @@
 <p>exposeWebInfOnDispatch属性默认值为false，servlet不能访问WEB-INF目录。</p>
 <h1 id="配置示例"><a href="#配置示例" class="headerlink" title="配置示例"></a>配置示例</h1><p>按照下图配置，可访问WEB-INF目录<br>
           <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/websphere下配置servlet可访问web-inf.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-         
+          <div class="post-button text-center">
+            <a class="btn" href="/websphere下配置servlet可访问web-inf.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
           <!--/noindex-->
         
       
     </div>
-
-    
-
     
     
     
 
     
 
-    
-       
-    
     
 
     
@@ -1211,8 +992,6 @@
   
   
 
-  
-
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
@@ -1223,7 +1002,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Linn">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="image" content="/images/default_avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1237,20 +1016,11 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                
-                <a href="/mysql在windows环境下安装.html" class="post-title-link" itemprop="https://it-linnan.github.io/page/2/index.html">MySQL在Windows环境下安装</a>
-              
-            
-          </h2>
+                <a class="post-title-link" href="/mysql在windows环境下安装.html" itemprop="url">MySQL在Windows环境下安装</a></h2>
         
 
         <div class="post-meta">
           <span class="post-time">
-
-            
-            
-            
-
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1258,30 +1028,13 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-
-              
-                
-              
-
-              <time title="创建时间：2018-05-30 09:20:03" itemprop="dateCreated datePublished" datetime="2018-05-30T09:20:03+08:00">2018-05-30</time>
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-30T09:20:03+08:00">
+                2018-05-30
+              </time>
             
 
             
-              
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-07-17 14:06:39" itemprop="dateModified" datetime="2018-07-17T14:06:39+08:00">2018-07-17</time>
-              
             
           </span>
 
@@ -1297,21 +1050,33 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/学习笔记/" itemprop="url" rel="index"><span itemprop="name">学习笔记</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
 
                 
                 
-                  ，
+                  ， 
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/学习笔记/部署相关/" itemprop="url" rel="index"><span itemprop="name">部署相关</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/部署相关/" itemprop="url" rel="index">
+                    <span itemprop="name">部署相关</span>
+                  </a>
+                </span>
 
                 
                 
-                  ，
+                  ， 
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/学习笔记/部署相关/MySQL/" itemprop="url" rel="index"><span itemprop="name">MySQL</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/部署相关/MySQL/" itemprop="url" rel="index">
+                    <span itemprop="name">MySQL</span>
+                  </a>
+                </span>
 
                 
                 
@@ -1320,18 +1085,6 @@
           
 
           
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/mysql在windows环境下安装.html#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="mysql在windows环境下安装.html" itemprop="commentCount"></span>
-                </a>
-              </span>
             
           
 
@@ -1362,29 +1115,21 @@
 <h1 id="解压到本地目录"><a href="#解压到本地目录" class="headerlink" title="解压到本地目录"></a>解压到本地目录</h1><h1 id="新建my-ini"><a href="#新建my-ini" class="headerlink" title="新建my.ini"></a>新建my.ini</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">my.ini</span><br><span class="line">[mysql]</span><br><span class="line">default-character-set=utf8</span><br><span class="line">[mysqld]</span><br><span class="line">basedir =d:\DataBase\MySql\mysql-5.7.16-winx64</span><br><span class="line">datadir =d:\DataBase\MySql\mysql-5.7.16-winx64\data</span><br><span class="line">port =3306</span><br><span class="line">character-set-server=utf8</span><br><span class="line">[client]</span><br><span class="line">default-character-set=utf8</span><br></pre></td></tr></table></figure>
 <h1 id="cd到bin目录下"><a href="#cd到bin目录下" class="headerlink" title="cd到bin目录下"></a>cd到bin目录下</h1><h1 id="初始化数据，执行命令"><a href="#初始化数据，执行命令" class="headerlink" title="初始化数据，执行命令"></a>初始化数据，执行命令</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mysqld --initialize</span><br><span class="line">-- 据说执行这句话可以免密陆</span><br><span class="line">mysqld --initialize-insecure --user=mysql</span><br></pre></td></tr></table></figure>
           <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/mysql在windows环境下安装.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-         
+          <div class="post-button text-center">
+            <a class="btn" href="/mysql在windows环境下安装.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
           <!--/noindex-->
         
       
     </div>
-
-    
-
     
     
     
 
     
 
-    
-       
-    
     
 
     
@@ -1417,8 +1162,6 @@
   
   
 
-  
-
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
@@ -1429,7 +1172,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Linn">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="image" content="/images/default_avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1443,20 +1186,11 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                
-                <a href="/mysql官方docker镜像使用.html" class="post-title-link" itemprop="https://it-linnan.github.io/page/2/index.html">MySQL官方Docker镜像使用</a>
-              
-            
-          </h2>
+                <a class="post-title-link" href="/mysql官方docker镜像使用.html" itemprop="url">MySQL官方Docker镜像使用</a></h2>
         
 
         <div class="post-meta">
           <span class="post-time">
-
-            
-            
-            
-
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1464,30 +1198,13 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-
-              
-                
-              
-
-              <time title="创建时间：2018-05-30 08:36:18" itemprop="dateCreated datePublished" datetime="2018-05-30T08:36:18+08:00">2018-05-30</time>
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-30T08:36:18+08:00">
+                2018-05-30
+              </time>
             
 
             
-              
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-07-17 14:03:31" itemprop="dateModified" datetime="2018-07-17T14:03:31+08:00">2018-07-17</time>
-              
             
           </span>
 
@@ -1503,21 +1220,33 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/学习笔记/" itemprop="url" rel="index"><span itemprop="name">学习笔记</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
 
                 
                 
-                  ，
+                  ， 
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/学习笔记/部署相关/" itemprop="url" rel="index"><span itemprop="name">部署相关</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/部署相关/" itemprop="url" rel="index">
+                    <span itemprop="name">部署相关</span>
+                  </a>
+                </span>
 
                 
                 
-                  ，
+                  ， 
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/学习笔记/部署相关/Docker/" itemprop="url" rel="index"><span itemprop="name">Docker</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/部署相关/Docker/" itemprop="url" rel="index">
+                    <span itemprop="name">Docker</span>
+                  </a>
+                </span>
 
                 
                 
@@ -1526,18 +1255,6 @@
           
 
           
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/mysql官方docker镜像使用.html#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="mysql官方docker镜像使用.html" itemprop="commentCount"></span>
-                </a>
-              </span>
             
           
 
@@ -1568,29 +1285,21 @@
 <h2 id="启动实例"><a href="#启动实例" class="headerlink" title="启动实例"></a>启动实例</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=password -d mysql:5.7</span><br></pre></td></tr></table></figure>
 <h1 id="测试mysql服务实例"><a href="#测试mysql服务实例" class="headerlink" title="测试mysql服务实例"></a>测试mysql服务实例</h1><h2 id="安装mysql客户端"><a href="#安装mysql客户端" class="headerlink" title="安装mysql客户端"></a>安装mysql客户端</h2>
           <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/mysql官方docker镜像使用.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-         
+          <div class="post-button text-center">
+            <a class="btn" href="/mysql官方docker镜像使用.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
           <!--/noindex-->
         
       
     </div>
-
-    
-
     
     
     
 
     
 
-    
-       
-    
     
 
     
@@ -1623,8 +1332,6 @@
   
   
 
-  
-
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
@@ -1635,7 +1342,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Linn">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="image" content="/images/default_avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1649,20 +1356,11 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                
-                <a href="/docker中国官方镜像加速.html" class="post-title-link" itemprop="https://it-linnan.github.io/page/2/index.html">Docker中国官方镜像加速</a>
-              
-            
-          </h2>
+                <a class="post-title-link" href="/docker中国官方镜像加速.html" itemprop="url">Docker中国官方镜像加速</a></h2>
         
 
         <div class="post-meta">
           <span class="post-time">
-
-            
-            
-            
-
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1670,30 +1368,13 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-
-              
-                
-              
-
-              <time title="创建时间：2018-05-30 08:34:36" itemprop="dateCreated datePublished" datetime="2018-05-30T08:34:36+08:00">2018-05-30</time>
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-30T08:34:36+08:00">
+                2018-05-30
+              </time>
             
 
             
-              
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-07-17 13:39:51" itemprop="dateModified" datetime="2018-07-17T13:39:51+08:00">2018-07-17</time>
-              
             
           </span>
 
@@ -1709,21 +1390,33 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/学习笔记/" itemprop="url" rel="index"><span itemprop="name">学习笔记</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
 
                 
                 
-                  ，
+                  ， 
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/学习笔记/部署相关/" itemprop="url" rel="index"><span itemprop="name">部署相关</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/部署相关/" itemprop="url" rel="index">
+                    <span itemprop="name">部署相关</span>
+                  </a>
+                </span>
 
                 
                 
-                  ，
+                  ， 
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/学习笔记/部署相关/Docker/" itemprop="url" rel="index"><span itemprop="name">Docker</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/部署相关/Docker/" itemprop="url" rel="index">
+                    <span itemprop="name">Docker</span>
+                  </a>
+                </span>
 
                 
                 
@@ -1732,18 +1425,6 @@
           
 
           
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/docker中国官方镜像加速.html#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="docker中国官方镜像加速.html" itemprop="commentCount"></span>
-                </a>
-              </span>
             
           
 
@@ -1778,18 +1459,12 @@
         
       
     </div>
-
-    
-
     
     
     
 
     
 
-    
-       
-    
     
 
     
@@ -1822,8 +1497,6 @@
   
   
 
-  
-
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
@@ -1834,7 +1507,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Linn">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="image" content="/images/default_avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1848,20 +1521,11 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                
-                <a href="/linux下war包操作.html" class="post-title-link" itemprop="https://it-linnan.github.io/page/2/index.html">Linux下war包操作</a>
-              
-            
-          </h2>
+                <a class="post-title-link" href="/linux下war包操作.html" itemprop="url">Linux下war包操作</a></h2>
         
 
         <div class="post-meta">
           <span class="post-time">
-
-            
-            
-            
-
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1869,30 +1533,13 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-
-              
-                
-              
-
-              <time title="创建时间：2018-05-29 16:54:56" itemprop="dateCreated datePublished" datetime="2018-05-29T16:54:56+08:00">2018-05-29</time>
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-29T16:54:56+08:00">
+                2018-05-29
+              </time>
             
 
             
-              
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-07-17 13:32:36" itemprop="dateModified" datetime="2018-07-17T13:32:36+08:00">2018-07-17</time>
-              
             
           </span>
 
@@ -1908,21 +1555,33 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/学习笔记/" itemprop="url" rel="index"><span itemprop="name">学习笔记</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
 
                 
                 
-                  ，
+                  ， 
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/学习笔记/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
 
                 
                 
-                  ，
+                  ， 
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/学习笔记/Linux/通用/" itemprop="url" rel="index"><span itemprop="name">通用</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/Linux/通用/" itemprop="url" rel="index">
+                    <span itemprop="name">通用</span>
+                  </a>
+                </span>
 
                 
                 
@@ -1931,18 +1590,6 @@
           
 
           
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/linux下war包操作.html#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="linux下war包操作.html" itemprop="commentCount"></span>
-                </a>
-              </span>
             
           
 
@@ -1976,18 +1623,12 @@
         
       
     </div>
-
-    
-
     
     
     
 
     
 
-    
-       
-    
     
 
     
@@ -2020,8 +1661,6 @@
   
   
 
-  
-
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
@@ -2032,7 +1671,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Linn">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="image" content="/images/default_avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -2046,20 +1685,11 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                
-                <a href="/linux下端口进程互查.html" class="post-title-link" itemprop="https://it-linnan.github.io/page/2/index.html">Linux下端口进程互查</a>
-              
-            
-          </h2>
+                <a class="post-title-link" href="/linux下端口进程互查.html" itemprop="url">Linux下端口进程互查</a></h2>
         
 
         <div class="post-meta">
           <span class="post-time">
-
-            
-            
-            
-
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -2067,30 +1697,13 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-
-              
-                
-              
-
-              <time title="创建时间：2018-05-29 16:54:46" itemprop="dateCreated datePublished" datetime="2018-05-29T16:54:46+08:00">2018-05-29</time>
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-29T16:54:46+08:00">
+                2018-05-29
+              </time>
             
 
             
-              
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-07-17 13:32:45" itemprop="dateModified" datetime="2018-07-17T13:32:45+08:00">2018-07-17</time>
-              
             
           </span>
 
@@ -2106,21 +1719,33 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/学习笔记/" itemprop="url" rel="index"><span itemprop="name">学习笔记</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
 
                 
                 
-                  ，
+                  ， 
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/学习笔记/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
 
                 
                 
-                  ，
+                  ， 
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/学习笔记/Linux/通用/" itemprop="url" rel="index"><span itemprop="name">通用</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/Linux/通用/" itemprop="url" rel="index">
+                    <span itemprop="name">通用</span>
+                  </a>
+                </span>
 
                 
                 
@@ -2129,18 +1754,6 @@
           
 
           
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/linux下端口进程互查.html#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="linux下端口进程互查.html" itemprop="commentCount"></span>
-                </a>
-              </span>
             
           
 
@@ -2169,29 +1782,21 @@
         
           <h1 id="先查看进程pid"><a href="#先查看进程pid" class="headerlink" title="先查看进程pid"></a>先查看进程pid</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -ef |grep 进程名</span><br></pre></td></tr></table></figure>
           <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/linux下端口进程互查.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-         
+          <div class="post-button text-center">
+            <a class="btn" href="/linux下端口进程互查.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
           <!--/noindex-->
         
       
     </div>
-
-    
-
     
     
     
 
     
 
-    
-       
-    
     
 
     
@@ -2224,8 +1829,6 @@
   
   
 
-  
-
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
@@ -2236,7 +1839,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Linn">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="image" content="/images/default_avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -2250,20 +1853,11 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                
-                <a href="/虚拟机virtual-box环境下ubuntu初始化配置网卡.html" class="post-title-link" itemprop="https://it-linnan.github.io/page/2/index.html">虚拟机Virtual Box环境下Ubuntu初始化配置网卡</a>
-              
-            
-          </h2>
+                <a class="post-title-link" href="/虚拟机virtual-box环境下ubuntu初始化配置网卡.html" itemprop="url">虚拟机Virtual Box环境下Ubuntu初始化配置网卡</a></h2>
         
 
         <div class="post-meta">
           <span class="post-time">
-
-            
-            
-            
-
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -2271,30 +1865,13 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-
-              
-                
-              
-
-              <time title="创建时间：2018-05-29 16:40:07" itemprop="dateCreated datePublished" datetime="2018-05-29T16:40:07+08:00">2018-05-29</time>
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-29T16:40:07+08:00">
+                2018-05-29
+              </time>
             
 
             
-              
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-07-17 13:59:38" itemprop="dateModified" datetime="2018-07-17T13:59:38+08:00">2018-07-17</time>
-              
             
           </span>
 
@@ -2310,21 +1887,33 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/学习笔记/" itemprop="url" rel="index"><span itemprop="name">学习笔记</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
 
                 
                 
-                  ，
+                  ， 
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/学习笔记/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
 
                 
                 
-                  ，
+                  ， 
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/学习笔记/Linux/Ubuntu/" itemprop="url" rel="index"><span itemprop="name">Ubuntu</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/Linux/Ubuntu/" itemprop="url" rel="index">
+                    <span itemprop="name">Ubuntu</span>
+                  </a>
+                </span>
 
                 
                 
@@ -2333,18 +1922,6 @@
           
 
           
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/虚拟机virtual-box环境下ubuntu初始化配置网卡.html#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="虚拟机virtual-box环境下ubuntu初始化配置网卡.html" itemprop="commentCount"></span>
-                </a>
-              </span>
             
           
 
@@ -2373,29 +1950,21 @@
         
           <h1 id="配置网卡为桥接模式"><a href="#配置网卡为桥接模式" class="headerlink" title="配置网卡为桥接模式"></a>配置网卡为桥接模式</h1><img src="/虚拟机virtual-box环境下ubuntu初始化配置网卡/1.png">
           <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/虚拟机virtual-box环境下ubuntu初始化配置网卡.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-         
+          <div class="post-button text-center">
+            <a class="btn" href="/虚拟机virtual-box环境下ubuntu初始化配置网卡.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
           <!--/noindex-->
         
       
     </div>
-
-    
-
     
     
     
 
     
 
-    
-       
-    
     
 
     
@@ -2424,12 +1993,15 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
 
           </div>
+          
+
+
           
 
         </div>
@@ -2457,173 +2029,60 @@
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image"
-                src="/images/avatar.jpg"
+                src="/images/default_avatar.jpg"
                 alt="Linn" />
             
               <p class="site-author-name" itemprop="name">Linn</p>
               <p class="site-description motion-element" itemprop="description"></p>
           </div>
 
-          
-            <nav class="site-state motion-element">
-              
-                <div class="site-state-item site-state-posts">
-                
-                  <a href="/archives/">
-                
-                    <span class="site-state-item-count">26</span>
-                    <span class="site-state-item-name">日志</span>
-                  </a>
-                </div>
-              
+          <nav class="site-state motion-element">
 
-              
-                
-                
-                <div class="site-state-item site-state-categories">
-                  <a href="/categories/index.html">
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">19</span>
-                    <span class="site-state-item-name">分类</span>
-                  </a>
-                </div>
-              
-
-              
-                
-                
-                <div class="site-state-item site-state-tags">
-                  <a href="/tags/index.html">
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">30</span>
-                    <span class="site-state-item-name">标签</span>
-                  </a>
-                </div>
-              
-            </nav>
-          
-
-          
-
-          
-
-          
-             <div class="cc-license motion-element" itemprop="license">
-              
-                
-              
-              
-              
-              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" /></a>
-             </div>
-          
-
-          
-          
-
-          
             
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
           
+
+          
+
+          
+          
+
+          
+          
+
           
 
         </div>
@@ -2644,18 +2103,16 @@
     <footer id="footer" class="footer">
       <div class="footer-inner">
         <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
-  <span class="with-love" id="animate">
+  <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Linn</span>
 
   
-
-  
 </div>
 
 
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.7.1</div>
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
 
 
@@ -2663,7 +2120,7 @@
 
 
 
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v6.5.0</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
 
 
 
@@ -2672,16 +2129,6 @@
 
 
 
-
-
-  <script type="text/javascript">
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "//tajs.qq.com/stats?sId=65867050";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-  </script>
 
 
 
@@ -2698,10 +2145,7 @@
     
 
     
-	
-    
 
-    
   </div>
 
   
@@ -2720,17 +2164,7 @@
 
 
 
-
-
-
-
-
   
-    
-      
-  
-  <script type="text/javascript" color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
-
 
 
 
@@ -2750,6 +2184,16 @@
 
   
   
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
     <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
   
 
@@ -2758,40 +2202,59 @@
     <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
   
 
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
 
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=6.5.0"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=6.5.0"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=6.5.0"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.5.0"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
 
 
 
   
-
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.5.0"></script>
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
 
 
 
   
 
   
-    <script id="dsq-count-scr" src="https://linnblog.disqus.com/count.js" async></script>
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
   
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
 
   
 
@@ -2857,8 +2320,6 @@
         .css('overflow', 'hidden');
       $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
 
-      
-
       $.ajax({
         url: path,
         dataType: isXml ? "xml" : "json",
@@ -2892,7 +2353,6 @@
                 var title = data.title.trim();
                 var titleInLowerCase = title.toLowerCase();
                 var content = data.content.trim().replace(/<[^>]+>/g,"");
-                
                 var contentInLowerCase = content.toLowerCase();
                 var articleUrl = decodeURIComponent(data.url);
                 var indexOfTitle = [];
@@ -3137,33 +2597,8 @@
   
 
   
-<script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
-</script>
-
 
   
-
-  
-
-  
-  
-
-  
-
-  
-
   
 
   
