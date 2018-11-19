@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[guacamole插件开发]]></title>
     <url>%2Fguacamole%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91.html</url>
-    <content type="text"><![CDATA[Guacamole???Guacamole?? Guacamole是什么？ Apache Guacamole是一个无客户端的远程桌面网关。 它支持VNC，RDP和SSH等标准协议。 我们称之为无客户端，因为不需要插件或客户端软件。 感谢HTML5，一旦Guacamole安装在服务器上，您访问桌面所需的只是一个Web浏览器。 为什么要用Guacamole？ 随时随地访问PC 保持桌面在云端 免费、开源 建立在文档齐全的API之上 商业支持 GuacamoleApache Guacamole Guacamole架构]]></content>
+    <content type="text"><![CDATA[Guacamole手册：Guacamole手册 Guacamole是什么？ Apache Guacamole是一个无客户端的远程桌面网关。 它支持VNC，RDP和SSH等标准协议。 我们称之为无客户端，因为不需要插件或客户端软件。 感谢HTML5，一旦Guacamole安装在服务器上，您访问桌面所需的只是一个Web浏览器。 为什么要用Guacamole？ 随时随地访问PC 保持桌面在云端 免费、开源 建立在文档齐全的API之上 商业支持 GuacamoleApache Guacamole Guacamole架构]]></content>
       <categories>
         <category>学习笔记</category>
         <category>开发框架</category>
