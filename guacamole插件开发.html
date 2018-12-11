@@ -95,7 +95,7 @@
 <meta property="og:description" content="Guacamole手册：Guacamole手册 Guacamole是什么？  Apache Guacamole是一个无客户端的远程桌面网关。 它支持VNC，RDP和SSH等标准协议。 我们称之为无客户端，因为不需要插件或客户端软件。 感谢HTML5，一旦Guacamole安装在服务器上，您访问桌面所需的只是一个Web浏览器。  为什么要用Guacamole？  随时随地访问PC 保持桌面在云端 免">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://it-linnan.github.io/guacamole插件开发/guacamole介绍.png">
-<meta property="og:updated_time" content="2018-11-19T08:02:29.319Z">
+<meta property="og:updated_time" content="2018-11-21T08:45:18.100Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="guacamole插件开发">
 <meta name="twitter:description" content="Guacamole手册：Guacamole手册 Guacamole是什么？  Apache Guacamole是一个无客户端的远程桌面网关。 它支持VNC，RDP和SSH等标准协议。 我们称之为无客户端，因为不需要插件或客户端软件。 感谢HTML5，一旦Guacamole安装在服务器上，您访问桌面所需的只是一个Web浏览器。  为什么要用Guacamole？  随时随地访问PC 保持桌面在云端 免">
@@ -466,7 +466,84 @@
 <li>添加其他显示语言，或更改现有语言的翻译字符串。</li>
 </ol>
 <h2 id="guacamole插件加载方式"><a href="#guacamole插件加载方式" class="headerlink" title="guacamole插件加载方式"></a>guacamole插件加载方式</h2><p>Guacamole客户端应用是与插件是分离部署的，客户端应用在启动阶段，动态加载插件。因此需要理解插件的加载方式，才能开发出符合自身需求的插件。</p>
+<p>因为应用与插件是分离部署的，所以Guacamole约定了一个配置路径，用于存放资源文件，其中就包括插件。客户端应用在启动时，到配置路径下查找是否有插件，如果有，则加载到应用中。</p>
+<h2 id="guacamole配置路径"><a href="#guacamole配置路径" class="headerlink" title="guacamole配置路径"></a>guacamole配置路径</h2><p>guacamole配置路径称为GUACAMOLE_HOME，默认情况下位于/etc/guacamole。所有配置文件，插件等都存放在此目录中。</p>
+<p>GUACAMOLE_HOME的结构是严格定义的，由以下可选文件组成：</p>
+<ol>
+<li><p>guacamole.properties<br>Guacamole的主配置文件。此文件中的属性指示Guacamole将如何连接到guacd，并可能配置已安装的身份验证扩展的行为。</p>
+</li>
+<li><p>logback.xml<br>Guacamole使用的日志框架是Logback。默认情况下，Guacamole只将日志输出到控制台。可以通过提供该文件自定义日志输出行为。</p>
+</li>
+<li><p>extensions/<br>插件存放目录，Guacamole会在启动时自动加载此目录中的所有.jar文件。</p>
+</li>
+<li><p>lib/<br>插件依赖jar包存放目录。如果插件依赖第三方jar，例如数据库驱动程序，就可以放在这个目录下。</p>
+</li>
+</ol>
 <h2 id="插件格式"><a href="#插件格式" class="headerlink" title="插件格式"></a>插件格式</h2><p>插件是一个.jar文件，jar中包含类、资源和guacamole扩展清单。其中，扩展清单是插件的描述文件，需要放在jar文件的根目录下。Guacamole客户端应用启动时，读取扩展清单，来进行动态加载插件。</p>
+<h3 id="扩展清单"><a href="#扩展清单" class="headerlink" title="扩展清单"></a>扩展清单</h3><p>扩展清单是一个json文件，文件名约定为guac-mainfest.json。如果你和我一样，基于maven开发，那么根据maven对资源文件的约定，扩展清单需要放在resouces文件夹下。扩展清单是一个配置文件，配置项如下：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">属性</th>
+<th style="text-align:center">是否必填</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">guacamoleVersion</td>
+<td style="text-align:center">是</td>
+<td style="text-align:center">插件依赖的guacamole版本号，如果插件不依赖于特定版本，则可以使用*，将绕过版本兼容性检查。</td>
+</tr>
+<tr>
+<td style="text-align:center">name</td>
+<td style="text-align:center">是</td>
+<td style="text-align:center">易于阅读、理解的名字</td>
+</tr>
+<tr>
+<td style="text-align:center">namespace</td>
+<td style="text-align:center">是</td>
+<td style="text-align:center">插件的唯一标识。如果插件中包含静态资源，那么这些资源将以该命名空间作为上下文根。</td>
+</tr>
+<tr>
+<td style="text-align:center">authProviders</td>
+<td style="text-align:center">否</td>
+<td style="text-align:center">一组限定类名，这些类是AuthenticationProvider的子类，插件中提供的用于身份验证的类。</td>
+</tr>
+<tr>
+<td style="text-align:center">listeners</td>
+<td style="text-align:center">否</td>
+<td style="text-align:center">一组限定类名，这些类是Listener的子类，插件中提供的用于监听事件的类。</td>
+</tr>
+<tr>
+<td style="text-align:center">js</td>
+<td style="text-align:center">否</td>
+<td style="text-align:center">一组JavaScript文件路径，路径必须是相对路径。</td>
+</tr>
+<tr>
+<td style="text-align:center">css</td>
+<td style="text-align:center">否</td>
+<td style="text-align:center">一组CSS文件路径，路径必须是相对路径。</td>
+</tr>
+<tr>
+<td style="text-align:center">html</td>
+<td style="text-align:center">否</td>
+<td style="text-align:center">一组HTML文件路径，路径必须是相对路径。</td>
+</tr>
+<tr>
+<td style="text-align:center">translations</td>
+<td style="text-align:center">是</td>
+<td style="text-align:center">一组翻译文件路径，路径必须是相对路径。此处声明的翻译文件将自动添加到可用语言中,如果翻译文件提供Guacamole中已存在的语言，则其字符串将覆盖现有翻译的字符串</td>
+</tr>
+<tr>
+<td style="text-align:center">resources</td>
+<td style="text-align:center">否</td>
+<td style="text-align:center">一个对象，其中每个属性名称是Web资源文件的名称，每个值都是该资源的mimetype，所有路径都必须是相对路径。此处声明的Web资源将在app/ext/NAMESPACE/PATH中提供给应用程序，其中NAMESPACE是namespace属性的值，PATH是声明的Web资源文件名。</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight json"><figcaption><span>最简单的扩展清单</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"guacamoleVersion"</span> : <span class="string">"0.9.14"</span>,</span><br><span class="line">    <span class="attr">"name"</span> : <span class="string">"My Extension"</span>,</span><br><span class="line">    <span class="attr">"namespace"</span> : <span class="string">"my-extension"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight json"><figcaption><span>扩展清单</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"guacamoleVersion"</span> : <span class="string">"0.9.14"</span>,</span><br><span class="line">    <span class="attr">"name"</span>      : <span class="string">"My Extension"</span>,</span><br><span class="line">    <span class="attr">"namespace"</span> : <span class="string">"my-extension"</span>,</span><br><span class="line">    <span class="attr">"css"</span> : [ <span class="string">"theme.css"</span> ],</span><br><span class="line">    <span class="attr">"html"</span> : [ <span class="string">"loginDisclaimer.html"</span> ],</span><br><span class="line">    <span class="attr">"resources"</span> : &#123;</span><br><span class="line">        <span class="attr">"images/logo.png"</span>   : <span class="string">"image/png"</span>,</span><br><span class="line">        <span class="attr">"images/cancel.png"</span> : <span class="string">"image/png"</span>,</span><br><span class="line">        <span class="attr">"images/delete.png"</span> : <span class="string">"image/png"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -677,7 +754,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Guacamole架构"><span class="nav-number">1.</span> <span class="nav-text">Guacamole架构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Guacamole协议"><span class="nav-number">1.1.</span> <span class="nav-text">Guacamole协议</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#guacd"><span class="nav-number">1.2.</span> <span class="nav-text">guacd</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Gucamole客户端应用"><span class="nav-number">1.3.</span> <span class="nav-text">Gucamole客户端应用</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装guacd"><span class="nav-number">2.</span> <span class="nav-text">安装guacd</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#guacamole插件开发"><span class="nav-number">3.</span> <span class="nav-text">guacamole插件开发</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#guacamole插件加载方式"><span class="nav-number">3.1.</span> <span class="nav-text">guacamole插件加载方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插件格式"><span class="nav-number">3.2.</span> <span class="nav-text">插件格式</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Guacamole架构"><span class="nav-number">1.</span> <span class="nav-text">Guacamole架构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Guacamole协议"><span class="nav-number">1.1.</span> <span class="nav-text">Guacamole协议</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#guacd"><span class="nav-number">1.2.</span> <span class="nav-text">guacd</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Gucamole客户端应用"><span class="nav-number">1.3.</span> <span class="nav-text">Gucamole客户端应用</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装guacd"><span class="nav-number">2.</span> <span class="nav-text">安装guacd</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#guacamole插件开发"><span class="nav-number">3.</span> <span class="nav-text">guacamole插件开发</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#guacamole插件加载方式"><span class="nav-number">3.1.</span> <span class="nav-text">guacamole插件加载方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#guacamole配置路径"><span class="nav-number">3.2.</span> <span class="nav-text">guacamole配置路径</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插件格式"><span class="nav-number">3.3.</span> <span class="nav-text">插件格式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#扩展清单"><span class="nav-number">3.3.1.</span> <span class="nav-text">扩展清单</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
