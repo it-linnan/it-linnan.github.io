@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="websphere,was,jsp,web.xml" />
+  <meta name="keywords" content="Log4j,Log4j2,内存占用,oom,gc" />
 
 
 
@@ -86,18 +86,18 @@
 
 
 
-<meta name="description" content="WebShphere更新应用在WebSphere下部署应用时，更新任何文件都应该通过控制台更新的方式去更新。而且在集群部署的情况下，通过控制台更新可以将更新文件同步到所有节点上。 在某些特殊情况下，需要手动更新。这时，就需要我们手动删除缓存，同步相关文件。如果是集群部署，还需要将更新文件手动同步到所有节点上。这里介绍一下手动更新jsp和web.xml的方法。">
-<meta name="keywords" content="websphere,was,jsp,web.xml">
+<meta name="description" content="Log4j2异步日志回顾之前，我们在应用中使用Log4j2的异步日志，获得了很好的表现。 内存占用过高我们在生产环境使用了kubernetes技术，在应用部署到k8s后，监控了一段时间，发现每天都有内存溢出的现象。而当应用心跳地址多次无法访问后，k8s自动帮我们重启了应用，但是重启并不能从根本上解决问题。 在某一次，容器内存占用很高时，我们将内存使用情况dump下来，使用IBM的工具分析了一下，发">
+<meta name="keywords" content="Log4j,Log4j2,内存占用,oom,gc">
 <meta property="og:type" content="article">
-<meta property="og:title" content="WebSphere更新jsp和web.xml">
-<meta property="og:url" content="https://it-linnan.github.io/websphere更新jsp和web-xml.html">
+<meta property="og:title" content="Log4j2内存占用高解决方案">
+<meta property="og:url" content="https://it-linnan.github.io/log4j2内存占用高解决方案.html">
 <meta property="og:site_name" content="Linn&#39;s Blog">
-<meta property="og:description" content="WebShphere更新应用在WebSphere下部署应用时，更新任何文件都应该通过控制台更新的方式去更新。而且在集群部署的情况下，通过控制台更新可以将更新文件同步到所有节点上。 在某些特殊情况下，需要手动更新。这时，就需要我们手动删除缓存，同步相关文件。如果是集群部署，还需要将更新文件手动同步到所有节点上。这里介绍一下手动更新jsp和web.xml的方法。">
+<meta property="og:description" content="Log4j2异步日志回顾之前，我们在应用中使用Log4j2的异步日志，获得了很好的表现。 内存占用过高我们在生产环境使用了kubernetes技术，在应用部署到k8s后，监控了一段时间，发现每天都有内存溢出的现象。而当应用心跳地址多次无法访问后，k8s自动帮我们重启了应用，但是重启并不能从根本上解决问题。 在某一次，容器内存占用很高时，我们将内存使用情况dump下来，使用IBM的工具分析了一下，发">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-17T05:46:17.926Z">
+<meta property="og:updated_time" content="2019-01-12T14:45:49.103Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="WebSphere更新jsp和web.xml">
-<meta name="twitter:description" content="WebShphere更新应用在WebSphere下部署应用时，更新任何文件都应该通过控制台更新的方式去更新。而且在集群部署的情况下，通过控制台更新可以将更新文件同步到所有节点上。 在某些特殊情况下，需要手动更新。这时，就需要我们手动删除缓存，同步相关文件。如果是集群部署，还需要将更新文件手动同步到所有节点上。这里介绍一下手动更新jsp和web.xml的方法。">
+<meta name="twitter:title" content="Log4j2内存占用高解决方案">
+<meta name="twitter:description" content="Log4j2异步日志回顾之前，我们在应用中使用Log4j2的异步日志，获得了很好的表现。 内存占用过高我们在生产环境使用了kubernetes技术，在应用部署到k8s后，监控了一段时间，发现每天都有内存溢出的现象。而当应用心跳地址多次无法访问后，k8s自动帮我们重启了应用，但是重启并不能从根本上解决问题。 在某一次，容器内存占用很高时，我们将内存使用情况dump下来，使用IBM的工具分析了一下，发">
 
 
 
@@ -127,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="https://it-linnan.github.io/websphere更新jsp和web-xml.html"/>
+  <link rel="canonical" href="https://it-linnan.github.io/log4j2内存占用高解决方案.html"/>
 
 
 
 
 
-  <title>WebSphere更新jsp和web.xml | Linn's Blog</title>
+  <title>Log4j2内存占用高解决方案 | Linn's Blog</title>
   
 
 
@@ -294,7 +294,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://it-linnan.github.io/websphere更新jsp和web-xml.html">
+    <link itemprop="mainEntityOfPage" href="https://it-linnan.github.io/log4j2内存占用高解决方案.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Linn">
@@ -311,7 +311,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">WebSphere更新jsp和web.xml</h2>
+          <h2 class="post-title" itemprop="name headline">Log4j2内存占用高解决方案</h2>
         
 
         <div class="post-meta">
@@ -323,8 +323,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-15T08:47:26+08:00">
-                2018-06-15
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-12T20:37:23+08:00">
+                2019-01-12
               </time>
             
 
@@ -357,8 +357,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习笔记/部署相关/" itemprop="url" rel="index">
-                    <span itemprop="name">部署相关</span>
+                  <a href="/categories/学习笔记/开发框架/" itemprop="url" rel="index">
+                    <span itemprop="name">开发框架</span>
                   </a>
                 </span>
 
@@ -368,8 +368,19 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习笔记/部署相关/WebSphere/" itemprop="url" rel="index">
-                    <span itemprop="name">WebSphere</span>
+                  <a href="/categories/学习笔记/开发框架/Log4j/" itemprop="url" rel="index">
+                    <span itemprop="name">Log4j</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/开发框架/Log4j/Log4j2/" itemprop="url" rel="index">
+                    <span itemprop="name">Log4j2</span>
                   </a>
                 </span>
 
@@ -386,9 +397,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/websphere更新jsp和web-xml.html#comments" itemprop="discussionUrl">
+                <a href="/log4j2内存占用高解决方案.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="websphere更新jsp和web-xml.html" itemprop="commentCount"></span>
+                        data-disqus-identifier="log4j2内存占用高解决方案.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -421,19 +432,46 @@
       
 
       
-        <h1 id="WebShphere更新应用"><a href="#WebShphere更新应用" class="headerlink" title="WebShphere更新应用"></a>WebShphere更新应用</h1><p>在WebSphere下部署应用时，更新任何文件都应该通过控制台更新的方式去更新。而且在集群部署的情况下，通过控制台更新可以将更新文件同步到所有节点上。</p>
-<p>在某些特殊情况下，需要手动更新。这时，就需要我们手动删除缓存，同步相关文件。如果是集群部署，还需要将更新文件手动同步到所有节点上。这里介绍一下手动更新jsp和web.xml的方法。<br><a id="more"></a></p>
-<h1 id="WebSphere手动更新应用方法"><a href="#WebSphere手动更新应用方法" class="headerlink" title="WebSphere手动更新应用方法"></a>WebSphere手动更新应用方法</h1><h2 id="手动更新jsp"><a href="#手动更新jsp" class="headerlink" title="手动更新jsp"></a>手动更新jsp</h2><ol>
-<li>将jsp文件上传到was服务器上。</li>
-<li>删除缓存目录下，jsp编译后生成的class文件<figure class="highlight sh"><figcaption><span>jsp缓存目录</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;was_home&#125;\AppServer\profiles\AppSrv01\temp</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h2 id="手动更新web-xml"><a href="#手动更新web-xml" class="headerlink" title="手动更新web.xml"></a>手动更新web.xml</h2><ol>
-<li>将web.xml上传到was服务器上.</li>
-<li>将更新内容同步到web_merged.xml文件中</li>
-<li>同步缓存<figure class="highlight sh"><figcaption><span>web.xml缓存目录</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">config\cells\&lt;cell_name&gt;\applications\&lt;ear_name&gt;\deployments\&lt;app_name&gt;\&lt;war_name&gt;\WEB-INF</span><br></pre></td></tr></table></figure></li>
-</ol>
-
+        <h1 id="Log4j2异步日志回顾"><a href="#Log4j2异步日志回顾" class="headerlink" title="Log4j2异步日志回顾"></a>Log4j2异步日志回顾</h1><p>之前，我们在应用中使用Log4j2的异步日志，获得了很好的表现。<br></p>
+<h1 id="内存占用过高"><a href="#内存占用过高" class="headerlink" title="内存占用过高"></a>内存占用过高</h1><p>我们在生产环境使用了<code>kubernetes</code>技术，在应用部署到k8s后，监控了一段时间，发现每天都有内存溢出的现象。而当应用心跳地址多次无法访问后，k8s自动帮我们重启了应用，但是重启并不能从根本上解决问题。</p>
+<p>在某一次，容器内存占用很高时，我们将内存使用情况dump下来，使用IBM的工具分析了一下，发现是<code>Log4j2</code>的某个类所使用的<code>ConcurrentHashMap</code>集合很大，占用内存很高，这时终于发现了问题原因。</p>
+<h1 id="问题分析过程"><a href="#问题分析过程" class="headerlink" title="问题分析过程"></a>问题分析过程</h1><p>首先，占用内存过高的类是<code>RoutingAppender</code>，现象是<code>RoutingAppender</code>类中使用的<code>ConcurrentHashMap</code>集合过大，先简单介绍一下<code>RoutingAppdener</code>。</p>
+<p>RoutingAppender相当于一个路由器，分析每次写日志的操作，然后将它们路由到子Appender上。路由的依据是一个路由key，路由key需要预先配置，每次写日志时，RoutingAppender会计算路由key，如果配置了路由key对应的子Appender，那么就路由到子Appender上，由子Appender负责真正的日志输出。</p>
+<p>我阅读了一下<code>RoutingAppender</code>的源码。<code>RoutingAppender</code>有两个变量是<code>ConcurrentMap</code>类型的：</p>
+<figure class="highlight java"><figcaption><span>pom.xml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> ConcurrentMap&lt;String, AppenderControl&gt; appenders = <span class="keyword">new</span> ConcurrentHashMap&lt;&gt;();</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> ConcurrentMap&lt;Object, Object&gt; scriptStaticVariables = <span class="keyword">new</span> ConcurrentHashMap&lt;&gt;();</span><br></pre></td></tr></table></figure>
+<p>其中，<code>appenders</code>变量存放的是子Appender，key是解析后的路由key。</p>
+<p>可达鸭眉头一皱，发现事情并不简单。</p>
+<p>之前，我们在使用异步日志时配置过RoutingAppender，现在回忆一下是如何配置的：</p>
+<figure class="highlight xml"><figcaption><span>RoutingAppender</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Routing</span> <span class="attr">name</span>=<span class="string">"routing"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Routes</span> <span class="attr">pattern</span>=<span class="string">"$$&#123;ctxdefval:appid&#125;$$&#123;ctxdefval:userid&#125;$$&#123;date:yyyy-MM-dd&#125;"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">Route</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- 输出到日志文件 --&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">RollingRandomAccessFile</span> <span class="attr">name</span>=<span class="string">"RollingFile"</span></span></span><br><span class="line"><span class="tag">                                        <span class="attr">fileName</span>=<span class="string">"$&#123;ctxdefval:logpath&#125;/$&#123;ctxdefval:appid&#125;/$&#123;date:yyyy-MM-dd&#125;/$&#123;ctxdefval:userid&#125;.log"</span></span></span><br><span class="line"><span class="tag">                                        <span class="attr">filePattern</span>=<span class="string">"$&#123;ctxdefval:logpath&#125;/$&#123;ctxdefval:appid&#125;/$&#123;date:yyyy-MM-dd&#125;/$&#123;ctxdefval:userid&#125;-%i.log.gz"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">PatternLayout</span> <span class="attr">pattern</span>=<span class="string">"%d&#123;HH:mm:ss.SSS&#125; [%-5level] [%tid.%tn] %msg %equals&#123;%x&#125;&#123;[]&#125;&#123;&#125;%xEx%n"</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">Policies</span>&gt;</span></span><br><span class="line">                    <span class="comment">&lt;!-- 日志达到50MB时打包 --&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">SizeBasedTriggeringPolicy</span> <span class="attr">size</span>=<span class="string">"50 MB"</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">Policies</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">RollingRandomAccessFile</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">Route</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">Routes</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">Routing</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>可以看到，我们配置的路由key规则是一个表达式（如下），RoutingAppender在工作时，会解析这个表达式，比如当前上下文中，应用id是app，userid是user，日期是2019-01-12，解析后的路由key就是appuser2019-01-12。这时，会将子Appender存放到map中，key是解析后的路由key。我们可以预想一下，随着时间的增长，这个map会越来越大。</p>
+<figure class="highlight java"><figcaption><span>路由key规则</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$$&#123;ctxdefval:appid&#125;$$&#123;ctxdefval:userid&#125;$$&#123;date:yyyy-MM-dd&#125;</span><br></pre></td></tr></table></figure>
+<p>那么问题应该就出现在这里啦。</p>
+<h1 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h1><p>我想到的解决办法，就是定期清理这个map了。所以我继续阅读源码，发现了一个根据路由key清理map的方法，查找调用这个方法的类，惊讶的发现log4j已经为我们提供了清理插件。</p>
+<p>清理插件是<code>IdlePurgePolicy</code>，具体的实现细节就直接阅读源码吧，或者看javadoc，说的很清楚了，可以配置的参数如下：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">参数名</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">timeToLive</td>
+<td style="text-align:center">appender闲置时间，超过这个闲置时间就会被移除</td>
+</tr>
+<tr>
+<td style="text-align:center">checkInterval</td>
+<td style="text-align:center">检查的时间间隔，与timeToLive相乘就是真正的清理周期。不配置的话，清理周期就是timeToLive的值</td>
+</tr>
+<tr>
+<td style="text-align:center">timeUnit</td>
+<td style="text-align:center">时间单位，可选的配置项需参考枚举类TimeUnit</td>
+</tr>
+</tbody>
+</table>
+<p>插件需要配置到Routing节点下，我配置的是10分钟清理一次：</p>
+<figure class="highlight xml"><figcaption><span>log4j2.xml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">IdlePurgePolicy</span> <span class="attr">timeToLive</span>=<span class="string">"10"</span> <span class="attr">timeUnit</span>=<span class="string">"minutes"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -453,7 +491,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://it-linnan.github.io/websphere更新jsp和web-xml.html" title="WebSphere更新jsp和web.xml">https://it-linnan.github.io/websphere更新jsp和web-xml.html</a>
+    <a href="https://it-linnan.github.io/log4j2内存占用高解决方案.html" title="Log4j2内存占用高解决方案">https://it-linnan.github.io/log4j2内存占用高解决方案.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -468,9 +506,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/websphere/" rel="tag"># websphere</a>
+            <a href="/tags/Log4j/" rel="tag"># Log4j</a>
           
-            <a href="/tags/was/" rel="tag"># was</a>
+            <a href="/tags/Log4j2/" rel="tag"># Log4j2</a>
           
         </div>
       
@@ -483,8 +521,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/websphere下log4j2自定义插件未加载的解决办法.html" rel="next" title="WebSphere下log4j2自定义插件未加载的解决办法">
-                <i class="fa fa-chevron-left"></i> WebSphere下log4j2自定义插件未加载的解决办法
+              <a href="/guacamole插件开发.html" rel="next" title="guacamole插件开发">
+                <i class="fa fa-chevron-left"></i> guacamole插件开发
               </a>
             
           </div>
@@ -492,10 +530,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/git之sshkey使用.html" rel="prev" title="Git之SSHKey使用">
-                Git之SSHKey使用 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -647,7 +681,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#WebShphere更新应用"><span class="nav-number">1.</span> <span class="nav-text">WebShphere更新应用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#WebSphere手动更新应用方法"><span class="nav-number">2.</span> <span class="nav-text">WebSphere手动更新应用方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#手动更新jsp"><span class="nav-number">2.1.</span> <span class="nav-text">手动更新jsp</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#手动更新web-xml"><span class="nav-number">2.2.</span> <span class="nav-text">手动更新web.xml</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Log4j2异步日志回顾"><span class="nav-number">1.</span> <span class="nav-text">Log4j2异步日志回顾</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#内存占用过高"><span class="nav-number">2.</span> <span class="nav-text">内存占用过高</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#问题分析过程"><span class="nav-number">3.</span> <span class="nav-text">问题分析过程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解决办法"><span class="nav-number">4.</span> <span class="nav-text">解决办法</span></a></li></ol></div>
             
 
           </div>
@@ -855,9 +889,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'https://it-linnan.github.io/websphere更新jsp和web-xml.html';
-          this.page.identifier = 'websphere更新jsp和web-xml.html';
-          this.page.title = 'WebSphere更新jsp和web.xml';
+          this.page.url = 'https://it-linnan.github.io/log4j2内存占用高解决方案.html';
+          this.page.identifier = 'log4j2内存占用高解决方案.html';
+          this.page.title = 'Log4j2内存占用高解决方案';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://linnblog.disqus.com/embed.js';
