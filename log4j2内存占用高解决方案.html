@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="Linn&#39;s Blog">
 <meta property="og:description" content="Log4j2异步日志回顾之前，我们在应用中使用Log4j2的异步日志，获得了很好的表现。 内存占用过高我们在生产环境使用了kubernetes技术，在应用部署到k8s后，监控了一段时间，发现每天都有内存溢出的现象。而当应用心跳地址多次无法访问后，k8s自动帮我们重启了应用，但是重启并不能从根本上解决问题。 在某一次，容器内存占用很高时，我们将内存使用情况dump下来，使用IBM的工具分析了一下，发">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-12T14:45:49.103Z">
+<meta property="og:updated_time" content="2019-01-12T14:48:11.783Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Log4j2内存占用高解决方案">
 <meta name="twitter:description" content="Log4j2异步日志回顾之前，我们在应用中使用Log4j2的异步日志，获得了很好的表现。 内存占用过高我们在生产环境使用了kubernetes技术，在应用部署到k8s后，监控了一段时间，发现每天都有内存溢出的现象。而当应用心跳地址多次无法访问后，k8s自动帮我们重启了应用，但是重启并不能从根本上解决问题。 在某一次，容器内存占用很高时，我们将内存使用情况dump下来，使用IBM的工具分析了一下，发">
@@ -435,6 +435,7 @@
         <h1 id="Log4j2异步日志回顾"><a href="#Log4j2异步日志回顾" class="headerlink" title="Log4j2异步日志回顾"></a>Log4j2异步日志回顾</h1><p>之前，我们在应用中使用Log4j2的异步日志，获得了很好的表现。<br></p>
 <h1 id="内存占用过高"><a href="#内存占用过高" class="headerlink" title="内存占用过高"></a>内存占用过高</h1><p>我们在生产环境使用了<code>kubernetes</code>技术，在应用部署到k8s后，监控了一段时间，发现每天都有内存溢出的现象。而当应用心跳地址多次无法访问后，k8s自动帮我们重启了应用，但是重启并不能从根本上解决问题。</p>
 <p>在某一次，容器内存占用很高时，我们将内存使用情况dump下来，使用IBM的工具分析了一下，发现是<code>Log4j2</code>的某个类所使用的<code>ConcurrentHashMap</code>集合很大，占用内存很高，这时终于发现了问题原因。</p>
+<a id="more"></a>
 <h1 id="问题分析过程"><a href="#问题分析过程" class="headerlink" title="问题分析过程"></a>问题分析过程</h1><p>首先，占用内存过高的类是<code>RoutingAppender</code>，现象是<code>RoutingAppender</code>类中使用的<code>ConcurrentHashMap</code>集合过大，先简单介绍一下<code>RoutingAppdener</code>。</p>
 <p>RoutingAppender相当于一个路由器，分析每次写日志的操作，然后将它们路由到子Appender上。路由的依据是一个路由key，路由key需要预先配置，每次写日志时，RoutingAppender会计算路由key，如果配置了路由key对应的子Appender，那么就路由到子Appender上，由子Appender负责真正的日志输出。</p>
 <p>我阅读了一下<code>RoutingAppender</code>的源码。<code>RoutingAppender</code>有两个变量是<code>ConcurrentMap</code>类型的：</p>
