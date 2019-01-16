@@ -178,7 +178,7 @@ mvn clean package -Dp=jlcloud
 
 我们依然使用了maven的打包插件。除打包插件外，还使用了属性插件，{% link properties-maven-plugin https://www.mojohaus.org/properties-maven-plugin/ %}，用于在maven项目生命周期的各个阶段进行资源过滤。
 
-我们使用了{% link read-project-properties https://www.mojohaus.org/properties-maven-plugin/read-project-properties-mojo.html %}来进行多中心打包。read-project-properties是属性插件提供的一个goal（可以理解为任务），可以读取属性文件，并将属性存储为项目属性，可作为在pom.xml中硬编码属性值的替代方法。尤其适合我们的需求，即在构建时，指定资源中定义的属性可用。
+我们使用了{% link read-project-properties https://www.mojohaus.org/properties-maven-plugin/read-project-properties-mojo.html %}来进行多中心打包。read-project-properties是属性插件提供的一个goal（可以理解为任务），可以读取属性文件，并将属性存储为项目属性，可作为在pom.xml中硬编码属性值的替代方法。尤其适合我们的需求，即在构建时，才指定属性占位符的来源。
 
 我们在多中心打包时，想要忽略的就是除指定城市以外的组件和资源文件，而且需要保留d00000000和d99999999目录。因此，使用如下表达式过滤资源。
 {% codeblock lang:sh %}
@@ -186,10 +186,11 @@ mvn clean package -Dp=jlcloud
 %regex[WEB-INF/views/assets/plugins/d(?!(?:${p}|${centerids}|00000000|99999999).+$).+],
 %regex[WEB-INF/views/d(?!(?:${p}|${centerids}|00000000|99999999).+$).+]
 {% endcodeblock %}
-表达式中的${centerids}是占位符，在打包时属性插件将使用filter文件中定义的centerids属性值，替换占位符。
+表达式中的${centerids}是占位符，在打包时属性插件将使用filter文件中定义的centerids属性值，替换占位符。如果filter文件中没有定义centerids属性，那么将使用parent.properties中的属性值，替换占位符。
 
 基于上文提到的独立打包配置，只需要在pom.xml中配置properties-maven-plugin
 {% codeblock lang:xml %}
+
 <plugin>
     <groupId>org.codehaus.mojo</groupId>
     <artifactId>properties-maven-plugin</artifactId>
@@ -202,6 +203,7 @@ mvn clean package -Dp=jlcloud
             </goals>
             <configuration>
                 <files>
+                    <file>${basedir}/src/main/resources/filters/parent.properties</file>
                     <file>${basedir}/src/main/resources/filters/product-${p}.properties</file>
                 </files>
                 <quiet>true</quiet>
