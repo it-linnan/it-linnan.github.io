@@ -4,6 +4,58 @@
 
     
   <url>
+    <loc>https://it-linnan.github.io/%E5%AE%9E%E7%8E%B0https%E9%80%9A%E8%AE%AF-tcpserver%E4%B8%8Esslstream.html</loc>
+    <lastmod>2019-06-29T05:35:50.792Z</lastmod>
+    <data>
+        <display>
+        <title>实现HTTPS通讯(TcpServer与SslStream)</title>
+        <pubTime>2019-06-29T05:33:54.000Z</pubTime>
+        
+        <tag>C#</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="https://it-linnan.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+             
+              <breadCrumb title="开发语言" url="https://it-linnan.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%BC%80%E5%8F%91%E8%AF%AD%E8%A8%80/"/>
+          
+             
+              <breadCrumb title="C#" url="https://it-linnan.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%BC%80%E5%8F%91%E8%AF%AD%E8%A8%80/C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://it-linnan.github.io/c-%E4%B8%AD%E7%A8%8B%E5%BA%8F%E9%9B%86%E7%89%88%E6%9C%AC%E5%90%8D%E8%AF%8D%E8%A7%A3%E9%87%8A.html</loc>
+    <lastmod>2019-06-29T05:34:50.857Z</lastmod>
+    <data>
+        <display>
+        <title>C#中程序集版本名词解释</title>
+        <pubTime>2018-05-30T01:54:58.000Z</pubTime>
+        
+        <tag>C#</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="https://it-linnan.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+             
+              <breadCrumb title="开发语言" url="https://it-linnan.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%BC%80%E5%8F%91%E8%AF%AD%E8%A8%80/"/>
+          
+             
+              <breadCrumb title="C#" url="https://it-linnan.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%BC%80%E5%8F%91%E8%AF%AD%E8%A8%80/C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://it-linnan.github.io/restful%E6%8E%A5%E5%8F%A3%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86.html</loc>
     <lastmod>2019-03-23T08:28:33.145Z</lastmod>
     <data>
@@ -479,32 +531,6 @@
         <tag>C#</tag>
          
         <tag>ocx</tag>
-         
-         
-           
-             
-              <breadCrumb title="学习笔记" url="https://it-linnan.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-             
-              <breadCrumb title="开发语言" url="https://it-linnan.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%BC%80%E5%8F%91%E8%AF%AD%E8%A8%80/"/>
-          
-             
-              <breadCrumb title="C#" url="https://it-linnan.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%BC%80%E5%8F%91%E8%AF%AD%E8%A8%80/C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://it-linnan.github.io/c-%E4%B8%AD%E7%A8%8B%E5%BA%8F%E9%9B%86%E7%89%88%E6%9C%AC%E5%90%8D%E8%AF%8D%E8%A7%A3%E9%87%8A.html</loc>
-    <lastmod>2019-01-16T10:55:29.747Z</lastmod>
-    <data>
-        <display>
-        <title>C#中程序集版本名词解释</title>
-        <pubTime>2018-05-30T01:54:58.000Z</pubTime>
-        
-        <tag>C#</tag>
          
          
            

@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[实现HTTPS通讯(TcpServer与SslStream)]]></title>
+    <url>%2F%E5%AE%9E%E7%8E%B0https%E9%80%9A%E8%AE%AF-tcpserver%E4%B8%8Esslstream.html</url>
+    <content type="text"></content>
+      <categories>
+        <category>学习笔记</category>
+        <category>开发语言</category>
+        <category>C#</category>
+      </categories>
+      <tags>
+        <tag>C#</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[基于https协议的TcpServer]]></title>
     <url>%2F%E5%9F%BA%E4%BA%8Ehttps%E5%8D%8F%E8%AE%AE%E7%9A%84tcpserver.html</url>
     <content type="text"></content>
@@ -385,21 +398,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[虚拟机VMware环境下CentOS初始化配置网卡]]></title>
-    <url>%2F%E8%99%9A%E6%8B%9F%E6%9C%BAvmware%E7%8E%AF%E5%A2%83%E4%B8%8Bcentos%E5%88%9D%E5%A7%8B%E5%8C%96%E9%85%8D%E7%BD%AE%E7%BD%91%E5%8D%A1.html</url>
-    <content type="text"><![CDATA[检测网卡1ipconfig 发现只有ens33和lo两个网卡，需要将ens33修改为eth0 修改网卡名称将其中的NAME和DEVICE项修改为eth01vi /etc/sysconfig/network-scripts/ifcfg-ens33 修改配置文件名称1mv /etc/sysconfig/network-scripts/ifcfg-ens33 /etc/sysconfig/network-scripts/ifcfg-eth0 编辑/etc/default/grub配置文件加入net.ifnames=0 biosdevname=0到GRUBCMDLINELINUX变量12345678vi /etc/default/grubGRUB_TIMEOUT=5GRUB_DISTRIBUTOR="$(sed 's, release .*$,,g' /etc/system-release)"GRUB_DEFAULT=savedGRUB_DISABLE_SUBMENU=trueGRUB_TERMINAL_OUTPUT="console"GRUB_CMDLINE_LINUX="crashkernel=auto net.ifnames=0 biosdevname=0 rhgb quiet"GRUB_DISABLE_RECOVERY="true" 重新生成GRUB配置并更新内核参数运行命令grub2-mkconfig -o /boot/grub2/grub.cfg1grub2-mkconfig -o /boot/grub2/grub.cfg 重启OS1reboot 检测网卡以验证1ifconfig]]></content>
-      <categories>
-        <category>学习笔记</category>
-        <category>Linux</category>
-        <category>CentOS</category>
-      </categories>
-      <tags>
-        <tag>linux</tag>
-        <tag>centos</tag>
-        <tag>vmware</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[CentOS防火墙使用]]></title>
     <url>%2Fcentos%E9%98%B2%E7%81%AB%E5%A2%99%E4%BD%BF%E7%94%A8.html</url>
     <content type="text"><![CDATA[启动防火墙查看防火墙是否启动1systemctl status firewalld如果没有启动，启动1systemctl start firewalld 开放端口命令 12firewall-cmd --zone=public --add-port=1. 1. /tcp --permanentsystemctl restart firewalld 关闭端口命令12firewall-cmd --zone=public --remove-port=1. 1. /tcp -permanentsystemctl restart firewalld 查看开放端口命令1firewall-cmd --zone=public --list-ports]]></content>
@@ -412,6 +410,21 @@
         <tag>linux</tag>
         <tag>centos</tag>
         <tag>firewall</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[虚拟机VMware环境下CentOS初始化配置网卡]]></title>
+    <url>%2F%E8%99%9A%E6%8B%9F%E6%9C%BAvmware%E7%8E%AF%E5%A2%83%E4%B8%8Bcentos%E5%88%9D%E5%A7%8B%E5%8C%96%E9%85%8D%E7%BD%AE%E7%BD%91%E5%8D%A1.html</url>
+    <content type="text"><![CDATA[检测网卡1ipconfig 发现只有ens33和lo两个网卡，需要将ens33修改为eth0 修改网卡名称将其中的NAME和DEVICE项修改为eth01vi /etc/sysconfig/network-scripts/ifcfg-ens33 修改配置文件名称1mv /etc/sysconfig/network-scripts/ifcfg-ens33 /etc/sysconfig/network-scripts/ifcfg-eth0 编辑/etc/default/grub配置文件加入net.ifnames=0 biosdevname=0到GRUBCMDLINELINUX变量12345678vi /etc/default/grubGRUB_TIMEOUT=5GRUB_DISTRIBUTOR="$(sed 's, release .*$,,g' /etc/system-release)"GRUB_DEFAULT=savedGRUB_DISABLE_SUBMENU=trueGRUB_TERMINAL_OUTPUT="console"GRUB_CMDLINE_LINUX="crashkernel=auto net.ifnames=0 biosdevname=0 rhgb quiet"GRUB_DISABLE_RECOVERY="true" 重新生成GRUB配置并更新内核参数运行命令grub2-mkconfig -o /boot/grub2/grub.cfg1grub2-mkconfig -o /boot/grub2/grub.cfg 重启OS1reboot 检测网卡以验证1ifconfig]]></content>
+      <categories>
+        <category>学习笔记</category>
+        <category>Linux</category>
+        <category>CentOS</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+        <tag>centos</tag>
+        <tag>vmware</tag>
       </tags>
   </entry>
   <entry>
